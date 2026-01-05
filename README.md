@@ -1,13 +1,15 @@
 # Recipe Manager Web App
 
-A web application to browse and view your Google Docs recipe collection.
+A beautiful web application to browse and view your Google Docs recipe collection. Select any recipe from a dropdown to view recipe links, quick recipe information, and notes.
 
 ## Features
 
-- **Recipe Dropdown**: Select any recipe from a dropdown menu
-- **Recipe Links**: Clickable links to the full recipe
-- **Quick Recipe**: View quick recipe information when available
-- **Notes**: View recipe notes (like special instructions or modifications)
+- **Recipe Dropdown**: Select any recipe from a dropdown menu at the top of the page
+- **Recipe Links**: Clickable "Recipe" button that links to the full recipe URL
+- **Quick Recipe**: Automatically displays quick recipe information (e.g., "Oven: 400 deg - 30-40 min")
+- **Notes**: Automatically displays recipe notes (special instructions or modifications)
+- **Modern UI**: Beautiful, responsive design with gradient styling
+- **Recipe URL Mapping**: Easy configuration of recipe URLs via JSON file
 
 ## Setup
 
@@ -71,4 +73,34 @@ The parser extracts:
 - Recipe links (clickable links to the full recipe)
 - Quick Recipe sections (when available)
 - Notes (special instructions or modifications)
+
+## Project Structure
+
+```
+recipes/
+├── app.py                    # Flask web application
+├── recipe_parser.py          # Main recipe parser
+├── quick_recipe_parser.py    # Quick Recipe document parser
+├── creds.py                  # Google API credentials handler
+├── share_document.py         # Helper to get service account email
+├── recipe_urls.json          # Recipe URL mappings
+├── requirements.txt          # Python dependencies
+├── templates/
+│   └── index.html           # Web interface
+└── README.md                # This file
+```
+
+## How It Works
+
+1. The app parses your main Google Doc to extract recipe titles
+2. Recipe URLs are loaded from `recipe_urls.json` (or default to the Google Doc)
+3. Quick Recipe information is loaded from a separate Google Doc
+4. When you select a recipe, the web interface displays:
+   - A clickable "Recipe" link
+   - Quick Recipe information (if available)
+   - Notes (if available)
+
+## License
+
+MIT
 
