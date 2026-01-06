@@ -225,44 +225,7 @@
                     });
                 }
                 
-                // Show Google Doc links below external links
-                if (recipe.google_doc_links && recipe.google_doc_links.length > 0) {
-                    const googleDocSection = document.createElement('div');
-                    googleDocSection.className = 'section';
-                    googleDocSection.style.marginTop = '20px';
-                    googleDocSection.style.marginBottom = '0';
-                    
-                    const googleDocTitle = document.createElement('h3');
-                    googleDocTitle.textContent = '📄 Recipe Documents';
-                    googleDocSection.appendChild(googleDocTitle);
-                    
-                    const googleDocList = document.createElement('div');
-                    googleDocList.style.marginTop = '10px';
-                    
-                    recipe.google_doc_links.forEach(linkInfo => {
-                        const link = document.createElement('a');
-                        link.href = linkInfo.url;
-                        link.target = '_blank';
-                        link.textContent = linkInfo.text || 'Recipe';
-                        link.style.color = '#667eea';
-                        link.style.textDecoration = 'none';
-                        link.style.marginRight = '15px';
-                        link.style.display = 'inline-block';
-                        link.style.padding = '5px 10px';
-                        link.style.borderRadius = '5px';
-                        link.style.backgroundColor = '#f0f0f0';
-                        link.addEventListener('mouseenter', () => {
-                            link.style.backgroundColor = '#e0e0e0';
-                        });
-                        link.addEventListener('mouseleave', () => {
-                            link.style.backgroundColor = '#f0f0f0';
-                        });
-                        googleDocList.appendChild(link);
-                    });
-                    
-                    googleDocSection.appendChild(googleDocList);
-                    recipeLinkSection.appendChild(googleDocSection);
-                }
+                // Google Doc links removed - Quick Recipe content is displayed directly instead
                 
                 // Show quick recipe - only if there's actual content
                 if (recipe.quick_recipe && recipe.quick_recipe.trim()) {
