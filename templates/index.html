@@ -264,13 +264,9 @@
                     recipeLinkSection.appendChild(googleDocSection);
                 }
                 
-                // Show quick recipe
-                if (recipe.quick_recipe || recipe.has_quick_recipe) {
-                    if (recipe.quick_recipe) {
-                        quickRecipeContent.textContent = recipe.quick_recipe;
-                    } else {
-                        quickRecipeContent.textContent = 'This recipe has a Quick Recipe section. Check the document for details.';
-                    }
+                // Show quick recipe - only if there's actual content
+                if (recipe.quick_recipe && recipe.quick_recipe.trim()) {
+                    quickRecipeContent.textContent = recipe.quick_recipe;
                     quickRecipeSection.style.display = 'block';
                 } else {
                     quickRecipeSection.style.display = 'none';

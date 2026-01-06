@@ -280,7 +280,7 @@ class RecipeParser:
             if current_recipe:
                 self.recipes.append(current_recipe)
             
-            # Load quick recipes if doc ID provided
+            # Load quick recipes from separate document if doc ID provided
             if self.quick_recipe_doc_id:
                 try:
                     from quick_recipe_parser import QuickRecipeParser
@@ -304,6 +304,22 @@ class RecipeParser:
                 except Exception as e:
                     # Silently fail - document might not be shared yet
                     pass
+            
+            # Extract Quick Recipe content from Google Doc links
+            # Look for Quick_Recipe links in google_doc_links and fetch their content
+            for recipe in self.recipes:
+                if not recipe.get('quick_recipe'):  # Only fetch if we don't already have content
+                    # Check for Quick_Recipe links
+                    for link in recipe.get('google_doc_links', []):
+                        if 'quick_recipe' in link.get('text', '').lower() or 'quick recipe' in link.get('text', '').lower():
+                            # Extract document ID from URL
+                            doc_id = self._extract_doc_id_from_url(link['url'])
+                            if doc_id:
+                                content = self._fetch_google_doc_content(doc_id)
+                                if content:
+                                    recipe['quick_recipe'] = content
+                                    recipe['has_quick_recipe'] = True
+                                    break  # Use first Quick Recipe link found
             
             return self.recipes
         
@@ -344,6 +360,47 @@ class RecipeParser:
                 return True
         
         return False
+    
+    def _extract_doc_id_from_url(self, url: str) -> Optional[str]:
+        """Extract Google Doc ID from a URL."""
+        # Pattern: https://docs.google.com/document/d/DOC_ID/edit...
+        match = re.search(r'/document/d/([a-zA-Z0-9-_]+)', url)
+        if match:
+            return match.group(1)
+        return None
+    
+    def _fetch_google_doc_content(self, doc_id: str) -> Optional[str]:
+        """Fetch text content from a Google Doc."""
+        try:
+            credentials = creds.login()
+            service = build('docs', 'v1', credentials=credentials)
+            doc = service.documents().get(documentId=doc_id).execute()
+            
+            content = doc.get('body', {}).get('content', [])
+            text_lines = []
+            
+            for element in content:
+                if 'paragraph' in element:
+                    para = element.get('paragraph', {})
+                    elements = para.get('elements', [])
+                    paragraph_text = ''
+                    
+                    for elem in elements:
+                        if 'textRun' in elem:
+                            text_run = elem.get('textRun', {})
+                            content_text = text_run.get('content', '')
+                            # Skip strikethrough text
+                            if not text_run.get('textStyle', {}).get('strikethrough', False):
+                                paragraph_text += content_text
+                    
+                    if paragraph_text.strip():
+                        text_lines.append(paragraph_text.strip())
+            
+            return '\n'.join(text_lines) if text_lines else None
+            
+        except Exception as e:
+            # Silently fail - document might not be accessible
+            return None
 
 
 if __name__ == "__main__":
