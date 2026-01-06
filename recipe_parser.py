@@ -59,18 +59,29 @@ class RecipeParser:
                             content_text = text_run.get('content', '')
                             text_style = text_run.get('textStyle', {})
                             
-                            # Check for links
+                            # Check for links - they can be in textRun.link OR textStyle.link
+                            link = None
                             if 'link' in text_run:
                                 link = text_run.get('link', {})
-                                if 'url' in link:
-                                    all_links.append({
-                                        'url': link['url'],
-                                        'text': content_text.strip()
-                                    })
-                                    # Use first link as primary
-                                    if not link_url:
-                                        link_url = link['url']
-                                        link_text = content_text.strip()
+                            elif 'textStyle' in text_run:
+                                text_style = text_run.get('textStyle', {})
+                                if 'link' in text_style:
+                                    link = text_style.get('link', {})
+                            
+                            if link and 'url' in link:
+                                link_info = {
+                                    'url': link['url'],
+                                    'text': content_text.strip()
+                                }
+                                all_links.append(link_info)
+                                # Use first link as primary, but prefer "Recipe" links
+                                if not link_url:
+                                    link_url = link['url']
+                                    link_text = content_text.strip()
+                                # If we find a link on text containing "recipe", use that instead
+                                elif 'recipe' in content_text.lower() and 'docs.google.com' not in link['url']:
+                                    link_url = link['url']
+                                    link_text = content_text.strip()
                             
                             if not text_style.get('strikethrough', False):
                                 paragraph_text += content_text
@@ -104,32 +115,53 @@ class RecipeParser:
                             # Start new recipe
                             current_recipe = {
                                 'title': title,
-                                'recipe_link': None,
+                                'external_links': [],  # External URLs (non-Google Doc)
+                                'google_doc_links': [],  # Google Doc URLs
                                 'quick_recipe': None,
                                 'has_quick_recipe': False,
                                 'note': None
                             }
                             current_section = None
                             
-                            # Check if this line has a Recipe link
-                            if link_url and ('recipe' in line_lower or link_text.lower() == 'recipe'):
-                                current_recipe['recipe_link'] = {
-                                    'text': link_text if link_text else 'Recipe',
-                                    'url': link_url
-                                }
-                            elif 'recipe' in line_lower:
-                                # Check if we have a URL mapping for this recipe
+                            # Collect ALL links from this paragraph
+                            # Priority: 1) recipe_urls.json mapping, 2) links in document
+                            if 'recipe' in line_lower:
+                                # First, check if we have URLs in recipe_urls.json (highest priority)
+                                # Note: recipe_urls.json currently only supports single URL per recipe
+                                # Document links will be added separately and take precedence for multiple links
                                 if title in self.recipe_urls and self.recipe_urls[title]:
-                                    current_recipe['recipe_link'] = {
-                                        'text': 'Recipe',
-                                        'url': self.recipe_urls[title]
-                                    }
-                                elif not link_url:
-                                    # No link in doc and no mapping - create link to doc
-                                    current_recipe['recipe_link'] = {
+                                    url = self.recipe_urls[title]
+                                    if url:  # Only add if URL is not empty
+                                        # Only add from recipe_urls.json if we don't have document links
+                                        # This allows document links to override recipe_urls.json
+                                        pass  # Skip recipe_urls.json when we have document links
+                                
+                                # Second, collect all links from the document (avoid duplicates)
+                                for link_info in all_links:
+                                    url = link_info['url']
+                                    link_text = link_info['text'] or 'Recipe'
+                                    
+                                    if 'docs.google.com' in url:
+                                        # Google Doc link - check for duplicates
+                                        if not any(l['url'] == url for l in current_recipe['google_doc_links']):
+                                            current_recipe['google_doc_links'].append({
+                                                'text': link_text,
+                                                'url': url
+                                            })
+                                    else:
+                                        # External link - check for duplicates
+                                        if not any(l['url'] == url for l in current_recipe['external_links']):
+                                            current_recipe['external_links'].append({
+                                                'text': link_text,
+                                                'url': url
+                                            })
+                                
+                                # If no links found at all, add default Google Doc link
+                                if not current_recipe['external_links'] and not current_recipe['google_doc_links']:
+                                    current_recipe['google_doc_links'].append({
                                         'text': 'Recipe',
                                         'url': f'https://docs.google.com/document/d/{self.doc_id}/edit'
-                                    }
+                                    })
                             
                             # Check if this line mentions Quick_Recipe
                             if 'quick_recipe' in line_lower or 'quick recipe' in line_lower:
@@ -138,24 +170,48 @@ class RecipeParser:
                                 current_section = 'quick_recipe'
                         
                         # Detect standalone "Recipe" text (on its own line)
-                        elif current_recipe and line_lower.strip() == 'recipe' and not current_recipe['recipe_link']:
-                            if link_url:
-                                current_recipe['recipe_link'] = {
-                                    'text': 'Recipe',
-                                    'url': link_url
-                                }
-                            elif current_recipe['title'] in self.recipe_urls and self.recipe_urls[current_recipe['title']]:
-                                # Use URL from mapping
-                                current_recipe['recipe_link'] = {
-                                    'text': 'Recipe',
-                                    'url': self.recipe_urls[current_recipe['title']]
-                                }
-                            else:
-                                # No link in doc, create a link to the Google Doc itself
-                                current_recipe['recipe_link'] = {
-                                    'text': 'Recipe',
-                                    'url': f'https://docs.google.com/document/d/{self.doc_id}/edit'
-                                }
+                        elif current_recipe and line_lower.strip() == 'recipe':
+                            # Collect all links from this paragraph
+                            for link_info in all_links:
+                                url = link_info['url']
+                                link_text = link_info['text'] or 'Recipe'
+                                
+                                if 'docs.google.com' in url:
+                                    # Avoid duplicates
+                                    if not any(l['url'] == url for l in current_recipe['google_doc_links']):
+                                        current_recipe['google_doc_links'].append({
+                                            'text': link_text,
+                                            'url': url
+                                        })
+                                else:
+                                    # Avoid duplicates
+                                    if not any(l['url'] == url for l in current_recipe['external_links']):
+                                        current_recipe['external_links'].append({
+                                            'text': link_text,
+                                            'url': url
+                                        })
+                            
+                            # If still no links, check recipe_urls.json or add default
+                            if not current_recipe['external_links'] and not current_recipe['google_doc_links']:
+                                title = current_recipe['title']
+                                if title in self.recipe_urls and self.recipe_urls[title]:
+                                    url = self.recipe_urls[title]
+                                    if 'docs.google.com' in url:
+                                        current_recipe['google_doc_links'].append({
+                                            'text': 'Recipe',
+                                            'url': url
+                                        })
+                                    else:
+                                        current_recipe['external_links'].append({
+                                            'text': 'Recipe',
+                                            'url': url
+                                        })
+                                else:
+                                    # Default to Google Doc
+                                    current_recipe['google_doc_links'].append({
+                                        'text': 'Recipe',
+                                        'url': f'https://docs.google.com/document/d/{self.doc_id}/edit'
+                                    })
                         
                         # Detect "Quick Recipe" section (standalone line or content)
                         elif current_recipe and ('quick_recipe' in line_lower or 'quick recipe' in line_lower):
@@ -176,7 +232,39 @@ class RecipeParser:
                             current_recipe['note'] = note_text
                         
                         # Add content to current section
+                        # Also collect any links from paragraphs after recipe title (but before next recipe)
                         elif current_recipe:
+                            # Only collect links if we haven't started a new section (note/quick_recipe)
+                            # and the line doesn't look like a new recipe title
+                            is_likely_new_recipe = (
+                                len(line) < 80 and 
+                                not any(kw in line_lower for kw in ['note:', 'note ', 'quick_recipe', 'quick recipe']) and
+                                not re.match(r'^\d+[\.\)]', line) and
+                                not any(line_lower.startswith(kw) for kw in ['preheat', 'cook', 'bake', 'fry', 'boil', 'mix'])
+                            )
+                            
+                            # Collect links from this paragraph (but only if it's not a new recipe)
+                            # Links should be collected early, before we get into note/quick_recipe sections
+                            if not current_section or current_section not in ['note', 'quick_recipe']:
+                                for link_info in all_links:
+                                    url = link_info['url']
+                                    link_text = link_info['text'] or 'Recipe'
+                                    
+                                    if 'docs.google.com' in url:
+                                        # Avoid duplicates
+                                        if not any(l['url'] == url for l in current_recipe['google_doc_links']):
+                                            current_recipe['google_doc_links'].append({
+                                                'text': link_text,
+                                                'url': url
+                                            })
+                                    else:
+                                        # Avoid duplicates
+                                        if not any(l['url'] == url for l in current_recipe['external_links']):
+                                            current_recipe['external_links'].append({
+                                                'text': link_text,
+                                                'url': url
+                                            })
+                            
                             if current_section == 'quick_recipe':
                                 if current_recipe['quick_recipe']:
                                     current_recipe['quick_recipe'] += '\n' + line
@@ -238,7 +326,7 @@ class RecipeParser:
         
         # Also check for standalone recipe names (without Recipe suffix)
         # But only if we don't have a current recipe or current recipe is complete
-        if not current_recipe or (current_recipe and (current_recipe.get('recipe_link') or current_recipe.get('quick_recipe') or current_recipe.get('note'))):
+        if not current_recipe or (current_recipe and (current_recipe.get('external_links') or current_recipe.get('google_doc_links') or current_recipe.get('quick_recipe') or current_recipe.get('note'))):
             # Not a title if it's clearly a section header
             if any(keyword in line_lower for keyword in ['note:', 'note ']):
                 return False
@@ -266,8 +354,12 @@ if __name__ == "__main__":
     print(f"\nFound {len(recipes)} recipes:\n")
     for i, recipe in enumerate(recipes, 1):
         print(f"{i}. {recipe['title']}")
-        if recipe.get('recipe_link'):
-            print(f"   Recipe Link: {recipe['recipe_link']['text']} -> {recipe['recipe_link']['url']}")
+        if recipe.get('external_links'):
+            for link in recipe['external_links']:
+                print(f"   External Link: {link['text']} -> {link['url']}")
+        if recipe.get('google_doc_links'):
+            for link in recipe['google_doc_links']:
+                print(f"   Google Doc Link: {link['text']} -> {link['url']}")
         if recipe.get('quick_recipe'):
             print(f"   Quick Recipe: {recipe['quick_recipe'][:60]}...")
         if recipe.get('note'):
