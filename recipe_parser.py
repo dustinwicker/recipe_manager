@@ -105,12 +105,40 @@ class RecipeParser:
                             if current_recipe:
                                 self.recipes.append(current_recipe)
                             
-                            # Extract recipe title (remove "Recipe", "Quick_Recipe", "_Recipe", "_Picture" suffixes)
-                            title = line
-                            if ' recipe' in line_lower:
-                                title = line[:line_lower.index(' recipe')].strip()
-                            elif ' quick_recipe' in line_lower or ' quick recipe' in line_lower:
-                                title = line[:line_lower.index(' quick')].strip()
+                            # Extract recipe title - only use text BEFORE the first hyperlink
+                            # This ensures we only get the recipe name, not additional text like "Tyler Tolman"
+                            title_parts = []
+                            for elem in elements:
+                                if 'textRun' in elem:
+                                    text_run = elem.get('textRun', {})
+                                    content_text = text_run.get('content', '').strip()
+                                    
+                                    # Check if this text is a link
+                                    is_link = False
+                                    if 'link' in text_run:
+                                        is_link = True
+                                    elif 'textStyle' in text_run:
+                                        text_style = text_run.get('textStyle', {})
+                                        if 'link' in text_style:
+                                            is_link = True
+                                    
+                                    # Stop collecting title text when we hit the first link
+                                    if is_link:
+                                        break
+                                    
+                                    # Only add non-empty text that's not a link
+                                    if content_text:
+                                        title_parts.append(content_text)
+                            
+                            # Join the title parts
+                            title = ' '.join(title_parts).strip()
+                            
+                            # Remove "Recipe", "Quick_Recipe" suffixes if present
+                            title_lower = title.lower()
+                            if ' recipe' in title_lower:
+                                title = title[:title_lower.index(' recipe')].strip()
+                            elif ' quick_recipe' in title_lower or ' quick recipe' in title_lower:
+                                title = title[:title_lower.index(' quick')].strip()
                             
                             # Remove _Recipe and _Picture suffixes from title
                             # These appear as separate words like "Trevor_Recipe" or "Mom_Recipe"
@@ -123,6 +151,12 @@ class RecipeParser:
                                 if not re.match(r'^[A-Za-z]+_(recipe|picture)$', word, re.I):
                                     cleaned_words.append(word)
                             title = ' '.join(cleaned_words).strip()
+                            
+                            # Clean up trailing dashes, extra spaces, etc.
+                            title = re.sub(r'\s+-\s*$', '', title)  # Remove trailing " -"
+                            title = re.sub(r'-\s*$', '', title)  # Remove trailing "-"
+                            title = re.sub(r'\s+$', '', title)  # Remove trailing spaces
+                            title = title.strip()
                             
                             # Start new recipe
                             current_recipe = {
