@@ -30,6 +30,8 @@ def get_recipes():
 def index():
     """Main page with recipe dropdown."""
     recipes = get_recipes()
+    # Sort recipes alphabetically by title
+    recipes = sorted(recipes, key=lambda x: x['title'].lower())
     return render_template('index.html', recipes=recipes)
 
 
@@ -53,6 +55,8 @@ def get_recipe(recipe_title):
 def list_recipes():
     """Get list of all recipe titles."""
     recipes = get_recipes()
+    # Sort recipes alphabetically by title
+    recipes = sorted(recipes, key=lambda x: x['title'].lower())
     titles = [recipe['title'] for recipe in recipes]
     return jsonify(titles)
 
