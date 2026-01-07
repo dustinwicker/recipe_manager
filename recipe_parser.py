@@ -105,18 +105,31 @@ class RecipeParser:
                             if current_recipe:
                                 self.recipes.append(current_recipe)
                             
-                            # Extract recipe title (remove "Recipe", "Quick_Recipe" suffixes)
+                            # Extract recipe title (remove "Recipe", "Quick_Recipe", "_Recipe", "_Picture" suffixes)
                             title = line
                             if ' recipe' in line_lower:
                                 title = line[:line_lower.index(' recipe')].strip()
                             elif ' quick_recipe' in line_lower or ' quick recipe' in line_lower:
                                 title = line[:line_lower.index(' quick')].strip()
                             
+                            # Remove _Recipe and _Picture suffixes from title
+                            # These appear as separate words like "Trevor_Recipe" or "Mom_Recipe"
+                            # Remove any word that matches _Something_Recipe or _Something_Picture pattern
+                            words = title.split()
+                            cleaned_words = []
+                            for word in words:
+                                # Skip words that match _Something_Recipe or _Something_Picture pattern
+                                # Pattern: _Word_Recipe or _Word_Picture (case insensitive)
+                                if not re.match(r'^[A-Za-z]+_(recipe|picture)$', word, re.I):
+                                    cleaned_words.append(word)
+                            title = ' '.join(cleaned_words).strip()
+                            
                             # Start new recipe
                             current_recipe = {
                                 'title': title,
                                 'external_links': [],  # External URLs (non-Google Doc)
                                 'google_doc_links': [],  # Google Doc URLs
+                                'picture_links': [],  # Picture/image links
                                 'quick_recipe': None,
                                 'has_quick_recipe': False,
                                 'note': None
@@ -141,8 +154,24 @@ class RecipeParser:
                                     url = link_info['url']
                                     link_text = link_info['text'] or 'Recipe'
                                     
-                                    if 'docs.google.com' in url:
-                                        # Google Doc link - check for duplicates
+                                    # Check if this is a _Recipe link (should be treated as Quick Recipe)
+                                    if link_text.lower().endswith('_recipe') and 'docs.google.com' in url:
+                                        # This is a Quick Recipe link - will be processed later
+                                        if not any(l['url'] == url for l in current_recipe['google_doc_links']):
+                                            current_recipe['google_doc_links'].append({
+                                                'text': link_text,
+                                                'url': url
+                                            })
+                                    # Check if this is a _Picture link
+                                    elif link_text.lower().endswith('_picture'):
+                                        # Picture link - store separately
+                                        if not any(l['url'] == url for l in current_recipe['picture_links']):
+                                            current_recipe['picture_links'].append({
+                                                'text': link_text,
+                                                'url': url
+                                            })
+                                    elif 'docs.google.com' in url:
+                                        # Other Google Doc link - check for duplicates
                                         if not any(l['url'] == url for l in current_recipe['google_doc_links']):
                                             current_recipe['google_doc_links'].append({
                                                 'text': link_text,
@@ -250,15 +279,31 @@ class RecipeParser:
                                     url = link_info['url']
                                     link_text = link_info['text'] or 'Recipe'
                                     
-                                    if 'docs.google.com' in url:
-                                        # Avoid duplicates
+                                    # Check if this is a _Recipe link (should be treated as Quick Recipe)
+                                    if link_text.lower().endswith('_recipe') and 'docs.google.com' in url:
+                                        # This is a Quick Recipe link
+                                        if not any(l['url'] == url for l in current_recipe['google_doc_links']):
+                                            current_recipe['google_doc_links'].append({
+                                                'text': link_text,
+                                                'url': url
+                                            })
+                                    # Check if this is a _Picture link
+                                    elif link_text.lower().endswith('_picture'):
+                                        # Picture link - store separately
+                                        if not any(l['url'] == url for l in current_recipe['picture_links']):
+                                            current_recipe['picture_links'].append({
+                                                'text': link_text,
+                                                'url': url
+                                            })
+                                    elif 'docs.google.com' in url:
+                                        # Other Google Doc link - avoid duplicates
                                         if not any(l['url'] == url for l in current_recipe['google_doc_links']):
                                             current_recipe['google_doc_links'].append({
                                                 'text': link_text,
                                                 'url': url
                                             })
                                     else:
-                                        # Avoid duplicates
+                                        # External link - avoid duplicates
                                         if not any(l['url'] == url for l in current_recipe['external_links']):
                                             current_recipe['external_links'].append({
                                                 'text': link_text,
@@ -306,12 +351,14 @@ class RecipeParser:
                     pass
             
             # Extract Quick Recipe content from Google Doc links
-            # Look for Quick_Recipe links in google_doc_links and fetch their content
+            # Look for Quick_Recipe links or _Recipe links in google_doc_links and fetch their content
             for recipe in self.recipes:
                 if not recipe.get('quick_recipe'):  # Only fetch if we don't already have content
-                    # Check for Quick_Recipe links
+                    # Check for Quick_Recipe links or _Recipe links (like Trevor_Recipe, Mom_Recipe)
                     for link in recipe.get('google_doc_links', []):
-                        if 'quick_recipe' in link.get('text', '').lower() or 'quick recipe' in link.get('text', '').lower():
+                        link_text = link.get('text', '').lower()
+                        if ('quick_recipe' in link_text or 'quick recipe' in link_text or 
+                            link_text.endswith('_recipe')):
                             # Extract document ID from URL
                             doc_id = self._extract_doc_id_from_url(link['url'])
                             if doc_id:

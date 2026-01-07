@@ -168,6 +168,11 @@
                     <p id="quick-recipe-content"></p>
                 </div>
                 
+                <div class="section" id="picture-section" style="display: none;">
+                    <h3>📷 Pictures</h3>
+                    <div id="picture-content"></div>
+                </div>
+                
                 <div class="section" id="note-section" style="display: none;">
                     <h3>📌 Note</h3>
                     <p id="note-content"></p>
@@ -184,6 +189,8 @@
         const recipeLinkSection = document.getElementById('recipe-link-section');
         const quickRecipeSection = document.getElementById('quick-recipe-section');
         const quickRecipeContent = document.getElementById('quick-recipe-content');
+        const pictureSection = document.getElementById('picture-section');
+        const pictureContent = document.getElementById('picture-content');
         const noteSection = document.getElementById('note-section');
         const noteContent = document.getElementById('note-content');
         
@@ -233,6 +240,31 @@
                     quickRecipeSection.style.display = 'block';
                 } else {
                     quickRecipeSection.style.display = 'none';
+                }
+                
+                // Show pictures
+                pictureContent.innerHTML = '';
+                if (recipe.picture_links && recipe.picture_links.length > 0) {
+                    recipe.picture_links.forEach(picInfo => {
+                        const img = document.createElement('img');
+                        img.src = picInfo.url;
+                        img.alt = picInfo.text || 'Recipe picture';
+                        img.style.maxWidth = '100%';
+                        img.style.height = 'auto';
+                        img.style.borderRadius = '10px';
+                        img.style.marginTop = '10px';
+                        img.style.display = 'block';
+                        img.style.margin = '10px auto';
+                        // Make image clickable to open in new tab
+                        img.style.cursor = 'pointer';
+                        img.addEventListener('click', () => {
+                            window.open(picInfo.url, '_blank');
+                        });
+                        pictureContent.appendChild(img);
+                    });
+                    pictureSection.style.display = 'block';
+                } else {
+                    pictureSection.style.display = 'none';
                 }
                 
                 // Show note
