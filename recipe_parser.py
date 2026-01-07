@@ -357,8 +357,14 @@ class RecipeParser:
                     # Check for Quick_Recipe links or _Recipe links (like Trevor_Recipe, Mom_Recipe)
                     for link in recipe.get('google_doc_links', []):
                         link_text = link.get('text', '').lower()
-                        if ('quick_recipe' in link_text or 'quick recipe' in link_text or 
-                            link_text.endswith('_recipe')):
+                        # Check if this link should be treated as a Quick Recipe
+                        is_quick_recipe_link = (
+                            'quick_recipe' in link_text or 
+                            'quick recipe' in link_text or 
+                            link_text.endswith('_recipe')
+                        )
+                        
+                        if is_quick_recipe_link:
                             # Extract document ID from URL
                             doc_id = self._extract_doc_id_from_url(link['url'])
                             if doc_id:
@@ -417,33 +423,80 @@ class RecipeParser:
         return None
     
     def _fetch_google_doc_content(self, doc_id: str) -> Optional[str]:
-        """Fetch text content from a Google Doc."""
+        """Fetch text content from a Google Doc or other document type."""
         try:
             credentials = creds.login()
-            service = build('docs', 'v1', credentials=credentials)
-            doc = service.documents().get(documentId=doc_id).execute()
             
-            content = doc.get('body', {}).get('content', [])
-            text_lines = []
-            
-            for element in content:
-                if 'paragraph' in element:
-                    para = element.get('paragraph', {})
-                    elements = para.get('elements', [])
-                    paragraph_text = ''
-                    
-                    for elem in elements:
-                        if 'textRun' in elem:
-                            text_run = elem.get('textRun', {})
-                            content_text = text_run.get('content', '')
-                            # Skip strikethrough text
-                            if not text_run.get('textStyle', {}).get('strikethrough', False):
-                                paragraph_text += content_text
-                    
-                    if paragraph_text.strip():
-                        text_lines.append(paragraph_text.strip())
-            
-            return '\n'.join(text_lines) if text_lines else None
+            # First, try Google Docs API (for native Google Docs)
+            try:
+                docs_service = build('docs', 'v1', credentials=credentials)
+                doc = docs_service.documents().get(documentId=doc_id).execute()
+                
+                content = doc.get('body', {}).get('content', [])
+                text_lines = []
+                
+                for element in content:
+                    if 'paragraph' in element:
+                        para = element.get('paragraph', {})
+                        elements = para.get('elements', [])
+                        paragraph_text = ''
+                        
+                        for elem in elements:
+                            if 'textRun' in elem:
+                                text_run = elem.get('textRun', {})
+                                content_text = text_run.get('content', '')
+                                # Skip strikethrough text
+                                if not text_run.get('textStyle', {}).get('strikethrough', False):
+                                    paragraph_text += content_text
+                        
+                        if paragraph_text.strip():
+                            text_lines.append(paragraph_text.strip())
+                
+                return '\n'.join(text_lines) if text_lines else None
+                
+            except Exception as docs_error:
+                # If Docs API fails, try downloading .docx files
+                error_msg = str(docs_error)
+                if '400' in error_msg or 'not supported' in error_msg.lower():
+                    # Try Drive API to download .docx files
+                    try:
+                        drive_service = build('drive', 'v3', credentials=credentials)
+                        # Get file info first
+                        file_info = drive_service.files().get(fileId=doc_id, fields='mimeType').execute()
+                        mime_type = file_info.get('mimeType', '')
+                        
+                        # For .docx files, download and parse with python-docx
+                        if 'wordprocessingml' in mime_type or 'openxmlformats' in mime_type:
+                            # Download the file
+                            import io
+                            from googleapiclient.http import MediaIoBaseDownload
+                            
+                            request = drive_service.files().get_media(fileId=doc_id)
+                            fh = io.BytesIO()
+                            downloader = MediaIoBaseDownload(fh, request)
+                            done = False
+                            while done is False:
+                                status, done = downloader.next_chunk()
+                            
+                            fh.seek(0)
+                            # Parse .docx file
+                            try:
+                                from docx import Document
+                                docx_file = Document(fh)
+                                text_lines = []
+                                for paragraph in docx_file.paragraphs:
+                                    if paragraph.text.strip():
+                                        text_lines.append(paragraph.text.strip())
+                                return '\n'.join(text_lines) if text_lines else None
+                            except ImportError:
+                                # python-docx not installed
+                                return None
+                    except Exception as drive_error:
+                        # Drive download also failed
+                        pass
+                
+                # If both fail, return None
+                return None
             
         except Exception as e:
             # Silently fail - document might not be accessible
