@@ -8,7 +8,7 @@ from googleapiclient.discovery import build
 import re
 import json
 import os
-from typing import Dict, List, Optional
+from typing import Dict, List, Optional, Tuple
 
 
 class RecipeParser:
@@ -402,10 +402,18 @@ class RecipeParser:
                             # Extract document ID from URL
                             doc_id = self._extract_doc_id_from_url(link['url'])
                             if doc_id:
-                                content = self._fetch_google_doc_content(doc_id)
+                                content, images = self._fetch_google_doc_content(doc_id)
                                 if content:
                                     recipe['quick_recipe'] = content
                                     recipe['has_quick_recipe'] = True
+                                # Add any images found in the document to picture_links
+                                if images:
+                                    for img in images:
+                                        if not any(p['url'] == img['url'] for p in recipe.get('picture_links', [])):
+                                            if 'picture_links' not in recipe:
+                                                recipe['picture_links'] = []
+                                            recipe['picture_links'].append(img)
+                                if content or images:
                                     break  # Use first Quick Recipe link found
             
             return self.recipes
@@ -456,8 +464,10 @@ class RecipeParser:
             return match.group(1)
         return None
     
-    def _fetch_google_doc_content(self, doc_id: str) -> Optional[str]:
-        """Fetch text content from a Google Doc or other document type."""
+    def _fetch_google_doc_content(self, doc_id: str) -> Tuple[Optional[str], List[Dict]]:
+        """Fetch text content and images from a Google Doc or other document type.
+        Returns: (text_content, image_urls) where image_urls is a list of {'url': str, 'text': str}
+        """
         try:
             credentials = creds.login()
             
@@ -468,6 +478,10 @@ class RecipeParser:
                 
                 content = doc.get('body', {}).get('content', [])
                 text_lines = []
+                image_urls = []
+                
+                # Get inline objects (images)
+                inline_objects = doc.get('inlineObjects', {})
                 
                 for element in content:
                     if 'paragraph' in element:
@@ -482,11 +496,31 @@ class RecipeParser:
                                 # Skip strikethrough text
                                 if not text_run.get('textStyle', {}).get('strikethrough', False):
                                     paragraph_text += content_text
+                            
+                            # Check for inline images
+                            if 'inlineObjectElement' in elem:
+                                inline_obj = elem.get('inlineObjectElement', {})
+                                inline_obj_id = inline_obj.get('inlineObjectId', '')
+                                
+                                if inline_obj_id in inline_objects:
+                                    obj = inline_objects[inline_obj_id]
+                                    embedded_obj = obj.get('inlineObjectProperties', {}).get('embeddedObject', {})
+                                    image_props = embedded_obj.get('imageProperties', {})
+                                    content_uri = image_props.get('contentUri', '')
+                                    source_uri = image_props.get('sourceUri', '')
+                                    
+                                    image_url = content_uri or source_uri
+                                    if image_url:
+                                        image_urls.append({
+                                            'url': image_url,
+                                            'text': 'Image'
+                                        })
                         
                         if paragraph_text.strip():
                             text_lines.append(paragraph_text.strip())
                 
-                return '\n'.join(text_lines) if text_lines else None
+                text_content = '\n'.join(text_lines) if text_lines else None
+                return (text_content, image_urls)
                 
             except Exception as docs_error:
                 # If Docs API fails, try downloading .docx files
@@ -521,20 +555,21 @@ class RecipeParser:
                                 for paragraph in docx_file.paragraphs:
                                     if paragraph.text.strip():
                                         text_lines.append(paragraph.text.strip())
-                                return '\n'.join(text_lines) if text_lines else None
+                                text_content = '\n'.join(text_lines) if text_lines else None
+                                return (text_content, [])  # .docx files don't have embedded images we can extract easily
                             except ImportError:
                                 # python-docx not installed
-                                return None
+                                return (None, [])
                     except Exception as drive_error:
                         # Drive download also failed
                         pass
                 
                 # If both fail, return None
-                return None
+                return (None, [])
             
         except Exception as e:
             # Silently fail - document might not be accessible
-            return None
+            return (None, [])
 
 
 if __name__ == "__main__":

@@ -246,21 +246,48 @@
                 pictureContent.innerHTML = '';
                 if (recipe.picture_links && recipe.picture_links.length > 0) {
                     recipe.picture_links.forEach(picInfo => {
+                        const imgContainer = document.createElement('div');
+                        imgContainer.style.marginBottom = '20px';
+                        imgContainer.style.textAlign = 'center';
+                        
                         const img = document.createElement('img');
                         img.src = picInfo.url;
                         img.alt = picInfo.text || 'Recipe picture';
                         img.style.maxWidth = '100%';
+                        img.style.maxHeight = '500px';
                         img.style.height = 'auto';
                         img.style.borderRadius = '10px';
-                        img.style.marginTop = '10px';
                         img.style.display = 'block';
-                        img.style.margin = '10px auto';
+                        img.style.margin = '0 auto';
+                        img.style.boxShadow = '0 4px 8px rgba(0,0,0,0.1)';
+                        
+                        // Handle image load errors (e.g., Google Photos links)
+                        img.onerror = function() {
+                            // If image fails to load, show as a clickable link instead
+                            imgContainer.innerHTML = '';
+                            const link = document.createElement('a');
+                            link.href = picInfo.url;
+                            link.target = '_blank';
+                            link.textContent = picInfo.text || 'View Picture';
+                            link.style.display = 'inline-block';
+                            link.style.padding = '15px 30px';
+                            link.style.background = 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)';
+                            link.style.color = 'white';
+                            link.style.textDecoration = 'none';
+                            link.style.borderRadius = '10px';
+                            link.style.fontWeight = '600';
+                            link.style.marginTop = '10px';
+                            imgContainer.appendChild(link);
+                        };
+                        
                         // Make image clickable to open in new tab
                         img.style.cursor = 'pointer';
                         img.addEventListener('click', () => {
                             window.open(picInfo.url, '_blank');
                         });
-                        pictureContent.appendChild(img);
+                        
+                        imgContainer.appendChild(img);
+                        pictureContent.appendChild(imgContainer);
                     });
                     pictureSection.style.display = 'block';
                 } else {
