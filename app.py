@@ -17,6 +17,12 @@ QUICK_RECIPE_DOC_ID = '1BpJj3ECDU2Z_QYcorncs3SbeiKUD_WI_Lj29hnRjI18'
 recipes_cache = None
 
 
+def clear_cache():
+    """Clear the recipes cache so data is re-fetched from Google Docs."""
+    global recipes_cache
+    recipes_cache = None
+
+
 def get_recipes():
     """Get recipes, using cache if available."""
     global recipes_cache
@@ -49,6 +55,14 @@ def get_recipe(recipe_title):
             return jsonify(recipe)
     
     return jsonify({'error': 'Recipe not found'}), 404
+
+
+@app.route('/api/refresh', methods=['POST'])
+def refresh_recipes():
+    """Clear cache and re-fetch recipes from Google Docs."""
+    clear_cache()
+    get_recipes()  # Prime the cache
+    return jsonify({'status': 'ok', 'message': 'Recipes refreshed'})
 
 
 @app.route('/api/recipes')

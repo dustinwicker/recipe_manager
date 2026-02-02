@@ -138,6 +138,30 @@
             padding: 40px;
             font-size: 1.1em;
         }
+        
+        .refresh-btn {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 20px;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            border-radius: 10px;
+            font-size: 0.95em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s, border-color 0.2s;
+        }
+        
+        .refresh-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            border-color: white;
+        }
+        
+        .refresh-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
     </style>
 </head>
 <body>
@@ -145,6 +169,7 @@
         <div class="header">
             <h1>🍳 Recipe Manager</h1>
             <p>Select a recipe to view details</p>
+            <button class="refresh-btn" id="refresh-btn" title="Reload recipes from Google Docs">🔄 Refresh Recipes</button>
         </div>
         
         <div class="dropdown-container">
@@ -193,6 +218,26 @@
         const pictureContent = document.getElementById('picture-content');
         const noteSection = document.getElementById('note-section');
         const noteContent = document.getElementById('note-content');
+        
+        const refreshBtn = document.getElementById('refresh-btn');
+        
+        refreshBtn.addEventListener('click', async function() {
+            refreshBtn.disabled = true;
+            refreshBtn.textContent = 'Refreshing...';
+            try {
+                const response = await fetch('/api/refresh', { method: 'POST' });
+                if (response.ok) {
+                    window.location.reload();
+                } else {
+                    alert('Failed to refresh. Please try again.');
+                }
+            } catch (error) {
+                alert('Failed to refresh. Please try again.');
+            } finally {
+                refreshBtn.disabled = false;
+                refreshBtn.textContent = '🔄 Refresh Recipes';
+            }
+        });
         
         recipeSelect.addEventListener('change', async function() {
             const selectedRecipe = this.value;
