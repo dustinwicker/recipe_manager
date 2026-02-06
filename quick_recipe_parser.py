@@ -47,18 +47,25 @@ class QuickRecipeParser:
                         line = paragraph_text.strip()
                         line_lower = line.lower()
                         
+                        # Preserve bullet/indent formatting
+                        bullet = para.get('bullet')
+                        if bullet is not None:
+                            nesting = bullet.get('nestingLevel', 0)
+                            indent = '  ' * nesting
+                            line = f'{indent}- {line}'
+                        
                         # Detect recipe title (similar to main parser)
-                        if self._is_recipe_title(line):
+                        if self._is_recipe_title(line) and not bullet:
                             # Save previous recipe
                             if current_recipe_title and quick_recipe_lines:
                                 self.quick_recipes[current_recipe_title] = '\n'.join(quick_recipe_lines)
                             
-                            # Extract recipe title
-                            title = line
+                            # Extract recipe title (strip bullet prefix if we added it)
+                            title = paragraph_text.strip()
                             # Remove common suffixes
                             for suffix in [' recipe', ' quick_recipe', ' quick recipe']:
                                 if suffix in line_lower:
-                                    title = line[:line_lower.index(suffix)].strip()
+                                    title = title[:line_lower.index(suffix)].strip()
                                     break
                             
                             current_recipe_title = title

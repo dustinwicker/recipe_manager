@@ -24,7 +24,7 @@
             background: white;
             border-radius: 20px;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            overflow: hidden;
+            overflow: visible;
         }
         
         .header {
@@ -53,25 +53,104 @@
             font-size: 1.1em;
         }
         
-        .dropdown-container select {
-            width: 100%;
-            padding: 15px;
-            font-size: 1.1em;
+        .recipe-combobox {
+            position: relative;
+        }
+        
+        .recipe-combobox-inner {
+            display: flex;
+            align-items: center;
             border: 2px solid #ddd;
             border-radius: 10px;
             background: white;
-            cursor: pointer;
             transition: border-color 0.3s;
         }
         
-        .dropdown-container select:hover {
-            border-color: #667eea;
-        }
-        
-        .dropdown-container select:focus {
-            outline: none;
+        .recipe-combobox-inner:hover, .recipe-combobox-inner.focused {
             border-color: #667eea;
             box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+        
+        .recipe-combobox-input {
+            flex: 1;
+            padding: 15px;
+            font-size: 1.1em;
+            border: none;
+            background: transparent;
+            outline: none;
+        }
+        
+        .recipe-combobox-input::placeholder {
+            color: #999;
+        }
+        
+        .recipe-combobox-arrow {
+            padding: 15px 16px;
+            color: #667eea;
+            font-size: 1em;
+            cursor: pointer;
+            user-select: none;
+            border: none;
+            background: transparent;
+            flex-shrink: 0;
+        }
+        
+        .recipe-search-input:hover, .recipe-search-input:focus {
+            border-color: #667eea;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+        
+        .recipe-search-input::placeholder {
+            color: #999;
+        }
+        
+        .recipe-suggestions {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            margin-top: 4px;
+            background: white;
+            border: 2px solid #667eea;
+            border-radius: 10px;
+            max-height: 280px;
+            overflow-y: auto;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+            z-index: 100;
+            display: none;
+        }
+        
+        .recipe-suggestions.visible {
+            display: block;
+        }
+        
+        .recipe-suggestion-item {
+            display: block;
+            padding: 14px 15px;
+            line-height: 1.5;
+            cursor: pointer;
+            font-size: 1em;
+            color: #333;
+            border-bottom: 1px solid #eee;
+            transition: background 0.15s;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            box-sizing: border-box;
+        }
+        
+        .recipe-suggestion-item:last-child {
+            border-bottom: none;
+        }
+        
+        .recipe-suggestion-item:hover, .recipe-suggestion-item.highlighted {
+            background: #f0f4ff;
+        }
+        
+        .recipe-suggestion-item.no-results {
+            cursor: default;
+            color: #999;
         }
         
         .recipe-content {
@@ -122,6 +201,9 @@
         .section p {
             color: #555;
             line-height: 1.6;
+        }
+        
+        #quick-recipe-content {
             white-space: pre-wrap;
         }
         
@@ -172,14 +254,15 @@
             <button class="refresh-btn" id="refresh-btn" title="Reload recipes from Google Docs">🔄 Refresh Recipes</button>
         </div>
         
-        <div class="dropdown-container">
-            <label for="recipe-select">Choose a Recipe:</label>
-            <select id="recipe-select">
-                <option value="">-- Select a Recipe --</option>
-                {% for recipe in recipes %}
-                <option value="{{ recipe.title }}">{{ recipe.title }}</option>
-                {% endfor %}
-            </select>
+        <div class="dropdown-container" id="recipe-container">
+            <label for="recipe-input">Choose a Recipe:</label>
+            <div class="recipe-combobox">
+                <div class="recipe-combobox-inner" id="recipe-combobox-inner">
+                    <input type="text" id="recipe-input" class="recipe-combobox-input" placeholder="Type or select a recipe..." autocomplete="off" aria-label="Search or select recipe" />
+                    <button type="button" class="recipe-combobox-arrow" id="recipe-arrow" title="Show all recipes" aria-label="Show all recipes">▼</button>
+                </div>
+                <div id="recipe-suggestions" class="recipe-suggestions"></div>
+            </div>
         </div>
         
         <div class="recipe-content hidden" id="recipe-content">
@@ -207,7 +290,12 @@
     </div>
     
     <script>
-        const recipeSelect = document.getElementById('recipe-select');
+        const recipeTitles = {{ recipes | map(attribute='title') | list | tojson }};
+        const recipeContainer = document.getElementById('recipe-container');
+        const recipeInput = document.getElementById('recipe-input');
+        const recipeComboboxInner = document.getElementById('recipe-combobox-inner');
+        const recipeArrow = document.getElementById('recipe-arrow');
+        const recipeSuggestions = document.getElementById('recipe-suggestions');
         const recipeContent = document.getElementById('recipe-content');
         const recipeDetails = document.getElementById('recipe-details');
         const loading = document.getElementById('loading');
@@ -239,9 +327,7 @@
             }
         });
         
-        recipeSelect.addEventListener('change', async function() {
-            const selectedRecipe = this.value;
-            
+        async function loadRecipe(selectedRecipe) {
             if (!selectedRecipe) {
                 recipeContent.classList.add('hidden');
                 return;
@@ -353,6 +439,98 @@
             } catch (error) {
                 loading.textContent = 'Error loading recipe. Please try again.';
                 console.error('Error:', error);
+            }
+        }
+        
+        // Search/typeahead
+        function filterRecipes(query) {
+            const q = (query || '').trim().toLowerCase();
+            if (!q) return recipeTitles;
+            return recipeTitles.filter(t => t.toLowerCase().includes(q));
+        }
+        
+        function showSuggestions(matches) {
+            recipeSuggestions.innerHTML = '';
+            if (matches.length === 0) {
+                const item = document.createElement('div');
+                item.className = 'recipe-suggestion-item no-results';
+                item.textContent = 'No matching recipes';
+                recipeSuggestions.appendChild(item);
+            } else {
+                matches.forEach((title, idx) => {
+                    const item = document.createElement('div');
+                    item.className = 'recipe-suggestion-item';
+                    item.textContent = title;
+                    item.dataset.recipe = title;
+                    item.addEventListener('click', () => selectRecipe(title));
+                    recipeSuggestions.appendChild(item);
+                });
+            }
+            recipeSuggestions.classList.add('visible');
+        }
+        
+        function selectRecipe(title) {
+            recipeInput.value = title;
+            recipeSuggestions.classList.remove('visible');
+            recipeComboboxInner.classList.remove('focused');
+            loadRecipe(title);
+        }
+        
+        function openSuggestions() {
+            const matches = filterRecipes(recipeInput.value);
+            showSuggestions(matches.length > 0 ? matches : recipeTitles);
+            recipeComboboxInner.classList.add('focused');
+        }
+        
+        recipeInput.addEventListener('input', function() {
+            const matches = filterRecipes(this.value);
+            showSuggestions(matches);
+            recipeComboboxInner.classList.add('focused');
+        });
+        
+        recipeInput.addEventListener('focus', openSuggestions);
+        
+        recipeArrow.addEventListener('mousedown', function(e) {
+            e.preventDefault();
+            recipeInput.focus();
+            openSuggestions();
+        });
+        
+        recipeInput.addEventListener('keydown', function(e) {
+            const items = recipeSuggestions.querySelectorAll('.recipe-suggestion-item:not(.no-results)');
+            if (!recipeSuggestions.classList.contains('visible')) {
+                if (e.key === 'Enter') loadRecipe(recipeInput.value.trim());
+                return;
+            }
+            if (items.length === 0) {
+                if (e.key === 'Escape') recipeSuggestions.classList.remove('visible');
+                return;
+            }
+            const highlighted = recipeSuggestions.querySelector('.highlighted');
+            let idx = highlighted ? Array.from(items).indexOf(highlighted) : -1;
+            if (e.key === 'ArrowDown') {
+                e.preventDefault();
+                idx = Math.min(idx + 1, items.length - 1);
+            } else if (e.key === 'ArrowUp') {
+                e.preventDefault();
+                idx = Math.max(idx - 1, 0);
+            } else if (e.key === 'Enter') {
+                e.preventDefault();
+                if (idx < 0) idx = 0;
+                selectRecipe(items[idx].dataset.recipe);
+                return;
+            } else if (e.key === 'Escape') {
+                recipeSuggestions.classList.remove('visible');
+                return;
+            }
+            items.forEach((el, i) => el.classList.toggle('highlighted', i === idx));
+        });
+        
+        document.addEventListener('click', function(e) {
+            const combobox = document.querySelector('.recipe-combobox');
+            if (!combobox.contains(e.target)) {
+                recipeSuggestions.classList.remove('visible');
+                recipeComboboxInner.classList.remove('focused');
             }
         });
     </script>

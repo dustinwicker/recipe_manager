@@ -517,7 +517,14 @@ class RecipeParser:
                                         })
                         
                         if paragraph_text.strip():
-                            text_lines.append(paragraph_text.strip())
+                            text = paragraph_text.strip()
+                            bullet = para.get('bullet')
+                            if bullet is not None:
+                                nesting = bullet.get('nestingLevel', 0)
+                                indent = '  ' * nesting
+                                text_lines.append(f'{indent}- {text}')
+                            else:
+                                text_lines.append(text)
                 
                 text_content = '\n'.join(text_lines) if text_lines else None
                 return (text_content, image_urls)
