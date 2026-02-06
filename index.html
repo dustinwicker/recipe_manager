@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Manager</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: visible;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        
+        .dropdown-container {
+            padding: 30px;
+            background: #f8f9fa;
+            border-bottom: 1px solid #e9ecef;
+        }
+        
+        .dropdown-container label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #333;
+            font-size: 1.1em;
+        }
+        
+        .recipe-combobox {
+            position: relative;
+        }
+        
+        .recipe-combobox-inner {
+            display: flex;
+            align-items: center;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            background: white;
+            transition: border-color 0.3s;
+        }
+        
+        .recipe-combobox-inner:hover, .recipe-combobox-inner.focused {
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+        
+        .recipe-combobox-input {
+            flex: 1;
+            padding: 15px;
+            font-size: 1.1em;
+            border: none;
+            background: transparent;
+            outline: none;
+        }
+        
+        .recipe-combobox-input::placeholder {
+            color: #999;
+        }
+        
+        .recipe-combobox-arrow {
+            padding: 15px 16px;
+            color: #667eea;
+            font-size: 1em;
+            cursor: pointer;
+            user-select: none;
+            border: none;
+            background: transparent;
+            flex-shrink: 0;
+        }
+        
+        .recipe-suggestions {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            margin-top: 4px;
+            background: white;
+            border: 2px solid #667eea;
+            border-radius: 10px;
+            max-height: 280px;
+            overflow-y: auto;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+            z-index: 100;
+            display: none;
+        }
+        
+        .recipe-suggestions.visible {
+            display: block;
+        }
+        
+        .recipe-suggestion-item {
+            display: block;
+            padding: 14px 15px;
+            line-height: 1.5;
+            cursor: pointer;
+            font-size: 1em;
+            color: #333;
+            border-bottom: 1px solid #eee;
+            transition: background 0.15s;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            box-sizing: border-box;
+        }
+        
+        .recipe-suggestion-item:last-child {
+            border-bottom: none;
+        }
+        
+        .recipe-suggestion-item:hover, .recipe-suggestion-item.highlighted {
+            background: #f0f4ff;
+        }
+        
+        .recipe-suggestion-item.no-results {
+            cursor: default;
+            color: #999;
+        }
+        
+        .recipe-content {
+            padding: 30px;
+            min-height: 200px;
+        }
+        
+        .recipe-content.hidden {
+            display: none;
+        }
+        
+        .recipe-link {
+            margin-bottom: 30px;
+        }
+        
+        .recipe-link a {
+            display: inline-block;
+            padding: 15px 30px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            font-size: 1.2em;
+            font-weight: 600;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        }
+        
+        .recipe-link a:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+        }
+        
+        .section {
+            margin-bottom: 25px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .section h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+        
+        .section p {
+            color: #555;
+            line-height: 1.6;
+        }
+        
+        #quick-recipe-content {
+            white-space: pre-wrap;
+        }
+        
+        .no-recipe {
+            text-align: center;
+            color: #999;
+            padding: 40px;
+            font-size: 1.1em;
+        }
+        
+        .loading {
+            text-align: center;
+            color: #667eea;
+            padding: 40px;
+            font-size: 1.1em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🍳 Recipe Manager</h1>
+            <p>Select a recipe to view details</p>
+        </div>
+        
+        <div class="dropdown-container" id="recipe-container">
+            <label for="recipe-input">Choose a Recipe:</label>
+            <div class="recipe-combobox">
+                <div class="recipe-combobox-inner" id="recipe-combobox-inner">
+                    <input type="text" id="recipe-input" class="recipe-combobox-input" placeholder="Type or select a recipe..." autocomplete="off" aria-label="Search or select recipe" />
+                    <button type="button" class="recipe-combobox-arrow" id="recipe-arrow" title="Show all recipes" aria-label="Show all recipes">▼</button>
+                </div>
+                <div id="recipe-suggestions" class="recipe-suggestions"></div>
+            </div>
+        </div>
+        
+        <div class="recipe-content hidden" id="recipe-content">
+            <div class="loading" id="loading">Loading recipes...</div>
+            
+            <div id="recipe-details" style="display: none;">
+                <div class="recipe-link" id="recipe-link-section"></div>
+                
+                <div class="section" id="quick-recipe-section" style="display: none;">
+                    <h3>📝 Quick Recipe</h3>
+                    <p id="quick-recipe-content"></p>
+                </div>
+                
+                <div class="section" id="picture-section" style="display: none;">
+                    <h3>📷 Pictures</h3>
+                    <div id="picture-content"></div>
+                </div>
+                
+                <div class="section" id="note-section" style="display: none;">
+                    <h3>📌 Note</h3>
+                    <p id="note-content"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        const recipeContainer = document.getElementById('recipe-container');
+        const recipeInput = document.getElementById('recipe-input');
+        const recipeComboboxInner = document.getElementById('recipe-combobox-inner');
+        const recipeArrow = document.getElementById('recipe-arrow');
+        const recipeSuggestions = document.getElementById('recipe-suggestions');
+        const recipeContent = document.getElementById('recipe-content');
+        const recipeDetails = document.getElementById('recipe-details');
+        const loading = document.getElementById('loading');
+        const recipeLinkSection = document.getElementById('recipe-link-section');
+        const quickRecipeSection = document.getElementById('quick-recipe-section');
+        const quickRecipeContent = document.getElementById('quick-recipe-content');
+        const pictureSection = document.getElementById('picture-section');
+        const pictureContent = document.getElementById('picture-content');
+        const noteSection = document.getElementById('note-section');
+        const noteContent = document.getElementById('note-content');
+
+        let recipes = [];
+        let recipeTitles = [];
+
+        function displayRecipe(recipe) {
+            if (!recipe) {
+                recipeContent.classList.add('hidden');
+                return;
+            }
+            
+            recipeContent.classList.remove('hidden');
+            recipeDetails.style.display = 'block';
+            loading.style.display = 'none';
+            
+            recipeLinkSection.innerHTML = '';
+            if (recipe.external_links && recipe.external_links.length > 0) {
+                recipe.external_links.forEach(linkInfo => {
+                    const link = document.createElement('a');
+                    link.href = linkInfo.url;
+                    link.target = '_blank';
+                    link.textContent = linkInfo.text || 'Recipe';
+                    link.className = 'external-link';
+                    recipeLinkSection.appendChild(link);
+                    recipeLinkSection.appendChild(document.createTextNode(' '));
+                });
+            }
+            
+            if (recipe.quick_recipe && recipe.quick_recipe.trim()) {
+                quickRecipeContent.textContent = recipe.quick_recipe;
+                quickRecipeSection.style.display = 'block';
+            } else {
+                quickRecipeSection.style.display = 'none';
+            }
+            
+            pictureContent.innerHTML = '';
+            if (recipe.picture_links && recipe.picture_links.length > 0) {
+                recipe.picture_links.forEach(picInfo => {
+                    const imgContainer = document.createElement('div');
+                    imgContainer.style.marginBottom = '20px';
+                    imgContainer.style.textAlign = 'center';
+                    const img = document.createElement('img');
+                    img.src = picInfo.url;
+                    img.alt = picInfo.text || 'Recipe picture';
+                    img.style.maxWidth = '100%';
+                    img.style.maxHeight = '500px';
+                    img.style.height = 'auto';
+                    img.style.borderRadius = '10px';
+                    img.style.display = 'block';
+                    img.style.margin = '0 auto';
+                    img.style.boxShadow = '0 4px 8px rgba(0,0,0,0.1)';
+                    img.onerror = function() {
+                        imgContainer.innerHTML = '';
+                        const link = document.createElement('a');
+                        link.href = picInfo.url;
+                        link.target = '_blank';
+                        link.textContent = picInfo.text || 'View Picture';
+                        link.style.display = 'inline-block';
+                        link.style.padding = '15px 30px';
+                        link.style.background = 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)';
+                        link.style.color = 'white';
+                        link.style.textDecoration = 'none';
+                        link.style.borderRadius = '10px';
+                        link.style.fontWeight = '600';
+                        link.style.marginTop = '10px';
+                        imgContainer.appendChild(link);
+                    };
+                    img.style.cursor = 'pointer';
+                    img.addEventListener('click', () => window.open(picInfo.url, '_blank'));
+                    imgContainer.appendChild(img);
+                    pictureContent.appendChild(imgContainer);
+                });
+                pictureSection.style.display = 'block';
+            } else {
+                pictureSection.style.display = 'none';
+            }
+            
+            if (recipe.note) {
+                noteContent.textContent = recipe.note;
+                noteSection.style.display = 'block';
+            } else {
+                noteSection.style.display = 'none';
+            }
+        }
+
+        function loadRecipe(selectedRecipe) {
+            if (!selectedRecipe) {
+                recipeContent.classList.add('hidden');
+                return;
+            }
+            const recipe = recipes.find(r => r.title.toLowerCase() === selectedRecipe.toLowerCase());
+            displayRecipe(recipe);
+        }
+
+        function filterRecipes(query) {
+            const q = (query || '').trim().toLowerCase();
+            if (!q) return recipeTitles;
+            return recipeTitles.filter(t => t.toLowerCase().includes(q));
+        }
+
+        function showSuggestions(matches) {
+            recipeSuggestions.innerHTML = '';
+            if (matches.length === 0) {
+                const item = document.createElement('div');
+                item.className = 'recipe-suggestion-item no-results';
+                item.textContent = 'No matching recipes';
+                recipeSuggestions.appendChild(item);
+            } else {
+                matches.forEach((title) => {
+                    const item = document.createElement('div');
+                    item.className = 'recipe-suggestion-item';
+                    item.textContent = title;
+                    item.dataset.recipe = title;
+                    item.addEventListener('click', () => selectRecipe(title));
+                    recipeSuggestions.appendChild(item);
+                });
+            }
+            recipeSuggestions.classList.add('visible');
+        }
+
+        function selectRecipe(title) {
+            recipeInput.value = title;
+            recipeSuggestions.classList.remove('visible');
+            recipeComboboxInner.classList.remove('focused');
+            loadRecipe(title);
+        }
+
+        function openSuggestions() {
+            const matches = filterRecipes(recipeInput.value);
+            showSuggestions(matches.length > 0 ? matches : recipeTitles);
+            recipeComboboxInner.classList.add('focused');
+        }
+
+        recipeInput.addEventListener('input', function() {
+            const matches = filterRecipes(this.value);
+            showSuggestions(matches);
+            recipeComboboxInner.classList.add('focused');
+        });
+
+        recipeInput.addEventListener('focus', openSuggestions);
+
+        recipeArrow.addEventListener('mousedown', function(e) {
+            e.preventDefault();
+            recipeInput.focus();
+            openSuggestions();
+        });
+
+        recipeInput.addEventListener('keydown', function(e) {
+            const items = recipeSuggestions.querySelectorAll('.recipe-suggestion-item:not(.no-results)');
+            if (!recipeSuggestions.classList.contains('visible')) {
+                if (e.key === 'Enter') loadRecipe(recipeInput.value.trim());
+                return;
+            }
+            if (items.length === 0) {
+                if (e.key === 'Escape') recipeSuggestions.classList.remove('visible');
+                return;
+            }
+            const highlighted = recipeSuggestions.querySelector('.highlighted');
+            let idx = highlighted ? Array.from(items).indexOf(highlighted) : -1;
+            if (e.key === 'ArrowDown') {
+                e.preventDefault();
+                idx = Math.min(idx + 1, items.length - 1);
+            } else if (e.key === 'ArrowUp') {
+                e.preventDefault();
+                idx = Math.max(idx - 1, 0);
+            } else if (e.key === 'Enter') {
+                e.preventDefault();
+                if (idx < 0) idx = 0;
+                selectRecipe(items[idx].dataset.recipe);
+                return;
+            } else if (e.key === 'Escape') {
+                recipeSuggestions.classList.remove('visible');
+                return;
+            }
+            items.forEach((el, i) => el.classList.toggle('highlighted', i === idx));
+        });
+
+        document.addEventListener('click', function(e) {
+            const combobox = document.querySelector('.recipe-combobox');
+            if (!combobox.contains(e.target)) {
+                recipeSuggestions.classList.remove('visible');
+                recipeComboboxInner.classList.remove('focused');
+            }
+        });
+
+        fetch('data/recipes.json')
+            .then(r => r.json())
+            .then(data => {
+                recipes = data;
+                recipeTitles = recipes.map(r => r.title).sort((a, b) => a.toLowerCase().localeCompare(b.toLowerCase()));
+                loading.textContent = 'Select a recipe above';
+            })
+            .catch(() => {
+                loading.textContent = 'No recipes loaded. Run the workflow to fetch recipes.';
+            });
+    </script>
+</body>
+</html>

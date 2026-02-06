@@ -12,6 +12,7 @@ ENV/
 # Google Credentials (don't commit service account files)
 *.json
 !recipe_urls.json
+!data/recipes.json
 
 # IDE
 .vscode/

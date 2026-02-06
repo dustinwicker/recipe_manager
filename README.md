@@ -74,19 +74,46 @@ The parser extracts:
 - Quick Recipe sections (when available)
 - Notes (special instructions or modifications)
 
+## Static Site (GitHub Pages)
+
+A schedule-only static site is available at **dustinwicker.github.io/recipe_manager** (or recipe-manager, depending on repo name). No Refresh button — recipes are updated daily by GitHub Actions.
+
+### Setup
+
+1. **Enable GitHub Pages**  
+   Repo Settings → Pages → Source: Deploy from branch → branch `main`, folder `/` (root).
+
+2. **Add secret**  
+   Settings → Secrets and variables → Actions → add `GOOGLE_SERVICE_ACCOUNT_JSON` with the full service account JSON.
+
+3. **Run workflow**  
+   Actions → Refresh Recipes → Run workflow (or wait for the daily 6 AM UTC run).
+
+The workflow runs `fetch_recipes.py` to write `data/recipes.json`, then commits and pushes. The static `index.html` loads recipes from that file.
+
+### URL note
+
+For **dustinwicker.github.io/recipe_manager**, the repo must be named `recipe_manager`. If the repo is `recipe-manager`, the URL will be `dustinwicker.github.io/recipe-manager`.
+
 ## Project Structure
 
 ```
 recipes/
 ├── app.py                    # Flask web application
+├── index.html                # Static site for GitHub Pages
+├── fetch_recipes.py          # Fetches recipes → data/recipes.json (used by Actions)
 ├── recipe_parser.py          # Main recipe parser
 ├── quick_recipe_parser.py    # Quick Recipe document parser
 ├── creds.py                  # Google API credentials handler
 ├── share_document.py         # Helper to get service account email
 ├── recipe_urls.json          # Recipe URL mappings
+├── data/
+│   └── recipes.json         # Cached recipes (updated by workflow)
 ├── requirements.txt          # Python dependencies
+├── .github/workflows/
+│   └── refresh-recipes.yml  # Daily recipe refresh
 ├── templates/
-│   └── index.html           # Web interface
+│   └── index.html           # Flask web interface
 └── README.md                # This file
 ```
 
