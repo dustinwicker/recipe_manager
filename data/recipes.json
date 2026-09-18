@@ -458,20 +458,7 @@
   },
   {
     "title": "Chili for Hot Dogs/Hamburgers",
-    "external_links": [
-      {
-        "text": "How to Peel Garlic Quickly",
-        "url": "https://www.foodnetwork.com/how-to/packages/food-network-essentials/how-to-peel-garlic"
-      },
-      {
-        "text": "Clean FoodLiving",
-        "url": "https://www.youtube.com/watch?v=Aistuj0bzcM&ab_channel=CleanFoodLiving"
-      },
-      {
-        "text": "AdamWitt_Article",
-        "url": "https://www.adamwitt.co/allrecipes/4cknmn4gzlfd3se-6f73p-bzjk2-n8prs-bah54-4ew2f-h9l8y-n9hwn-awa68-bwbdj-52fx6-t44mc-z9mhb-r43tk-zljs7-6ngb4-356dn-djj27-z9hym-88ht4?rq=honey%20garlic"
-      }
-    ],
+    "external_links": [],
     "google_doc_links": [
       {
         "text": "Recipe",
@@ -666,6 +653,18 @@
       {
         "text": "Recipe",
         "url": "https://ladyleeshome.com/fermenting-beets/#mv-creation-102-jtr"
+      },
+      {
+        "text": "How to Peel Garlic Quickly",
+        "url": "https://www.foodnetwork.com/how-to/packages/food-network-essentials/how-to-peel-garlic"
+      },
+      {
+        "text": "Clean FoodLiving",
+        "url": "https://www.youtube.com/watch?v=Aistuj0bzcM&ab_channel=CleanFoodLiving"
+      },
+      {
+        "text": "AdamWitt_Article",
+        "url": "https://www.adamwitt.co/allrecipes/4cknmn4gzlfd3se-6f73p-bzjk2-n8prs-bah54-4ew2f-h9l8y-n9hwn-awa68-bwbdj-52fx6-t44mc-z9mhb-r43tk-zljs7-6ngb4-356dn-djj27-z9hym-88ht4?rq=honey%20garlic"
       }
     ],
     "google_doc_links": [],
@@ -961,11 +960,11 @@
     ],
     "picture_links": [
       {
-        "url": "https://lh7-rt.googleusercontent.com/docsz/AD_4nXcA8uAwP7Mlb-tK7AZ43BuZFgJY4KCMimyAPg6wv2fHweVP-GeHuFEVETw8TPHcnFtBQNDR4OjqAeomeNLR0xWcOIi2sEwnwt1yluF5rHGIa8tPZfogL_X52W95I2jCe_H9bLLjF52YWh2EcZAzvgl8z74ZYl4wUQbiuNenC0Q1CoaNFQ=s2048?key=wEPWxtUnHiNLCWAOOQZ2BQ",
+        "url": "https://lh7-rt.googleusercontent.com/docsz/AD_4nXef6Fe_wKPTzimKl4W8nbR7-5OQjT1A3gQYtzGjj0CUFJEFqykZdkheCl_BdVY7DYfioAuJKkQvsinR1exz_5GQDueB6vfWOVEMDLbr1jl24UZDFevPsIiM_t-zU4wI9aFjunslZXI9aAj9_BpzZ4BPU5KElFGdBB5PXfOAdKnHVvVSnw=s2048?key=wEPWxtUnHiNLCWAOOQZ2BQ",
         "text": "Image"
       },
       {
-        "url": "https://lh7-rt.googleusercontent.com/docsz/AD_4nXchow3ZHYoeaaS_kkfiIQlsRFz7WwnRbKPluq3N1yLmWu1x5ot0NfD6OQf_onxspXExJ_4TWWBEON-Suc11aXS0w5L1hV_IRBqUhM6N_pLYaXXqpxDfJPdE5SAR6G5_-0e6v_V8vfY-1GoFUl5WDsXOICZYezTtw9Jn4WQ-ungnhvAT_Q=s2048?key=wEPWxtUnHiNLCWAOOQZ2BQ",
+        "url": "https://lh7-rt.googleusercontent.com/docsz/AD_4nXd3MFdpbIdIKn_OLLXX9A026L3xnVM6swfIhjxt385PAuIKK-gVi_NMm7o_8_H3lBduRiw6udiywja_Anm2GnoAwGjv8eYZXUoBgnxd1CsY8Tc-m3rDZvj97fxczRFBnc_qzS3j3xlxRLhBovSFWCGJI0u8sCionHoZDv3coLmm-z94hw=s2048?key=wEPWxtUnHiNLCWAOOQZ2BQ",
         "text": "Image"
       }
     ],
@@ -1111,10 +1110,15 @@
         "url": "https://www.isabeleats.com/how-to-cook-pinto-beans-on-the-stove/#recipe"
       }
     ],
-    "google_doc_links": [],
+    "google_doc_links": [
+      {
+        "text": "Quick_Recipe",
+        "url": "https://docs.google.com/document/d/1pCV-8ggG5nmmS2n8nFtBlZNLyOFhZ1-gtU64jnl5v5g/edit?tab=t.0"
+      }
+    ],
     "picture_links": [],
-    "quick_recipe": null,
-    "has_quick_recipe": false,
+    "quick_recipe": "Before cooking:\n- Look through the dried beans and pick out anything that doesn’t look like a bean (sometimes a rock or something else from the bulk aisle sneaks in).\n- Soak the beans for at least 8 hours\nStovetop:\n- Place the soaked, drained, and rinsed pinto beans into a large pot.\n- Add salt, bay leaf, garlic cloves, and onion half.\n- Cover with 2 inches of water.\n- Bring to a boil.\n- Reduce the heat and simmer until the beans reach your desired softness, 45 to 60 minutes.\nRoasting:\n- After cooking the beans via stovetop:\n  - Oven: 400 degrees\n  - Time: 20 - 30 minutes",
+    "has_quick_recipe": true,
     "note": null
   },
   {
@@ -1304,6 +1308,10 @@
       {
         "text": "Food Smart Colorado",
         "url": "https://foodsmartcolorado.colostate.edu/recipes/preservation/understanding-and-making-sauerkraut/"
+      },
+      {
+        "text": "Picture",
+        "url": "https://drive.google.com/file/d/1Ags5C6k3zpnx2IcXsf2PYcryXmDrbjYb/view?usp=sharing"
       }
     ],
     "google_doc_links": [],
@@ -1381,10 +1389,6 @@
       {
         "text": "Recipe",
         "url": "https://ladyleeshome.com/spinach-patties-25/#mv-creation-107-jtr"
-      },
-      {
-        "text": "Picture",
-        "url": "https://drive.google.com/file/d/1Ags5C6k3zpnx2IcXsf2PYcryXmDrbjYb/view?usp=sharing"
       }
     ],
     "google_doc_links": [],
