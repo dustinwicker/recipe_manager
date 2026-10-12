@@ -75,26 +75,12 @@
     "note": null
   },
   {
-    "title": "Banana Pudding Aunt_Brenda_Recipe",
-    "external_links": [],
-    "google_doc_links": [
-      {
-        "text": "Recipe",
-        "url": "https://docs.google.com/document/d/1ZKRBHoqKoQQ7RcnHoNtLtx0O0ae7ZMHF_XF1UUNp2kY/edit"
-      }
-    ],
-    "picture_links": [],
-    "quick_recipe": null,
-    "has_quick_recipe": false,
-    "note": null
-  },
-  {
-    "title": "Beef Stew",
+    "title": "Banana Pudding",
     "external_links": [],
     "google_doc_links": [],
     "picture_links": [],
     "quick_recipe": null,
-    "has_quick_recipe": false,
+    "has_quick_recipe": true,
     "note": null
   },
   {
@@ -969,16 +955,16 @@
     ],
     "picture_links": [
       {
-        "url": "https://lh7-rt.googleusercontent.com/docsz/AD_4nXd77iz4rP0NEl3f2Iu9cDnl-s3Z7t8OfnZ9JG8VTU7DOBlCvETyaiAh2h36l1T1hF39KrcWvRNQtyhbzhoUgKGSxMDjcg0xRFVY2FPKSiT_bqrDOTgefHQQxdbkqVspLIT03h4w3H1SQhlQnDMfvqK1GDas-x_ZUiHQXVO9hAJMVw7_gw=s2048?key=wEPWxtUnHiNLCWAOOQZ2BQ",
+        "url": "https://lh7-rt.googleusercontent.com/docsz/AD_4nXf-sHlJLVTpuuv9OSX-3fxszaiEevYpl-30tBJzJgdtvZQDFJVffc3zRW9NE14sWtJ1qJYemEqC-SnkZKVHdUUm3AowsOK6H8GZFvv4C7e261Q9xnRNU99SxZ1EZ0v3Mj5O8ru0yJwPwKUdZjT8Gc2_Ej6T9TRyj4wXRC87R-Hymkvdlw=s2048?key=wEPWxtUnHiNLCWAOOQZ2BQ",
         "text": "Image"
       },
       {
-        "url": "https://lh7-rt.googleusercontent.com/docsz/AD_4nXcTp0CA8QVCL8A3560mJ4IPJ15LFOXUCBb4BFnd1RaBC_15qLGj91sY3LQMjdsG-7PnQWTAPNAxBwMly23PzYWNRxUGFuuVzrRRSSO36BDq5BcLNLZBVjN5avRSjSsLnceFIM1rHBNU-C8FPTEGE0eVOfJlZKw5bLd8m0sHU1z04M0zPA=s2048?key=wEPWxtUnHiNLCWAOOQZ2BQ",
+        "url": "https://lh7-rt.googleusercontent.com/docsz/AD_4nXcjdoGZYy-o5hfwk69V3oDmNVpnVLHg5r2vdMOj7tH5T_TzLPRfQyqCUajr-o3bxRd8tgGznCPrJi5zOYgHuV0JHtFz1EpA-dI2bARMdsAB2JEtCUefCpeKQH9grsmWT6Y1DhUx6Q_YjgoMltUVwr4pXGK7JuT6PiYu-WfqfkItm8_apQ=s2048?key=wEPWxtUnHiNLCWAOOQZ2BQ",
         "text": "Image"
       }
     ],
     "quick_recipe": null,
-    "has_quick_recipe": false,
+    "has_quick_recipe": true,
     "note": null
   },
   {
@@ -1132,6 +1118,15 @@
   },
   {
     "title": "Pizza",
+    "external_links": [],
+    "google_doc_links": [],
+    "picture_links": [],
+    "quick_recipe": null,
+    "has_quick_recipe": false,
+    "note": null
+  },
+  {
+    "title": "Potato Salad",
     "external_links": [
       {
         "text": "Aunt_Brenda_Recipe",
@@ -1141,7 +1136,7 @@
     "google_doc_links": [],
     "picture_links": [],
     "quick_recipe": null,
-    "has_quick_recipe": false,
+    "has_quick_recipe": true,
     "note": null
   },
   {
@@ -1304,7 +1299,7 @@
     ],
     "picture_links": [],
     "quick_recipe": null,
-    "has_quick_recipe": false,
+    "has_quick_recipe": true,
     "note": null
   },
   {

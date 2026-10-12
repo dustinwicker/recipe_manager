@@ -140,15 +140,11 @@ class RecipeParser:
                             elif ' quick_recipe' in title_lower or ' quick recipe' in title_lower:
                                 title = title[:title_lower.index(' quick')].strip()
                             
-                            # Remove _Recipe and _Picture suffixes from title
-                            # These appear as separate words like "Trevor_Recipe" or "Mom_Recipe"
-                            # Remove any word that matches _Something_Recipe or _Something_Picture pattern
+                            # Drop Quick_Recipe, Aunt_Brenda_Recipe, Jackie_Recipe, and picture markers.
                             words = title.split()
                             cleaned_words = []
                             for word in words:
-                                # Skip words that match _Something_Recipe or _Something_Picture pattern
-                                # Pattern: _Word_Recipe or _Word_Picture (case insensitive)
-                                if not re.match(r'^[A-Za-z]+_(recipe|picture)$', word, re.I):
+                                if not re.match(r'^.+_(recipe|picture)$', word, re.I):
                                     cleaned_words.append(word)
                             title = ' '.join(cleaned_words).strip()
                             
@@ -219,18 +215,20 @@ class RecipeParser:
                                                 'url': url
                                             })
                                 
-                                # If no links found at all, add default Google Doc link
-                                if not current_recipe['external_links'] and not current_recipe['google_doc_links']:
+                                # If no links found at all, add default Google Doc link.
+                                # A named _Recipe marker with no URL is a Quick Recipe label, not this doc.
+                                marker_only = '_recipe' in line_lower or 'quick_recipe' in line_lower or 'quick recipe' in line_lower
+                                if not marker_only and not current_recipe['external_links'] and not current_recipe['google_doc_links']:
                                     current_recipe['google_doc_links'].append({
                                         'text': 'Recipe',
                                         'url': f'https://docs.google.com/document/d/{self.doc_id}/edit'
                                     })
                             
-                            # Check if this line mentions Quick_Recipe
-                            if 'quick_recipe' in line_lower or 'quick recipe' in line_lower:
-                                # Mark that this recipe has a Quick Recipe (even if content is elsewhere)
+                            # Quick_Recipe and named markers such as Aunt_Brenda_Recipe.
+                            if 'quick_recipe' in line_lower or 'quick recipe' in line_lower or '_recipe' in line_lower:
                                 current_recipe['has_quick_recipe'] = True
-                                current_section = 'quick_recipe'
+                                if 'quick_recipe' in line_lower or 'quick recipe' in line_lower:
+                                    current_section = 'quick_recipe'
                         
                         # Detect standalone "Recipe" text (on its own line)
                         elif current_recipe and line_lower.strip() == 'recipe':
@@ -430,7 +428,7 @@ class RecipeParser:
         
         # Pattern: Recipe name followed by "Recipe" or "Quick_Recipe"
         # Examples: "Chicken Breast Recipe", "Salmon Quick_Recipe", "Tilapia Quick_Recipe"
-        if ' recipe' in line_lower or ' quick_recipe' in line_lower or ' quick recipe' in line_lower:
+        if ' recipe' in line_lower or '_recipe' in line_lower or ' quick_recipe' in line_lower or ' quick recipe' in line_lower:
             # Make sure it's not just "Recipe" or "Quick Recipe" alone
             if line_lower.strip() not in ['recipe', 'quick_recipe', 'quick recipe']:
                 return True

@@ -253,6 +253,70 @@
             padding: 40px;
             font-size: 1.1em;
         }
+
+        .try-recently {
+            padding: 8px 30px 30px;
+            border-top: 1px solid #e9ecef;
+        }
+
+        .try-recently h2 {
+            color: #333;
+            font-size: 1.25em;
+            margin-bottom: 16px;
+        }
+
+        .try-recently-status {
+            color: #777;
+            margin: -8px 0 16px;
+        }
+
+        .try-recently-list {
+            list-style: none;
+        }
+
+        .try-recently-item {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            gap: 16px;
+            padding: 12px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .try-recently-item:last-child {
+            border-bottom: none;
+        }
+
+        .try-recently-title {
+            background: none;
+            border: none;
+            padding: 0;
+            color: #667eea;
+            font: inherit;
+            font-weight: 600;
+            text-align: left;
+            cursor: pointer;
+        }
+
+        .try-recently-title:hover {
+            text-decoration: underline;
+        }
+
+        .try-recently-link {
+            flex-shrink: 0;
+            color: #764ba2;
+            font: inherit;
+            font-weight: 600;
+            text-decoration: none;
+            background: none;
+            border: none;
+            padding: 0;
+            cursor: pointer;
+        }
+
+        .try-recently-link:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
@@ -300,6 +364,12 @@
                 </div>
             </div>
         </div>
+
+        <section class="try-recently" id="try-recently" hidden>
+            <h2 id="try-recently-heading">Have you tried any of these 5 recently?</h2>
+            <p class="try-recently-status" id="try-recently-status" hidden></p>
+            <ul class="try-recently-list" id="try-recently-list"></ul>
+        </section>
     </div>
     
     <script>
@@ -320,9 +390,115 @@
         const pictureContent = document.getElementById('picture-content');
         const noteSection = document.getElementById('note-section');
         const noteContent = document.getElementById('note-content');
+        const tryRecently = document.getElementById('try-recently');
+        const tryRecentlyList = document.getElementById('try-recently-list');
+        const tryRecentlyHeading = document.getElementById('try-recently-heading');
+        const tryRecentlyStatus = document.getElementById('try-recently-status');
 
         let recipes = [];
         let recipeTitles = [];
+        let activity = {};
+        let activityReady = false;
+
+        function hasOpened(title) {
+            const row = activity[title];
+            if (!row) return false;
+            return (row.visits || 0) + (row.linkClicks || 0) > 0;
+        }
+
+        async function recordActivity(title, kind) {
+            if (!title || !activityReady) return;
+            const response = await fetch('/api/activity', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ title, kind })
+            });
+            if (!response.ok) return;
+            activity[title] = await response.json();
+        }
+
+        function isQuickRecipeLink(linkInfo) {
+            const text = (linkInfo && linkInfo.text ? linkInfo.text : '').trim().toLowerCase();
+            return text === 'quick recipe' || text === 'quick_recipe' || text.endsWith('_recipe');
+        }
+
+        function recipeLinks(recipe) {
+            const docs = recipe.google_doc_links || [];
+            const externals = recipe.external_links || [];
+            const quick = [...docs, ...externals].filter(isQuickRecipeLink);
+            const rest = externals.filter(link => !isQuickRecipeLink(link));
+            return quick.length ? quick.concat(rest) : rest;
+        }
+
+        function primaryRecipeLink(recipe) {
+            return recipeLinks(recipe)[0] || null;
+        }
+
+        function openFullRecipe(event, url, recipeTitle) {
+            event.preventDefault();
+            const opened = window.open(url, '_blank', 'popup=yes,width=1100,height=800');
+            if (opened) opened.opener = null;
+            recordActivity(recipeTitle, 'link').then(() => renderTryRecently(recipeInput.value.trim()));
+        }
+
+        function shuffle(items) {
+            const copy = items.slice();
+            for (let i = copy.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                const swap = copy[i];
+                copy[i] = copy[j];
+                copy[j] = swap;
+            }
+            return copy;
+        }
+
+        function renderTryRecently(excludeTitle) {
+            const excluded = (excludeTitle || '').toLowerCase();
+            const picks = shuffle(
+                recipes.filter(recipe => recipe.title.toLowerCase() !== excluded && !hasOpened(recipe.title))
+            ).slice(0, 5);
+            tryRecentlyHeading.textContent = picks.length === 5
+                ? 'Have you tried any of these 5 recently?'
+                : 'Have you tried any of these recently?';
+
+            tryRecentlyList.innerHTML = '';
+            picks.forEach(recipe => {
+                const item = document.createElement('li');
+                item.className = 'try-recently-item';
+
+                const titleButton = document.createElement('button');
+                titleButton.type = 'button';
+                titleButton.className = 'try-recently-title';
+                titleButton.textContent = recipe.title;
+                titleButton.addEventListener('click', () => selectRecipe(recipe.title));
+                item.appendChild(titleButton);
+
+                const linkInfo = primaryRecipeLink(recipe);
+                if (linkInfo && isQuickRecipeLink(linkInfo)) {
+                    const opener = document.createElement('button');
+                    opener.type = 'button';
+                    opener.className = 'try-recently-link';
+                    opener.textContent = 'Quick Recipe';
+                    opener.addEventListener('click', () => showRecipeOnPage(recipe.title));
+                    item.appendChild(opener);
+                } else if (linkInfo && linkInfo.url) {
+                    const link = document.createElement('a');
+                    link.className = 'try-recently-link';
+                    link.href = linkInfo.url;
+                    link.target = '_blank';
+                    link.rel = 'noopener';
+                    link.textContent = 'Full Recipe';
+                    link.addEventListener('click', (event) => openFullRecipe(event, linkInfo.url, recipe.title));
+                    item.appendChild(link);
+                }
+
+                tryRecentlyList.appendChild(item);
+            });
+            tryRecently.hidden = false;
+            if (picks.length === 0) {
+                tryRecentlyHeading.textContent = "You've opened every recipe.";
+            }
+        }
 
         function displayRecipe(recipe) {
             if (!recipe) {
@@ -335,18 +511,19 @@
             loading.style.display = 'none';
             
             recipeLinkSection.innerHTML = '';
-            if (recipe.external_links && recipe.external_links.length > 0) {
-                recipe.external_links.forEach(linkInfo => {
-                    const link = document.createElement('a');
-                    link.href = linkInfo.url;
-                    link.target = '_blank';
-                    const label = (linkInfo.text || '').trim();
-                    link.textContent = (label && label !== 'Recipe') ? label : 'Full Recipe';
-                    link.className = 'external-link';
-                    recipeLinkSection.appendChild(link);
-                    recipeLinkSection.appendChild(document.createTextNode(' '));
-                });
-            }
+            recipeLinks(recipe).forEach(linkInfo => {
+                if (isQuickRecipeLink(linkInfo)) return;
+                const link = document.createElement('a');
+                link.href = linkInfo.url;
+                link.target = '_blank';
+                link.rel = 'noopener';
+                const label = (linkInfo.text || '').trim();
+                link.textContent = (label && label !== 'Recipe') ? label : 'Full Recipe';
+                link.className = 'external-link';
+                link.addEventListener('click', (event) => openFullRecipe(event, linkInfo.url, recipe.title));
+                recipeLinkSection.appendChild(link);
+                recipeLinkSection.appendChild(document.createTextNode(' '));
+            });
             
             if (recipe.quick_recipe && recipe.quick_recipe.trim()) {
                 quickRecipeContent.textContent = recipe.quick_recipe;
@@ -411,7 +588,9 @@
                 return;
             }
             const recipe = recipes.find(r => r.title.toLowerCase() === selectedRecipe.toLowerCase());
+            if (!recipe) return;
             displayRecipe(recipe);
+            recordActivity(recipe.title, 'visit').then(() => renderTryRecently(recipe.title));
         }
 
         function getActiveTitles() {
@@ -459,7 +638,14 @@
             recipeComboboxInner.classList.remove('focused');
             recipeContent.classList.add('hidden');
             updateClearVisibility();
+            renderTryRecently('');
             recipeInput.focus();
+        }
+
+        function showRecipeOnPage(title) {
+            selectRecipe(title);
+            const target = quickRecipeSection.style.display === 'none' ? recipeContent : quickRecipeSection;
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
 
         function selectRecipe(title) {
@@ -553,9 +739,27 @@
                 recipes = data;
                 recipeTitles = recipes.map(r => r.title).sort((a, b) => a.toLowerCase().localeCompare(b.toLowerCase()));
                 loading.textContent = 'Select a recipe above';
+                return fetch('/api/activity');
+            })
+            .then(response => {
+                if (!response.ok) throw new Error('activity unavailable');
+                return response.json();
+            })
+            .then(stored => {
+                activity = stored && typeof stored === 'object' ? stored : {};
+                activityReady = true;
+                tryRecentlyStatus.hidden = true;
+                renderTryRecently(recipeInput.value.trim());
             })
             .catch(() => {
-                loading.textContent = 'No recipes loaded. Run the workflow to fetch recipes.';
+                activityReady = false;
+                if (recipes.length === 0) {
+                    loading.textContent = 'No recipes loaded. Start the recipe server on this computer.';
+                    return;
+                }
+                tryRecentlyStatus.hidden = false;
+                tryRecentlyStatus.textContent = 'Open this page from the recipe server on this computer to save which recipes you have tried.';
+                renderTryRecently(recipeInput.value.trim());
             });
     </script>
 </body>

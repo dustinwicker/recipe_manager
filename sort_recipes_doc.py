@@ -62,7 +62,7 @@ def extract_title(runs: List[Dict[str, Any]], full_text: str) -> str:
 
     words = title.split()
     cleaned = [
-        w for w in words if not re.match(r"^[A-Za-z]+_(recipe|picture)$", w, re.I)
+        w for w in words if not re.match(r"^.+_(recipe|picture)$", w, re.I)
     ]
     title = " ".join(cleaned).strip()
     title = re.sub(r"\s+-\s*$", "", title)
