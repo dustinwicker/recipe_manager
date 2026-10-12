@@ -434,11 +434,48 @@
             return recipeLinks(recipe)[0] || null;
         }
 
+        function escapeHtml(value) {
+            return String(value).replace(/[&<>"']/g, (character) => ({
+                '&': '&amp;',
+                '<': '&lt;',
+                '>': '&gt;',
+                '"': '&quot;',
+                "'": '&#39;'
+            }[character]));
+        }
+
         function openFullRecipe(event, url, recipeTitle) {
             event.preventDefault();
             const opened = window.open(url, '_blank', 'popup=yes,width=1100,height=800');
             if (opened) opened.opener = null;
-            recordActivity(recipeTitle, 'link').then(() => renderTryRecently(recipeInput.value.trim()));
+            recordActivity(recipeTitle, 'link');
+        }
+
+        function openQuickRecipeWindow(recipe) {
+            const text = (recipe.quick_recipe || '').trim();
+            const source = recipeLinks(recipe).find(isQuickRecipeLink);
+            if (!text && source && source.url) {
+                const opened = window.open(source.url, '_blank', 'popup=yes,width=1100,height=800');
+                if (opened) opened.opener = null;
+                recordActivity(recipe.title, 'link');
+                return;
+            }
+            const opened = window.open('', '_blank', 'popup=yes,width=720,height=900');
+            if (!opened) return;
+            const body = text || 'No quick recipe text is saved for this recipe.';
+            opened.document.open();
+            opened.document.write(
+                '<!DOCTYPE html><html><head><meta charset="utf-8"><title>'
+                + escapeHtml(recipe.title)
+                + ' — Quick Recipe</title><style>body{font-family:-apple-system,BlinkMacSystemFont,sans-serif;margin:0;padding:32px;color:#333;line-height:1.6}h1{font-size:1.5rem;margin:0 0 8px}h2{color:#667eea;font-size:1.05rem;margin:0 0 20px}pre{white-space:pre-wrap;font-family:inherit;margin:0}</style></head><body><h1>'
+                + escapeHtml(recipe.title)
+                + '</h1><h2>Quick Recipe</h2><pre>'
+                + escapeHtml(body)
+                + '</pre></body></html>'
+            );
+            opened.document.close();
+            opened.opener = null;
+            recordActivity(recipe.title, 'link');
         }
 
         function shuffle(items) {
@@ -479,7 +516,7 @@
                     opener.type = 'button';
                     opener.className = 'try-recently-link';
                     opener.textContent = 'Quick Recipe';
-                    opener.addEventListener('click', () => showRecipeOnPage(recipe.title));
+                    opener.addEventListener('click', () => openQuickRecipeWindow(recipe));
                     item.appendChild(opener);
                 } else if (linkInfo && linkInfo.url) {
                     const link = document.createElement('a');
@@ -590,7 +627,7 @@
             const recipe = recipes.find(r => r.title.toLowerCase() === selectedRecipe.toLowerCase());
             if (!recipe) return;
             displayRecipe(recipe);
-            recordActivity(recipe.title, 'visit').then(() => renderTryRecently(recipe.title));
+            recordActivity(recipe.title, 'visit');
         }
 
         function getActiveTitles() {
@@ -638,14 +675,7 @@
             recipeComboboxInner.classList.remove('focused');
             recipeContent.classList.add('hidden');
             updateClearVisibility();
-            renderTryRecently('');
             recipeInput.focus();
-        }
-
-        function showRecipeOnPage(title) {
-            selectRecipe(title);
-            const target = quickRecipeSection.style.display === 'none' ? recipeContent : quickRecipeSection;
-            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
 
         function selectRecipe(title) {
