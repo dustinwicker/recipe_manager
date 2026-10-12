@@ -446,7 +446,7 @@
 
         function openFullRecipe(event, url, recipeTitle) {
             event.preventDefault();
-            const opened = window.open(url, '_blank', 'popup=yes,width=1100,height=800');
+            const opened = window.open(url, '_blank');
             if (opened) opened.opener = null;
             recordActivity(recipeTitle, 'link');
         }
@@ -455,12 +455,12 @@
             const text = (recipe.quick_recipe || '').trim();
             const source = recipeLinks(recipe).find(isQuickRecipeLink);
             if (!text && source && source.url) {
-                const opened = window.open(source.url, '_blank', 'popup=yes,width=1100,height=800');
+                const opened = window.open(source.url, '_blank');
                 if (opened) opened.opener = null;
                 recordActivity(recipe.title, 'link');
                 return;
             }
-            const opened = window.open('', '_blank', 'popup=yes,width=720,height=900');
+            const opened = window.open('', '_blank');
             if (!opened) return;
             const body = text || 'No quick recipe text is saved for this recipe.';
             opened.document.open();
