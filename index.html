@@ -239,6 +239,65 @@
         #quick-recipe-content {
             white-space: pre-wrap;
         }
+
+        .servings-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 16px;
+            color: #333;
+            font-weight: 600;
+        }
+
+        .servings-row button {
+            width: 32px;
+            height: 32px;
+            border: 1px solid #d5d9e8;
+            border-radius: 8px;
+            background: white;
+            color: #667eea;
+            font-size: 1.2em;
+            cursor: pointer;
+        }
+
+        .servings-input {
+            width: 64px;
+            padding: 6px 8px;
+            border: 1px solid #d5d9e8;
+            border-radius: 8px;
+            font: inherit;
+            text-align: center;
+        }
+
+        .scaled-ingredients {
+            margin: 0 0 18px 1.2em;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .scaled-amount {
+            font-weight: 600;
+            color: #333;
+        }
+
+        .ingredient-group {
+            list-style: none;
+            margin: 14px 0 4px -18px;
+            font-weight: 700;
+            color: #333;
+        }
+
+        .scaled-steps {
+            margin: 8px 0 0 1.2em;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .scaled-steps-label {
+            margin: 0;
+            color: #667eea;
+            font-size: 1em;
+        }
         
         .no-recipe {
             text-align: center;
@@ -349,8 +408,13 @@
                 <div class="recipe-link" id="recipe-link-section"></div>
                 
                 <div class="section" id="quick-recipe-section" style="display: none;">
-                    <h3>📝 Quick Recipe</h3>
-                    <p id="quick-recipe-content"></p>
+                    <h3 id="quick-recipe-heading">📝 Quick Recipe</h3>
+                    <div id="quick-recipe-content"></div>
+                </div>
+
+                <div class="section" id="scalable-recipe-section" style="display: none;">
+                    <h3 id="scalable-recipe-heading">📝 Recipe</h3>
+                    <div id="scalable-recipe-content"></div>
                 </div>
                 
                 <div class="section" id="picture-section" style="display: none;">
@@ -385,7 +449,10 @@
         const loading = document.getElementById('loading');
         const recipeLinkSection = document.getElementById('recipe-link-section');
         const quickRecipeSection = document.getElementById('quick-recipe-section');
+        const quickRecipeHeading = document.getElementById('quick-recipe-heading');
         const quickRecipeContent = document.getElementById('quick-recipe-content');
+        const scalableRecipeSection = document.getElementById('scalable-recipe-section');
+        const scalableRecipeContent = document.getElementById('scalable-recipe-content');
         const pictureSection = document.getElementById('picture-section');
         const pictureContent = document.getElementById('picture-content');
         const noteSection = document.getElementById('note-section');
@@ -559,6 +626,122 @@
             }
         }
 
+        function formatAmount(value) {
+            const number = Math.round(Number(value) * 1000) / 1000;
+            if (!isFinite(number)) return '';
+            const whole = Math.floor(number + 1e-8);
+            const fraction = number - whole;
+            const options = [
+                [1, 8], [1, 6], [1, 4], [1, 3], [3, 8], [1, 2],
+                [5, 8], [2, 3], [3, 4], [5, 6], [7, 8]
+            ];
+            let best = null;
+            options.forEach(([numerator, denominator]) => {
+                const diff = Math.abs(fraction - numerator / denominator);
+                if (diff < 0.03 && (!best || diff < best.diff)) {
+                    best = { numerator, denominator, diff };
+                }
+            });
+            if (fraction < 0.03) return String(whole);
+            if (!best) return String(Math.round(number * 100) / 100);
+            const fractionText = best.numerator + '/' + best.denominator;
+            return whole ? whole + ' ' + fractionText : fractionText;
+        }
+
+        function ingredientLabel(item) {
+            const name = item.name || '';
+            return item.note ? name + ' (' + item.note + ')' : name;
+        }
+
+        function renderScalableRecipe(spec) {
+            const base = Number(spec.servings) || 1;
+            scalableRecipeContent.textContent = '';
+
+            const row = document.createElement('div');
+            row.className = 'servings-row';
+            const label = document.createElement('span');
+            label.textContent = spec.yieldLabel || 'Servings';
+            const down = document.createElement('button');
+            down.type = 'button';
+            down.textContent = '−';
+            down.setAttribute('aria-label', 'Fewer servings');
+            const input = document.createElement('input');
+            input.type = 'number';
+            input.min = '1';
+            input.step = '1';
+            input.value = String(base);
+            input.className = 'servings-input';
+            input.setAttribute('aria-label', 'Number of servings');
+            const up = document.createElement('button');
+            up.type = 'button';
+            up.textContent = '+';
+            up.setAttribute('aria-label', 'More servings');
+            row.append(label, down, input, up);
+
+            const list = document.createElement('ul');
+            list.className = 'scaled-ingredients';
+            const rows = [];
+            (spec.ingredients || []).forEach(item => {
+                const line = document.createElement('li');
+                if (item.header) {
+                    line.className = 'ingredient-group';
+                    line.textContent = item.name || '';
+                    list.appendChild(line);
+                    return;
+                }
+                const amount = document.createElement('span');
+                amount.className = 'scaled-amount';
+                line.append(amount, document.createTextNode(ingredientLabel(item)));
+                list.appendChild(line);
+                rows.push({ amount, item });
+            });
+
+            function shownAmount(value, factor) {
+                return formatAmount(Number(value) * factor);
+            }
+
+            function update() {
+                let servings = parseInt(input.value, 10);
+                if (!servings || servings < 1) servings = 1;
+                const factor = servings / base;
+                rows.forEach(({ amount, item }) => {
+                    if (item.amount === null || item.amount === undefined || item.amount === '') {
+                        amount.textContent = '';
+                        return;
+                    }
+                    let shown = shownAmount(item.amount, factor);
+                    if (item.amountTo !== null && item.amountTo !== undefined && item.amountTo !== '') {
+                        shown += '–' + shownAmount(item.amountTo, factor);
+                    }
+                    amount.textContent = shown + (item.unit ? ' ' + item.unit : '') + ' ';
+                });
+            }
+
+            down.addEventListener('click', () => {
+                input.value = String(Math.max(1, (parseInt(input.value, 10) || base) - 1));
+                update();
+            });
+            up.addEventListener('click', () => {
+                input.value = String((parseInt(input.value, 10) || base) + 1);
+                update();
+            });
+            input.addEventListener('input', update);
+            update();
+
+            const stepsLabel = document.createElement('p');
+            stepsLabel.className = 'scaled-steps-label';
+            stepsLabel.textContent = 'Instructions';
+            const steps = document.createElement('ol');
+            steps.className = 'scaled-steps';
+            (spec.steps || []).forEach(step => {
+                const line = document.createElement('li');
+                line.textContent = step;
+                steps.appendChild(line);
+            });
+
+            scalableRecipeContent.append(row, list, stepsLabel, steps);
+        }
+
         function displayRecipe(recipe) {
             if (!recipe) {
                 recipeContent.classList.add('hidden');
@@ -584,8 +767,18 @@
                 recipeLinkSection.appendChild(document.createTextNode(' '));
             });
             
-            if (recipe.quick_recipe && recipe.quick_recipe.trim()) {
+            const hasScalable = recipe.scalable && Array.isArray(recipe.scalable.ingredients);
+            if (hasScalable) {
+                renderScalableRecipe(recipe.scalable);
+                scalableRecipeSection.style.display = 'block';
+            } else {
+                scalableRecipeSection.style.display = 'none';
+            }
+
+            if (recipe.quick_recipe && recipe.quick_recipe.trim() && !recipe.quick_from_scalable) {
+                quickRecipeHeading.textContent = '📝 Quick Recipe';
                 quickRecipeContent.textContent = recipe.quick_recipe;
+                quickRecipeContent.style.whiteSpace = 'pre-wrap';
                 quickRecipeSection.style.display = 'block';
             } else {
                 quickRecipeSection.style.display = 'none';
