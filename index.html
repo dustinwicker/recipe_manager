@@ -451,6 +451,20 @@
             recordActivity(recipeTitle, 'link');
         }
 
+        function openLinkedRecipe(event, recipe) {
+            const linkInfo = primaryRecipeLink(recipe);
+            if (linkInfo && isQuickRecipeLink(linkInfo)) {
+                event.preventDefault();
+                openQuickRecipeWindow(recipe);
+                return true;
+            }
+            if (linkInfo && linkInfo.url) {
+                openFullRecipe(event, linkInfo.url, recipe.title);
+                return true;
+            }
+            return false;
+        }
+
         function openQuickRecipeWindow(recipe) {
             const text = (recipe.quick_recipe || '').trim();
             const source = recipeLinks(recipe).find(isQuickRecipeLink);
@@ -503,20 +517,28 @@
                 const item = document.createElement('li');
                 item.className = 'try-recently-item';
 
+                const linkInfo = primaryRecipeLink(recipe);
                 const titleButton = document.createElement('button');
                 titleButton.type = 'button';
                 titleButton.className = 'try-recently-title';
                 titleButton.textContent = recipe.title;
                 titleButton.addEventListener('click', () => selectRecipe(recipe.title));
+                titleButton.addEventListener('contextmenu', (event) => {
+                    if (openLinkedRecipe(event, recipe)) event.preventDefault();
+                });
+                if (linkInfo && isQuickRecipeLink(linkInfo)) {
+                    titleButton.title = 'Right-click to open the quick recipe';
+                } else if (linkInfo && linkInfo.url) {
+                    titleButton.title = 'Right-click to open the full recipe';
+                }
                 item.appendChild(titleButton);
 
-                const linkInfo = primaryRecipeLink(recipe);
                 if (linkInfo && isQuickRecipeLink(linkInfo)) {
                     const opener = document.createElement('button');
                     opener.type = 'button';
                     opener.className = 'try-recently-link';
                     opener.textContent = 'Quick Recipe';
-                    opener.addEventListener('click', () => openQuickRecipeWindow(recipe));
+                    opener.addEventListener('click', (event) => openLinkedRecipe(event, recipe));
                     item.appendChild(opener);
                 } else if (linkInfo && linkInfo.url) {
                     const link = document.createElement('a');
@@ -525,7 +547,7 @@
                     link.target = '_blank';
                     link.rel = 'noopener';
                     link.textContent = 'Full Recipe';
-                    link.addEventListener('click', (event) => openFullRecipe(event, linkInfo.url, recipe.title));
+                    link.addEventListener('click', (event) => openLinkedRecipe(event, recipe));
                     item.appendChild(link);
                 }
 
