@@ -21,6 +21,61 @@ class RecipeParser:
         self.recipes = []
         self.recipe_urls = self._load_recipe_urls()
     
+    def _format_amount(self, value):
+        number = round(float(value), 3)
+        whole = int(number)
+        fraction = round(number - whole, 3)
+        options = [
+            (1, 8), (1, 6), (1, 4), (1, 3), (3, 8), (1, 2),
+            (5, 8), (2, 3), (3, 4), (5, 6), (7, 8),
+        ]
+        best = None
+        for numerator, denominator in options:
+            diff = abs(fraction - numerator / denominator)
+            if diff < 0.03 and (best is None or diff < best[0]):
+                best = (diff, numerator, denominator)
+        if fraction < 0.03:
+            return str(whole)
+        if best is None:
+            return ('%g' % round(number, 2))
+        text = f'{best[1]}/{best[2]}'
+        return f'{whole} {text}' if whole else text
+
+    def _scalable_as_text(self, spec):
+        """Plain-text version of a servings-based recipe, at its original yield."""
+        lines = ['Ingredients:']
+        for item in spec.get('ingredients') or []:
+            name = (item.get('name') or '').strip()
+            if item.get('header'):
+                if name:
+                    lines.append(name)
+                continue
+            unit = (item.get('unit') or '').strip()
+            note = (item.get('note') or '').strip()
+            pieces = []
+            amount = item.get('amount')
+            if amount not in (None, ''):
+                shown = self._format_amount(amount)
+                amount_to = item.get('amountTo')
+                if amount_to not in (None, ''):
+                    shown += '–' + self._format_amount(amount_to)
+                pieces.append(shown)
+            if unit:
+                pieces.append(unit)
+            if name:
+                pieces.append(name)
+            line = ' '.join(pieces)
+            if note:
+                line += f' ({note})'
+            if line:
+                lines.append(f'- {line}')
+        steps = spec.get('steps') or []
+        if steps:
+            lines.append('Instructions:')
+            for step in steps:
+                lines.append(f'- {step}')
+        return '\n'.join(lines)
+
     def _apply_added_quick_recipes(self):
         """Fill gaps with short recipes saved in this project.
 
@@ -39,11 +94,18 @@ class RecipeParser:
             return
         by_title = {title.lower(): text for title, text in added.items()}
         for recipe in self.recipes:
+            raw = by_title.get(recipe['title'].lower())
+            if isinstance(raw, dict) and isinstance(raw.get('ingredients'), list):
+                recipe['scalable'] = raw
+                recipe['has_quick_recipe'] = True
+                if not (recipe.get('quick_recipe') or '').strip():
+                    recipe['quick_recipe'] = self._scalable_as_text(raw)
+                    recipe['quick_from_scalable'] = True
+                continue
             if (recipe.get('quick_recipe') or '').strip():
                 continue
-            text = by_title.get(recipe['title'].lower())
-            if isinstance(text, str) and text.strip():
-                recipe['quick_recipe'] = text.strip()
+            if isinstance(raw, str) and raw.strip():
+                recipe['quick_recipe'] = raw.strip()
                 recipe['has_quick_recipe'] = True
 
     def _load_recipe_urls(self) -> Dict[str, str]:

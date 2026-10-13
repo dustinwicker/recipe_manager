@@ -1,14 +1,1737 @@
 {
-  "Yogurt": "Ingredients:\n- 2 cups vanilla yogurt, or plain Greek yogurt\n- 1 cup granola\n- 1 cup berries, such as blackberries, blueberries, or strawberries\n- honey, optional\nInstructions:\n- In a glass, layer yogurt, fruit, and granola.\n- Repeat the layers.\n- Drizzle with honey if you want it sweeter.\n- Eat it soon so the granola stays crunchy.",
-  "Banana Pudding": "Ingredients:\n- 1 can sweetened condensed milk\n- 1 1/2 cups cold water\n- 1 box instant vanilla pudding\n- 3 cups heavy cream, whipped\n- 1 box vanilla wafers\n- 5 ripe bananas, sliced\nInstructions:\n- Beat the condensed milk, water, and pudding mix. Chill until it sets, then fold in the whipped cream.\n- Layer pudding, wafers, and bananas in a large bowl. Keep the banana slices covered with pudding so they do not brown.\n- Chill at least 4 hours before serving.",
-  "Buffalo Chicken Dip": "Ingredients:\n- 2 cans chunk chicken, drained, or about 3 cups shredded cooked chicken\n- 2 packages cream cheese, softened\n- 3/4 cup hot sauce\n- 1 cup ranch dressing\n- 1 1/2 cups shredded cheddar\nInstructions:\n- Warm the chicken with the hot sauce.\n- Stir in the cream cheese and ranch until smooth.\n- Mix in half the cheddar and top with the rest.\n- Heat until bubbly. Serve with celery and crackers.",
-  "Caprese": "Ingredients:\n- 4 ripe tomatoes, sliced\n- 1 pound fresh mozzarella, sliced\n- fresh basil leaves\n- olive oil, salt, and pepper\nInstructions:\n- Overlap the tomato, mozzarella, and basil on a platter.\n- Drizzle with olive oil.\n- Season with salt and pepper and serve right away.",
+  "Yogurt": {
+    "servings": 2,
+    "yieldLabel": "Servings",
+    "ingredients": [
+      {
+        "amount": 2,
+        "unit": "cups",
+        "name": "vanilla yogurt"
+      },
+      {
+        "amount": 1,
+        "unit": "cup",
+        "name": "granola"
+      },
+      {
+        "amount": 8,
+        "name": "blackberries"
+      }
+    ],
+    "steps": [
+      "Layer half the yogurt, half the granola, and half the berries in a glass. Repeat the layers."
+    ]
+  },
+  "Banana Pudding": "Ingredients:\n- 1 (14-oz) can sweetened condensed milk\n- 1 1/2 cups ice-cold water\n- 1 (3.4-oz) package instant vanilla pudding mix (preferably Jell-O brand)\n- 3 cups heavy cream\n- 1 (11-oz) box Nilla wafers\n- 5 ripe medium bananas, (sliced (see note)\nInstructions:\n- In a large bowl, whisk the sweetened condensed milk and water until evenly combined. Add the pudding mix and whisk until there are no lumps and the mixture is completely smooth. Transfer the mixture to a medium bowl, cover with plastic wrap, and refrigerate until firm, 1 to 2 hours or overnight. (Be sure the pudding is completely solidified before continuing, otherwise the dessert will not hold up.)\n- In the bowl of a stand mixer fitted with the whisk attachment, whisk the heavy cream on medium speed until the cream starts to thicken, about 30 seconds. Increase the speed to medium-high and whip until stiff peaks form. (Be careful not to over-whip; if the cream looks grainy, you’ve gone too far.)\n- Whisk the pudding to loosen it up. With the mixer on low speed, gradually add the pudding mixture a spoonful at a time. Mix until just evenly blended and no streaks of pudding remain.\n- To assemble the dessert, use a 4-quart (4-liter) trifle dish or wide glass bowl, and set aside 5 cookies to use as a garnish. Spread one-quarter of the pudding over the bottom and layer with one-third of the cookies, then one-third of the sliced bananas (enough to cover the layer). Repeat the layering twice more, ending with a final layer of pudding. Garnish the top with the reserved cookies or cookie crumbs (or a combination of the two). Cover tightly with plastic wrap and refrigerate for at least 4 hours or up to 8 hours (preferably no longer, as the cookies start to get too soft).",
+  "Buffalo Chicken Dip": "Ingredients:\n- 2 (10 ounce) cans chunk chicken, drained\n- 3/4 cup hot pepper sauce (such as Frank's RedHot)\n- 2 (8 ounce) packages cream cheese, softened\n- 1 cup ranch dressing\n- 1 1/2 cups shredded Cheddar cheese\n- 1 bunch celery, cut into 4-inch pieces\n- 1 (8 ounce) box chicken-flavored crackers\nInstructions:\n- Heat the chicken and hot sauce in a skillet over medium heat until heated through, 3 to 5 minutes.\n- Stir in the cream cheese and ranch dressing. Cook until blended and warm, 3 to 5 minutes.\n- Mix in half the cheddar and transfer to a slow cooker. Sprinkle the remaining cheese on top.\n- Cover and cook on Low until hot and bubbly, about 35 minutes.\n- Serve warm with celery and crackers. Makes about 20 servings.",
+  "Caprese": {
+    "servings": 6,
+    "yieldLabel": "Servings",
+    "ingredients": [
+      {
+        "amount": 4,
+        "unit": "large",
+        "name": "ripe tomatoes",
+        "note": "sliced 1/4 inch thick"
+      },
+      {
+        "amount": 1,
+        "unit": "pound",
+        "name": "fresh mozzarella cheese",
+        "note": "sliced 1/4 inch thick"
+      },
+      {
+        "amount": 0.3333,
+        "unit": "cup",
+        "name": "fresh basil leaves"
+      },
+      {
+        "amount": 3,
+        "unit": "tablespoons",
+        "name": "extra virgin olive oil"
+      },
+      {
+        "name": "fine sea salt and freshly ground black pepper",
+        "note": "to taste"
+      }
+    ],
+    "steps": [
+      "Overlap the tomato slices, mozzarella, and basil on a platter.",
+      "Drizzle with the olive oil and season with salt and pepper."
+    ]
+  },
   "Chipotle Mayonnaise": "Ingredients:\n- 1 cup mayonnaise\n- 1 canned chipotle pepper in adobo\n- 2 teaspoons adobo sauce from the can\n- 1 teaspoon lime juice\n- salt\nInstructions:\n- Blend until smooth.\n- Keep it in the fridge for up to a week.",
-  "Energy Bites": "Ingredients:\n- 1 cup rolled oats\n- 1/2 cup chocolate chips\n- 1/2 cup ground flaxseed\n- 1/2 cup peanut butter\n- 1/3 cup honey\n- 1 teaspoon vanilla\nInstructions:\n- Stir everything together.\n- Roll into balls.\n- Freeze until firm, about 1 hour.",
+  "Energy Bites": {
+    "servings": 24,
+    "yieldLabel": "Servings",
+    "ingredients": [
+      {
+        "amount": 1,
+        "unit": "cup",
+        "name": "rolled oats"
+      },
+      {
+        "amount": 0.5,
+        "unit": "cup",
+        "name": "miniature semisweet chocolate chips"
+      },
+      {
+        "amount": 0.5,
+        "unit": "cup",
+        "name": "ground flax seed"
+      },
+      {
+        "amount": 0.5,
+        "unit": "cup",
+        "name": "crunchy peanut butter"
+      },
+      {
+        "amount": 0.3333,
+        "unit": "cup",
+        "name": "honey"
+      },
+      {
+        "amount": 1,
+        "unit": "teaspoon",
+        "name": "vanilla extract"
+      }
+    ],
+    "steps": [
+      "Stir the oats, chocolate chips, flax seed, peanut butter, honey, and vanilla together.",
+      "Roll into balls.",
+      "Freeze until set, about 1 hour. Keep them in the fridge for up to a week."
+    ]
+  },
   "Garbanzo Beans": "Ingredients:\n- 1 pound dried chickpeas\n- salt\n- bay leaf, garlic, and onion, optional\nInstructions:\n- Pick through the beans, rinse them, and soak in plenty of water for at least 8 hours. Drain and rinse.\n- Cover with fresh water. Add salt and the aromatics if you are using them.\n- Simmer until tender, about 1 1/2 to 2 hours.",
-  "Japanese Curry": "Ingredients:\n- chicken thighs, cut into bite-size pieces\n- onion, carrot, and potato\n- about 4 cups chicken broth\n- 1 box Japanese curry roux\n- 1 tablespoon each soy sauce, ketchup, and honey\n- rice, for serving\nInstructions:\n- Brown the chicken, then cook the vegetables in the broth until the potatoes are tender.\n- Stir in the soy sauce, ketchup, and honey.\n- Turn off the heat. Dissolve the curry roux in a ladle of the hot liquid, then stir it back into the pot. Repeat until the sauce is thick.\n- Simmer a few minutes and serve over rice.",
-  "Mexican Rice": "Ingredients:\n- 2 tablespoons oil\n- 1/2 large onion, chopped\n- 2 cups long-grain rice\n- 3 cloves garlic, minced\n- 1 can diced tomatoes with green chiles\n- 1 can whole tomatoes\n- 2 cups chicken broth\n- 1 teaspoon cumin\n- salt\nInstructions:\n- Cook the onion in the oil. Add the rice and garlic and toast the rice for a few minutes.\n- Stir in the tomatoes, broth, cumin, and salt.\n- Cover and simmer until the rice is tender, about 10 to 15 minutes. Add a splash more broth if it dries out.",
-  "Pickles": "Ingredients:\n- about 2 pounds Kirby cucumbers, cut into spears\n- 1 1/4 cups distilled white vinegar\n- 3 tablespoons kosher salt\n- 2 tablespoons sugar\n- 2 cups cold water\n- garlic cloves, fresh dill, mustard seed, and coriander seed\nInstructions:\n- Heat the vinegar with the salt and sugar until they dissolve. Stir in the cold water and chill the brine.\n- Pack the cucumbers, garlic, dill, and seeds into jars.\n- Cover with brine and refrigerate about 24 hours. They keep in the fridge for about a month.",
-  "Pizza": "Ingredients:\n- 2 teaspoons yeast\n- about 1 cup lukewarm water\n- 2 tablespoons olive oil\n- 3 cups all-purpose flour\n- 1 1/4 teaspoons salt\nInstructions:\n- Mix and knead into a soft, smooth dough.\n- Let it rise until puffy, about 1 hour with instant yeast.\n- Shape it, add sauce and toppings, and bake on a hot oven, about 450°F.",
-  "Sloppy Joes": "Ingredients:\n- 1 tablespoon olive oil\n- 1 cup finely chopped onion\n- 1/2 cup minced carrot or bell pepper\n- 1 1/4 pounds ground beef\n- 1/2 cup ketchup\n- 2 cups tomato sauce\n- 1 tablespoon Worcestershire sauce\n- 1 tablespoon red wine vinegar\n- 1 1/2 tablespoons brown sugar\n- hamburger buns\nInstructions:\n- Cook the vegetables, then brown the beef. Drain off extra fat.\n- Stir in the ketchup, tomato sauce, Worcestershire, vinegar, and brown sugar.\n- Simmer about 10 minutes. Spoon onto buns."
+  "Japanese Curry": {
+    "servings": 8,
+    "yieldLabel": "Servings",
+    "ingredients": [
+      {
+        "amount": 2,
+        "name": "yellow onions"
+      },
+      {
+        "amount": 2,
+        "name": "carrots"
+      },
+      {
+        "amount": 3,
+        "name": "Yukon gold potatoes"
+      },
+      {
+        "amount": 1,
+        "unit": "tsp",
+        "name": "fresh ginger",
+        "note": "grated"
+      },
+      {
+        "amount": 2,
+        "unit": "cloves",
+        "name": "garlic"
+      },
+      {
+        "amount": 0.5,
+        "name": "apple"
+      },
+      {
+        "amount": 1.5,
+        "unit": "lb",
+        "name": "boneless, skinless chicken thighs",
+        "note": "see Notes for substitutions"
+      },
+      {
+        "name": "freshly ground black pepper"
+      },
+      {
+        "header": true,
+        "name": "For the Curry Sauce"
+      },
+      {
+        "amount": 1.5,
+        "unit": "Tbsp",
+        "name": "neutral oil",
+        "note": "for cooking"
+      },
+      {
+        "amount": 4,
+        "unit": "cups",
+        "name": "chicken stock/broth",
+        "note": "for lower sodium, use water only or half stock and half water"
+      },
+      {
+        "amount": 1,
+        "unit": "Tbsp",
+        "name": "honey"
+      },
+      {
+        "amount": 1,
+        "unit": "Tbsp",
+        "name": "soy sauce"
+      },
+      {
+        "amount": 1,
+        "unit": "Tbsp",
+        "name": "ketchup"
+      },
+      {
+        "amount": 1,
+        "unit": "package",
+        "name": "Japanese curry roux"
+      },
+      {
+        "header": true,
+        "name": "For Serving"
+      },
+      {
+        "amount": 8,
+        "unit": "servings",
+        "name": "cooked Japanese short-grain rice"
+      },
+      {
+        "name": "fukujinzuke (Japanese red pickled vegetables)",
+        "note": "optional; or make my Homemade Fukujinzuke"
+      }
+    ],
+    "steps": [
+      "Gather all the ingredients. Please read my blog post on the “secret ingredient” we add to the curry. For this recipe, I add ginger, garlic, apple, honey, soy sauce, and ketchup.",
+      "Cut 2 yellow onions into wedges. I like to have the texture of the onions in my curry, so I cut them into thick wedges. If you prefer, you can mince or thinly slice the onions so they disintegrate into the sauce.",
+      "Peel 2 carrots and cut them into rolling wedges (it‘s called rangiri in Japanese). This type of cut creates more surface area, which helps the carrots absorb more flavor and cook faster.",
+      "Peel 3 Yukon gold potatoes and cut them into quarters. Soak them in water for 15 minutes to remove excess starch. Tip: Yukon gold potatoes hold their shape well. You can use russet potatoes, but they tend to disintegrate into the broth during cooking, so cut them into 6 pieces each and add to the pot toward the end of cooking.",
+      "Grate the ginger (I use a ceramic grater ) and measure 1 tsp fresh ginger with the juice. Set aside. Mince 2 cloves garlic and set aside (I use a garlic press later when adding to the pot).",
+      "Cut ½ apple into quarters, remove the core, and peel the skin.",
+      "Grate the apple and set aside. Note: You also could use 1 small lunchbox apple for 8 servings.",
+      "Cut off the extra fat from 1½ lb boneless, skinless chicken thighs and discard it. Then, cut the chicken into bite-sized pieces. I recommend cutting it diagonally (it‘s called sogigiri in Japanese) to create more surface area and flatten each piece so it cooks faster. Season with freshly ground black pepper . Tip: If you will use homemade curry roux, you can lightly season the chicken with kosher salt as well.",
+      "Heat 1½ Tbsp neutral oil in a large pot over medium heat and add the onion.",
+      "Sauté the onions, stirring occasionally, until they become translucent and tender, about 5 minutes. Don‘t stir them too often because they won’t develop a golden color. Cooked onions add amazing flavor, so don't skip this step. If you have extra time, definitely sauté the onions an additional 5 minutes to add more color and flavor.",
+      "Add the minced garlic (I pass it through a garlic press for a finer texture) and grated ginger and mix well together.",
+      "Add the chicken and cook, stirring frequently, until it‘s no longer pink on the outside. If the onions are getting too brown, reduce the heat to medium low temporarily.",
+      "Add 4 cups chicken stock/broth . To reduce the sodium, you can substitute with water only or use half stock and half water , if you prefer. Tip: If you‘re using my homemade curry roux, you don‘t need to worry as it does not contain salt.",
+      "Add the grated apple, 1 Tbsp honey , 1 Tbsp soy sauce , and 1 Tbsp ketchup (or any condiment you choose to add). Please read my blog post for details.",
+      "Add the carrots and Yukon gold potatoes (if you‘re using russet potatoes, add them later in the last 15–20 minutes of cooking). The broth should barely cover the ingredients. Don‘t worry; we don‘t want too much liquid here, and additional liquid will be released from the meat and vegetables.",
+      "Simmer, covered* , on medium-low heat for 15 minutes, stirring occasionally. *Simmer uncovered if the ingredients are completely submerged in the broth.",
+      "Once boiling, use a fine-mesh strainer to skim the scum and foam from the surface of the broth.",
+      "Continue to cook covered until a wooden skewer goes through the carrots and potatoes.",
+      "Turn off the heat. From 1 package Japanese curry roux , put 1–2 cubes in a ladleful of cooking liquid. Slowly let it dissolve with a spoon or chopsticks and stir into the pot to incorporate. Repeat with the rest of the blocks, 2 cubes at a time. Tip: I use 1 full-sized box of store-bought curry roux, which is typically for 8–12 servings (be careful, as some brands offer a smaller box, which is 4 servings). With my homemade curry roux , I typically use 6–7 cubes for 8 servings (about 80% of the curry roux mixture if it hasn‘t solidified yet).",
+      "Simmer, uncovered , on medium-low heat, stirring frequently, until the curry becomes thick, about 5–10 minutes . If your curry is too thick, you can add water to thin the sauce. When you stir, make sure that no roux or food is stuck to the bottom of the pot; otherwise, it may burn.",
+      "If you use my unsalted homemade curry roux , taste the curry now and add salt to your liking. Tip: I recommend adding 2–4 tsp Diamond Crystal kosher salt, but this will vary based on the brand of the chicken broth and condiments you added.",
+      "Serve the curry with steamed Japanese short-grain rice on the side. If you like, garnish with fukujinzuke (Japanese red pickled vegetables) .",
+      "You can keep the leftovers in a glass airtight container (so no stains!) and store it in the refrigerator for up to 3 days and in the freezer for a month. The texture of the potatoes will change in the freezer, so you should take them out before freezing. Defrost the frozen curry in the refrigerator for 24 hours before you want to reheat it.",
+      "Leftover curry sauce will thicken into a paste as it cools, so it tends to burn while reheating. To avoid this, stir ½ cup (120 ml) water or more into the leftover sauce until loosened. Then, gently reheat it on low heat. If the sauce seems thin, continue heating with the lid off to reduce the sauce."
+    ]
+  },
+  "Mexican Rice": "Ingredients:\n- 2 tbsp. canola oil\n- 1/2 large onion, chopped\n- 2 c. uncooked long grain rice\n- 3 cloves garlic, minced\n- 1 (10-oz.) can diced tomatoes and green chilies, such as Rotel\n- 1 (14.5-oz.) can whole tomatoes\n- 2 c. low-sodium chicken broth, plus&nbsp;more if needed\n- 1 tsp. cumin, plus&nbsp;more to taste\n- 1 tsp. kosher salt\n- Fresh cilantro, chopped\nInstructions:\n- Heat oil in a large skillet over medium heat.\n- Add the onion and cook for 3 to 4 minutes. Reduce the heat to low and add the rice and garlic. Stir constantly, making sure the rice doesn't burn. Cook over low heat for 3 minutes. Add the diced tomatoes and green chiles and whole tomatoes. Stir to combine and let cook for 2 minutes.\n- Add the broth and stir together. Add the salt and cumin, plus more if you love cumin flavor! Bring to a boil. Reduce the heat to low, cover, and simmer until the rice is done, 10 to 15 minutes more. Add more liquid as needed; the rice shouldn't be sticky.\n- Just before serving, sprinkle lots of freshly chopped cilantro over the top. Serve immediately.",
+  "Pickles": "Ingredients:\n- 1 1/4 cups distilled white vinegar (5% acidity)\n- 3 tablespoons kosher salt\n- 2 tablespoons sugar\n- 2 cups cold water\n- 1 3/4–2 pounds Kirby cucumbers (about 6), cut into halves or spears)\n- 2 tablespoons coriander seeds\n- 6 large  garlic cloves, (peeled and halved)\n- 1 teaspoon mustard seeds\n- 1/4 teaspoon crushed red pepper flakes\n- 16 dill sprigs\nInstructions:\n- Combine the vinegar, salt and sugar in a small non-reactive saucepan (such as stainless steel, glass, ceramic or teflon) over high heat. Whisk until the salt and sugar are dissolved. Transfer the liquid into a bowl and whisk in the cold water. Refrigerate brine until ready to use.\n- Stuff the cucumbers into two clean 1 qt (1L) jars. Add the coriander seeds, garlic cloves, mustard seeds, red pepper flakes, dill sprigs, and chilled brine into jars, dividing evenly. If necessary, add a bit of cold water to the jars until the brine covers the cucumbers. Cover and refrigerate about 24 hours, then serve. The pickles will keep in the refrigerator for up to one month.",
+  "Pizza": "Ingredients:\n- 2 teaspoons active dry yeast or instant yeast\n- 7/8 to 1 1/8 cups (198g to 255g) lukewarm water*\n- 2 tablespoons (25g) olive oil\n- 3 cups (360g) King Arthur Unbleached All-Purpose Flour\n- 1 1/4 teaspoons (8g) table salt\nInstructions:\n- If you're using active dry yeast, dissolve it, with a pinch of sugar, in 2 tablespoons of the lukewarm water. Let the yeast and water sit at room temperature for 15 minutes, until the mixture has bubbled and expanded. If you're using instant yeast, you can skip this step.\n- Weigh your flour; or measure it by gently spooning it into a cup, then sweeping off any excess. Combine the dissolved yeast (or the instant yeast) with the remainder of the ingredients. Mix and knead everything together —by hand, mixer or bread machine set on the dough cycle — till you've made a soft, smooth dough. If you're kneading in a stand mixer, it should take 4 to 5 minutes at second speed, and the dough should barely clean the sides of the bowl, perhaps sticking a bit at the bottom. Don't over-knead the dough; it should hold together, but can still look fairly rough on the surface.\n- To make pizza up to 24 hours later, skip to step 5.\n- To make pizza now: Place the dough in a lightly greased bowl, cover the bowl, and allow it to rise till it's very puffy. This will take about an hour using instant yeast, or 90 minutes using active dry. If it takes longer, that's OK; just give it some extra time.\n- To make pizza later: Allow the dough to rise, covered, for 45 minutes at room temperature. Refrigerate the dough for 4 hours (or for up to 24 hours); it will rise slowly as it chills. This step allows you more schedule flexibility; it also develops the crust's flavor. About 2 to 3 hours before you want to serve pizza, remove the dough from the refrigerator.\n- Decide what size, shape, and thickness of pizza you want to make. This recipe will make one of the following choices:Two 1/2\"-thick 14\" round pizzas (pictured);Two 3/4\"-thick 12\" round pizzas;One 3/4\" to 1\"-thick 13\" x 18\" rectangular (Sicilian-style) pizza (pictured);One 1 1/2\"-thick 9\" x 13\" rectangular pizza;One 1\"-thick 14\" round pizza.\n- Divide the dough in half, for two pizzas; or leave it whole for one pizza.\n- If you're making a rectangular pizza, shape the dough into a rough oval. For a round pizza, shape it into a rough circle. In either case, don't pat it flat; just stretch it briefly into shape. Allow the dough to rest, covered with an overturned bowl or lightly greased plastic wrap, for 15 minutes.\n- Use vegetable oil pan spray to lightly grease the pan(s) of your choice. Drizzle olive oil into the bottom of the pan(s). The pan spray keeps the pizza from sticking; the olive oil gives the crust great flavor and crunch.\n- Place the dough in the prepared pan(s). Press it over the bottom of the pan, stretching it towards the edges. You'll probably get about two-thirds of the way there before the dough starts shrinking back; walk away for 15 minutes. Cover the dough while you're away, so it doesn't dry out.\n- When you come back, you should be able to pat the dough closer to the corners of the pan. Repeat the rest and dough-stretch one more time, if necessary; your goal is to get the dough to fill the pan as fully as possible.\n- Allow the dough to rise, covered, till it's noticeably puffy, about 90 minutes (if it hasn't been refrigerated); or 2 to 2 1/2 hours (if it's been refrigerated). Towards the end of the rising time, preheat the oven to 450°F.\n- Bake the pizza on the lower oven rack till it looks and feels set on top, and is just beginning to brown around the edge of the crust, but is still pale on top. This will take about 8 minutes for thinner crust pizza; about 10 to 12 minutes for medium thickness; and 12 to 14 minutes for thick-crust pizza. If you're baking two pizzas, reverse them in the oven (top to bottom, bottom to top) midway through the baking period.\n- To serve pizza immediately: Remove it from the oven, and arrange your toppings of choice on top. Return to the oven, and bake on the upper oven rack for an additional 10 to 15 minutes, until the crust is nicely browned, both top and bottom, and the cheese is melted. Check it midway through, and move it to the bottom rack if the top is browning too much, or the bottom not enough.\n- To serve pizza up to 2 days later: Remove the untopped, partially baked crust from the oven, cool completely on a rack, wrap in plastic, and store at room temperature. When ready to serve, top and bake in a preheated 450°F oven, adding a couple of minutes to the baking times noted above. Your goal is a pizza whose crust is browned, and whose toppings are hot/melted.\n- Remove the pizza from the oven, and transfer it from the pan to a rack to cool slightly before serving. For easiest serving, cut with a pair of scissors.",
+  "Sloppy Joes": "Ingredients:\n- 1 tablespoon extra virgin olive oil\n- 1/2 cup minced carrots (or chopped bell pepper)\n- 1 cup finely chopped onion (about 1 medium onion)\n- 1/2 cup finely chopped celery\n- 2 cloves garlic, minced\n- 1/2 teaspoon salt\n- 1 1/4 pounds ground beef\n- 1/2 cup ketchup\n- 2 cups tomato sauce (or one 15-ounce can whole tomatoes, puréed)\n- 1 tablespoon Worcestershire sauce\n- 1 tablespoon red wine vinegar\n- 1 1/2 tablespoons brown sugar\n- pinch ground cloves\n- 1/2 teaspoon dried thyme\n- pinch cayenne pepper\n- freshly ground black pepper\n- 4 hamburger buns\nInstructions:\n- Cook the carrots in the oil for 5 minutes. Add the onion and celery and cook until the onion is translucent, about 5 minutes more. Add the garlic and cook 30 seconds. Set the vegetables aside.\n- Brown the beef in the same pan, without stirring, until one side is browned, then flip it. Work in batches if the pan is crowded. Leave about 1 tablespoon of fat.\n- Return the beef and vegetables to the pan. Stir in the ketchup, tomato sauce, Worcestershire, vinegar, brown sugar, cloves, thyme, and cayenne. Simmer on medium-low for 10 minutes.\n- Serve on the buns.",
+  "Baked Sweet Potato (Vegan)": "Ingredients:\n- Sweet Potatoes\nTopping ideas:\n- Butter or vegan butter\n- Sea salt\n- Chives\n- Greek yogurt or tzatziki\n- Guacamole\n- Creamy avocado cilantro lime dressing\n- Any of these stuffing ideas!\nInstructions:\n- Preheat the oven to 425°F and place a piece of foil on a baking sheet . Use a fork to poke holes into the sweet potatoes, set them on the baking sheet, and roast for 40 to 50 minutes, or until puffed up and soft inside when pierced with a fork.\n- Serve with desired toppings.",
+  "Balsamic Grilled Vegetable Burgers (Vegan)": {
+    "servings": 4,
+    "yieldLabel": "Servings",
+    "ingredients": [
+      {
+        "header": true,
+        "name": "For the marinade:"
+      },
+      {
+        "amount": 0.5,
+        "unit": "cup",
+        "name": "balsamic vinegar"
+      },
+      {
+        "amount": 0.3333,
+        "unit": "cup",
+        "name": "olive oil"
+      },
+      {
+        "amount": 2,
+        "unit": "tablespoons",
+        "name": "soy sauce, tamari, or liquid aminos"
+      },
+      {
+        "amount": 2,
+        "unit": "tablespoons",
+        "name": "maple or agave syrup"
+      },
+      {
+        "amount": 2,
+        "unit": "teaspoons",
+        "name": "Italian seasoning or dried oregano"
+      },
+      {
+        "amount": 1,
+        "amountTo": 2,
+        "name": "cloves minced garlic (optional and to taste)"
+      },
+      {
+        "header": true,
+        "name": "For the burgers:"
+      },
+      {
+        "amount": 2,
+        "name": "large or 4 small portobello mushroom caps, stems trimmed and gills removed"
+      },
+      {
+        "amount": 1,
+        "name": "small eggplant or 1 baby eggplant, sliced crosswise into 1/2 inch slices"
+      },
+      {
+        "amount": 1,
+        "name": "large or 2 small red bell peppers, cut into 2-inch strips"
+      },
+      {
+        "amount": 1,
+        "name": "large or 2 small red onions, sliced crosswise into 1/2-inch slices"
+      },
+      {
+        "amount": 4,
+        "name": "burger buns, toasted"
+      }
+    ],
+    "steps": [
+      "To make the marinade, whisk all marinade ingredients together.",
+      "Marinate the vegetables for at least 4 hours and up to overnight. I recommend overnight for extra flavor. You can spread the vegetables in a casserole dish or two and pour the marinade over them, flipping them to ensure that both sides of the veggies get coated. Or—my preference—marinate them in gallon sized silicone or plastic storage bags (this is especially easy if you're throwing them in the fridge overnight).",
+      "Heat a grill pan over medium high heat. Remove the veggies from the marinade, reserving the marinade. Grill them for 6-10 minutes, flipping now and then so that both sides grill evenly. You can baste the vegetables with the reserved marinade every so often as you flip them. When all of the vegetables are soft and nicely grilled, remove them from heat. You may need to remove ones that cook more quickly (eggplant) before others (peppers).",
+      "Alternatively, you can roast the vegetables on a foil or parchment lined baking sheet at 425F for about 25-35 minutes, flipping and basting them halfway through, or until they're tender and browning.",
+      "To serve, pile the vegetables on burger buns in hearty stacks. Feel free to add any condiments, herbs, greens, or garnishes you like!"
+    ]
+  },
+  "Buffalo Cauliflower Wings (Vegan)": "Ingredients:\n- 2/3 cup all-purpose flour (spooned and leveled)\n- 1/4 cup cornstarch\n- 1 teaspoon garlic powder\n- 1 teaspoon onion powder\n- 1 teaspoon paprika\n- 1/2 teaspoon sea salt\n- 3/4 cup water\n- 1 cauliflower (about 2 pounds, broken into large florets)\n- Buffalo Sauce (for brushing)\n- Ranch dressing , vegan ranch (or blue cheese dressing, for dipping, optional)\nInstructions:\n- Preheat the oven to 450°F and line two large baking sheets with parchment paper.\n- In a large bowl, whisk together the flour, cornstarch, garlic powder, onion powder, paprika, and salt. Add the water and whisk until smooth. Add the cauliflower florets and stir to coat.\n- Lift the cauliflower florets out of the batter, allowing any excess batter to drip back into the bowl. Arrange in a single layer on the prepared baking sheets and bake for 10 minutes. Use a spatula to carefully flip the florets. Bake for another 10 minutes, swapping the pans on the oven racks.\n- Remove the cauliflower from the oven and brush with some of the buffalo sauce. Bake for another 12 to 15 minutes, or until the cauliflower is dark and crisp around the edges.\n- Remove from the oven and brush with additional buffalo sauce. If desired, serve with ranch or blue cheese dressing for dipping.",
+  "Candied Yams": {
+    "servings": 8,
+    "yieldLabel": "Servings",
+    "ingredients": [
+      {
+        "amount": 3,
+        "unit": "lbs",
+        "name": "sweet potatoes",
+        "note": "about 5 medium sweet potatoes"
+      },
+      {
+        "amount": 8,
+        "unit": "tablespoons",
+        "name": "unsalted butter",
+        "note": "sliced into squares, plus more for greasing the baking dish"
+      },
+      {
+        "amount": 1,
+        "unit": "cup",
+        "name": "granulated sugar"
+      },
+      {
+        "amount": 0.5,
+        "unit": "cup",
+        "name": "dark brown sugar",
+        "note": "or light brown sugar, packed"
+      },
+      {
+        "amount": 2,
+        "unit": "teaspoons",
+        "name": "ground cinnamon"
+      },
+      {
+        "amount": 0.5,
+        "unit": "teaspoon",
+        "name": "ground ginger"
+      },
+      {
+        "amount": 0.5,
+        "unit": "teaspoon",
+        "name": "ground nutmeg"
+      },
+      {
+        "amount": 0.5,
+        "unit": "teaspoon",
+        "name": "salt"
+      },
+      {
+        "amount": 0.25,
+        "unit": "teaspoon",
+        "name": "ground cloves"
+      },
+      {
+        "amount": 2,
+        "unit": "teaspoons",
+        "name": "vanilla extract"
+      }
+    ],
+    "steps": [
+      "Preheat your oven to 350°F. Butter a 9 x 13-inch baking dish and set it aside.",
+      "Thoroughly wash, peel, and slice the sweet potatoes into ½-inch thick rounds. Place the sweet potatoes in the buttered baking dish and set them aside.",
+      "Heat the butter, granulated sugar, brown sugar, cinnamon, ginger, nutmeg, cloves, and salt in a medium saucepan over medium heat just until the butter melts and the ingredients come together. Stir in the vanilla extract and remove the pan from the heat. The sauce will be thick and the sugar will not be fully dissolved.",
+      "Pour the butter and sugar mixture over the sweet potatoes in the baking dish and use a wooden spoon or your hands to stir the sweet potatoes and make sure each potato slice is coated in the syrup. This takes some effort but is worth it to avoid dry spots and clumped sweet potatoes. Cover the pan with foil and bake the yams in the preheated oven for 40 minutes.",
+      "After 40 minutes, remove the foil from the pan and carefully toss the sweet potatoes, rotating the ones on the bottom and top. This helps make sure all of the potatoes are able to thoroughly absorb that delectable cooking liquid. Continue cooking the yams, uncovered, for an additional 30 to 40 minutes, or until the sweet potatoes can be easily pierced with a fork and the cooking liquid is syrupy. The yams should be very tender but not falling apart.",
+      "Allow the candied yams to cool for about 10 minutes in the pan then serve with a slotted spoon. Spoon some additional cooking liquid over top and enjoy!"
+    ]
+  },
+  "Chanko Nabe": {
+    "servings": 4,
+    "yieldLabel": "Servings",
+    "ingredients": [
+      {
+        "header": true,
+        "name": "For the Chicken Meatballs"
+      },
+      {
+        "amount": 0.5,
+        "unit": "lb",
+        "name": "ground chicken"
+      },
+      {
+        "amount": 0.5,
+        "name": "large egg (50 g each w/o shell)",
+        "note": "beaten"
+      },
+      {
+        "amount": 1,
+        "name": "green onion/scallion"
+      },
+      {
+        "amount": 2,
+        "unit": "inches",
+        "name": "fresh ginger"
+      },
+      {
+        "amount": 2,
+        "unit": "tsp",
+        "name": "soy sauce"
+      },
+      {
+        "amount": 6,
+        "unit": "Tbsp",
+        "name": "panko (Japanese breadcrumbs)"
+      },
+      {
+        "amount": 1,
+        "unit": "Tbsp",
+        "name": "cornstarch"
+      },
+      {
+        "header": true,
+        "name": "For the Broth"
+      },
+      {
+        "amount": 6,
+        "unit": "cups",
+        "name": "chicken stock/broth",
+        "note": "for vegan/vegetarian, use vegetable broth or Vegan Dashi"
+      },
+      {
+        "amount": 0.25,
+        "unit": "cup",
+        "name": "sake"
+      },
+      {
+        "amount": 0.3333,
+        "unit": "cup",
+        "name": "mirin"
+      },
+      {
+        "amount": 2,
+        "unit": "cloves",
+        "name": "garlic",
+        "note": "crushed"
+      },
+      {
+        "amount": 4,
+        "unit": "inches",
+        "name": "fresh ginger"
+      },
+      {
+        "amount": 0.5,
+        "unit": "cup",
+        "name": "white miso"
+      },
+      {
+        "header": true,
+        "name": "For the Stew"
+      },
+      {
+        "name": "chicken meatballs",
+        "note": "see ingredients above"
+      },
+      {
+        "amount": 4,
+        "name": "boneless, skinless chicken thighs"
+      },
+      {
+        "amount": 1.5,
+        "unit": "lb",
+        "name": "cod fillet"
+      },
+      {
+        "amount": 8,
+        "name": "shrimp"
+      },
+      {
+        "amount": 14,
+        "unit": "oz",
+        "name": "medium-firm tofu (momen dofu)"
+      },
+      {
+        "amount": 6,
+        "unit": "oz",
+        "name": "thinly-sliced pork belly",
+        "note": "optional"
+      },
+      {
+        "amount": 0.5,
+        "unit": "head",
+        "name": "napa cabbage"
+      },
+      {
+        "amount": 2,
+        "unit": "inches",
+        "name": "carrot"
+      },
+      {
+        "amount": 2,
+        "name": "Tokyo negi (long green onion)"
+      },
+      {
+        "amount": 6,
+        "name": "green onions/scallions"
+      },
+      {
+        "amount": 4,
+        "amountTo": 6,
+        "name": "shiitake mushrooms"
+      },
+      {
+        "header": true,
+        "name": "For Serving"
+      },
+      {
+        "name": "ponzu",
+        "note": "or make my Homemade Ponzu recipe"
+      },
+      {
+        "name": "sesame dipping sauce",
+        "note": "goma dare"
+      },
+      {
+        "amount": 4,
+        "unit": "servings",
+        "name": "cooked Japanese short-grain rice",
+        "note": "or precooked udon / ramen noodles; for the final course"
+      }
+    ],
+    "steps": [
+      "In a large bowl, combine ½ lb ground chicken , 2 tsp soy sauce , 2 tsp ginger juice (grated and squeezed from 2 inches fresh ginger ), 1 Tbsp cornstarch , 6 Tbsp panko (Japanese breadcrumbs) , 1 green onion/scallion (finely chopped), and ½ large egg (50 g each w/o shell) (beaten).",
+      "Using your hands, mix it all together until pale and well combined.",
+      "Shape the mixture into 1-inch (2.5-cm) chicken meatballs . If it's too loose to form meatballs, sprinkle in additional panko, as needed.",
+      "Protein: Trim the visible fat from 4 boneless, skinless chicken thighs and cut the meat into bite-sized pieces. Cut 1½ lb cod fillet into 2-inch (5-cm) chunks. Peel and devein 8 shrimp . Cut 14 oz medium-firm tofu (momen dofu) into 1-inch (2.5-cm) cubes. Cut 6 oz thinly-sliced pork belly (optional) into 2-inch (5-cm) pieces. Vegetables: Separate ½ head napa cabbage into leaves and cut them into roughly 2-inch (5-cm) pieces. Slice 2 inches carrot . Optionally, make decorative flower shapes using a vegetable cutter; see how to cut carrots into flower shapes . Cut 2 Tokyo negi (long green onion) diagonally into pieces 1 inch (2.5 cm) long. Cut 6 green onions/scallions into pieces 2 inches (5 cm) long. Remove the stems from 4–6 shiitake mushrooms . Optionally, make a decorative cuts; see how to make a flower pattern on shiitake mushroom caps .",
+      "On the stovetop, combine 6 cups chicken stock/broth , ¼ cup sake , and ⅓ cup mirin in a donabe clay pot (or Dutch oven or large pot). Add 1½ tsp crushed garlic from 2 cloves garlic and 2 Tbsp ginger juice (grated and squeezed from 4 inches fresh ginger ). Bring it all to a simmer over medium heat.",
+      "Once simmering, ladle a small amount of broth into a measuring cup or bowl. Add ½ cup white miso to the cup and stir until fully dissolved and smooth, with no lumps remaining.",
+      "Do not let the broth boil once you add the miso, or it will lose its flavor and aroma. Gradually stir the miso mixture back into the pot and turn off the heat as soon as small bubbles appear around the edges.",
+      "Arrange all the stew ingredients on platters and set them on the table. Pour the ponzu sauce and/or sesame dipping sauce ( goma dare ) into individual dipping bowls at each place setting. Provide chopsticks, soup bowls, and soup spoons (optional). Place a portable gas burner on the table and set the donabe with broth on top. If you don’t have a portable burner, cook on the stovetop and transfer to a large serving bowl, or bring the pot to the table between batches.",
+      "First batch: Bring the broth to a simmer over medium heat. Add the fish, tofu, napa cabbage stems, negi, carrots, and some mushrooms. Cook in batches if needed. Cover and simmer gently for about 10 minutes, until napa cabbage is tender, the fish flakes easily, and the chicken is cooked through with no pink remaining. Transfer to individual bowls and enjoy. Nami's Tip: Keep the broth at a gentle simmer.",
+      "Second batch: Add the chicken meatballs, meat (or more fish), and remaining vegetables. Cover and simmer gently for about 10 minutes. Note that vegetables and tofu cook faster than meat and seafood. Serve in individual bowls to enjoy the second round. Nami's Tip: Add water or chicken broth if the liquid reduces too much.",
+      "Remove the solids from the broth when you're ready for the final course. Add 4 servings cooked Japanese short-grain rice or precooked udon noodles to the broth. Simmer for 2–3 minutes, until the rice or noodles are heated through and have absorbed some of the broth. Serve immediately.",
+      "Refrigerate leftovers in an airtight container for up to 36 hours. Reheat gently before serving."
+    ]
+  },
+  "Chanko Nabe (Sumo Stew)": {
+    "servings": 4,
+    "yieldLabel": "Servings",
+    "ingredients": [
+      {
+        "header": true,
+        "name": "For the Chicken Meatballs"
+      },
+      {
+        "amount": 0.5,
+        "unit": "lb",
+        "name": "ground chicken"
+      },
+      {
+        "amount": 0.5,
+        "name": "large egg (50 g each w/o shell)",
+        "note": "beaten"
+      },
+      {
+        "amount": 1,
+        "name": "green onion/scallion"
+      },
+      {
+        "amount": 2,
+        "unit": "inches",
+        "name": "fresh ginger"
+      },
+      {
+        "amount": 2,
+        "unit": "tsp",
+        "name": "soy sauce"
+      },
+      {
+        "amount": 6,
+        "unit": "Tbsp",
+        "name": "panko (Japanese breadcrumbs)"
+      },
+      {
+        "amount": 1,
+        "unit": "Tbsp",
+        "name": "cornstarch"
+      },
+      {
+        "header": true,
+        "name": "For the Broth"
+      },
+      {
+        "amount": 6,
+        "unit": "cups",
+        "name": "chicken stock/broth",
+        "note": "for vegan/vegetarian, use vegetable broth or Vegan Dashi"
+      },
+      {
+        "amount": 0.25,
+        "unit": "cup",
+        "name": "sake"
+      },
+      {
+        "amount": 0.3333,
+        "unit": "cup",
+        "name": "mirin"
+      },
+      {
+        "amount": 2,
+        "unit": "cloves",
+        "name": "garlic",
+        "note": "crushed"
+      },
+      {
+        "amount": 4,
+        "unit": "inches",
+        "name": "fresh ginger"
+      },
+      {
+        "amount": 0.5,
+        "unit": "cup",
+        "name": "white miso"
+      },
+      {
+        "header": true,
+        "name": "For the Stew"
+      },
+      {
+        "name": "chicken meatballs",
+        "note": "see ingredients above"
+      },
+      {
+        "amount": 4,
+        "name": "boneless, skinless chicken thighs"
+      },
+      {
+        "amount": 1.5,
+        "unit": "lb",
+        "name": "cod fillet"
+      },
+      {
+        "amount": 8,
+        "name": "shrimp"
+      },
+      {
+        "amount": 14,
+        "unit": "oz",
+        "name": "medium-firm tofu (momen dofu)"
+      },
+      {
+        "amount": 6,
+        "unit": "oz",
+        "name": "thinly-sliced pork belly",
+        "note": "optional"
+      },
+      {
+        "amount": 0.5,
+        "unit": "head",
+        "name": "napa cabbage"
+      },
+      {
+        "amount": 2,
+        "unit": "inches",
+        "name": "carrot"
+      },
+      {
+        "amount": 2,
+        "name": "Tokyo negi (long green onion)"
+      },
+      {
+        "amount": 6,
+        "name": "green onions/scallions"
+      },
+      {
+        "amount": 4,
+        "amountTo": 6,
+        "name": "shiitake mushrooms"
+      },
+      {
+        "header": true,
+        "name": "For Serving"
+      },
+      {
+        "name": "ponzu",
+        "note": "or make my Homemade Ponzu recipe"
+      },
+      {
+        "name": "sesame dipping sauce",
+        "note": "goma dare"
+      },
+      {
+        "amount": 4,
+        "unit": "servings",
+        "name": "cooked Japanese short-grain rice",
+        "note": "or precooked udon / ramen noodles; for the final course"
+      }
+    ],
+    "steps": [
+      "In a large bowl, combine ½ lb ground chicken , 2 tsp soy sauce , 2 tsp ginger juice (grated and squeezed from 2 inches fresh ginger ), 1 Tbsp cornstarch , 6 Tbsp panko (Japanese breadcrumbs) , 1 green onion/scallion (finely chopped), and ½ large egg (50 g each w/o shell) (beaten).",
+      "Using your hands, mix it all together until pale and well combined.",
+      "Shape the mixture into 1-inch (2.5-cm) chicken meatballs . If it's too loose to form meatballs, sprinkle in additional panko, as needed.",
+      "Protein: Trim the visible fat from 4 boneless, skinless chicken thighs and cut the meat into bite-sized pieces. Cut 1½ lb cod fillet into 2-inch (5-cm) chunks. Peel and devein 8 shrimp . Cut 14 oz medium-firm tofu (momen dofu) into 1-inch (2.5-cm) cubes. Cut 6 oz thinly-sliced pork belly (optional) into 2-inch (5-cm) pieces. Vegetables: Separate ½ head napa cabbage into leaves and cut them into roughly 2-inch (5-cm) pieces. Slice 2 inches carrot . Optionally, make decorative flower shapes using a vegetable cutter; see how to cut carrots into flower shapes . Cut 2 Tokyo negi (long green onion) diagonally into pieces 1 inch (2.5 cm) long. Cut 6 green onions/scallions into pieces 2 inches (5 cm) long. Remove the stems from 4–6 shiitake mushrooms . Optionally, make a decorative cuts; see how to make a flower pattern on shiitake mushroom caps .",
+      "On the stovetop, combine 6 cups chicken stock/broth , ¼ cup sake , and ⅓ cup mirin in a donabe clay pot (or Dutch oven or large pot). Add 1½ tsp crushed garlic from 2 cloves garlic and 2 Tbsp ginger juice (grated and squeezed from 4 inches fresh ginger ). Bring it all to a simmer over medium heat.",
+      "Once simmering, ladle a small amount of broth into a measuring cup or bowl. Add ½ cup white miso to the cup and stir until fully dissolved and smooth, with no lumps remaining.",
+      "Do not let the broth boil once you add the miso, or it will lose its flavor and aroma. Gradually stir the miso mixture back into the pot and turn off the heat as soon as small bubbles appear around the edges.",
+      "Arrange all the stew ingredients on platters and set them on the table. Pour the ponzu sauce and/or sesame dipping sauce ( goma dare ) into individual dipping bowls at each place setting. Provide chopsticks, soup bowls, and soup spoons (optional). Place a portable gas burner on the table and set the donabe with broth on top. If you don’t have a portable burner, cook on the stovetop and transfer to a large serving bowl, or bring the pot to the table between batches.",
+      "First batch: Bring the broth to a simmer over medium heat. Add the fish, tofu, napa cabbage stems, negi, carrots, and some mushrooms. Cook in batches if needed. Cover and simmer gently for about 10 minutes, until napa cabbage is tender, the fish flakes easily, and the chicken is cooked through with no pink remaining. Transfer to individual bowls and enjoy. Nami's Tip: Keep the broth at a gentle simmer.",
+      "Second batch: Add the chicken meatballs, meat (or more fish), and remaining vegetables. Cover and simmer gently for about 10 minutes. Note that vegetables and tofu cook faster than meat and seafood. Serve in individual bowls to enjoy the second round. Nami's Tip: Add water or chicken broth if the liquid reduces too much.",
+      "Remove the solids from the broth when you're ready for the final course. Add 4 servings cooked Japanese short-grain rice or precooked udon noodles to the broth. Simmer for 2–3 minutes, until the rice or noodles are heated through and have absorbed some of the broth. Serve immediately.",
+      "Refrigerate leftovers in an airtight container for up to 36 hours. Reheat gently before serving."
+    ]
+  },
+  "Cleansing Detox Soup": {
+    "servings": 4,
+    "yieldLabel": "Servings",
+    "ingredients": [
+      {
+        "amount": 0.25,
+        "unit": "cup",
+        "name": "water (or vegetable broth)"
+      },
+      {
+        "amount": 0.5,
+        "name": "of a red onion, diced"
+      },
+      {
+        "amount": 2,
+        "name": "cloves garlic, minced"
+      },
+      {
+        "amount": 3,
+        "name": "celery stalks, diced"
+      },
+      {
+        "amount": 3,
+        "name": "medium carrots, diced"
+      },
+      {
+        "amount": 1,
+        "name": "small head of broccoli, florets"
+      },
+      {
+        "amount": 1,
+        "unit": "cup",
+        "name": "chopped tomatoes"
+      },
+      {
+        "amount": 1,
+        "unit": "tablespoon",
+        "name": "fresh ginger, peeled and minced"
+      },
+      {
+        "amount": 1,
+        "unit": "teaspoon",
+        "name": "turmeric (I used powdered)"
+      },
+      {
+        "amount": 0.25,
+        "unit": "teaspoon",
+        "name": "cinnamon"
+      },
+      {
+        "amount": 0.125,
+        "unit": "teaspoon",
+        "name": "cayenne pepper, or to taste (optional)"
+      },
+      {
+        "name": "fine-grain sea salt and black pepper, to taste"
+      },
+      {
+        "amount": 6,
+        "unit": "cup",
+        "name": "water (or 4 cups vegetable broth + 2 cups water)"
+      },
+      {
+        "amount": 2,
+        "unit": "cup",
+        "name": "kale, de-stemmed and torn in pieces"
+      },
+      {
+        "amount": 1,
+        "unit": "cup",
+        "name": "purple cabbage, chopped"
+      },
+      {
+        "amount": 0.5,
+        "name": "ce from 1/2 of a small lemon (or a whole lemon, depending how much lemon flavor you prefer)"
+      }
+    ],
+    "steps": [
+      "In a large pot, add the water and turn on the heat to medium-high. After it’s hot, add the onion and garlic. Sauté for 2 minutes, stirring occasionally. Add the celery, carrots, broccoli, tomatoes and fresh ginger. Stir and cook for 3 minutes, adding in extra water or broth as needed (another 1/4 cup). Stir in the turmeric, cinnamon, and cayenne pepper plus salt and pepper to taste.",
+      "Add in the water or vegetable broth and bring to a boil. Reduce heat and simmer for 10-15 minutes or until vegetables are soft. Add in the kale, cabbage and lemon juice near the last 2-3 minutes of simmering.",
+      "Enjoy!"
+    ]
+  },
+  "Dumpling Soup (Vegan)": {
+    "servings": 4,
+    "yieldLabel": "Servings",
+    "ingredients": [
+      {
+        "header": true,
+        "name": "Flavor Base:"
+      },
+      {
+        "amount": 1,
+        "unit": "tbsp",
+        "name": "curry paste",
+        "note": "red, green, or yellow"
+      },
+      {
+        "amount": 2,
+        "unit": "cloves",
+        "name": "garlic",
+        "note": "minced"
+      },
+      {
+        "amount": 1,
+        "unit": "tsp",
+        "name": "ginger",
+        "note": "grated"
+      },
+      {
+        "amount": 2,
+        "unit": "tbsp",
+        "name": "parsley",
+        "note": "finely chopped"
+      },
+      {
+        "amount": 2,
+        "unit": "tbsp",
+        "name": "tahini"
+      },
+      {
+        "amount": 3,
+        "unit": "tbsp",
+        "name": "soy sauce"
+      },
+      {
+        "amount": 3,
+        "unit": "tbsp",
+        "name": "hot oil",
+        "note": "chili oil or neutral oil"
+      },
+      {
+        "header": true,
+        "name": "Soup:"
+      },
+      {
+        "amount": 150,
+        "unit": "g",
+        "name": "noodles",
+        "note": "cellophane, ramen, udon, or soba 5.3 oz"
+      },
+      {
+        "amount": 2,
+        "name": "heads bok choy",
+        "note": "halved or chopped"
+      },
+      {
+        "amount": 8,
+        "amountTo": 10,
+        "name": "gyoza",
+        "note": "dumplings, fresh or frozen"
+      },
+      {
+        "amount": 750,
+        "unit": "ml",
+        "name": "hot unsalted noodle cooking water",
+        "note": "about 3 cups to start; reserve 1 litre in total and add more to taste"
+      },
+      {
+        "header": true,
+        "name": "Optional Toppings:"
+      },
+      {
+        "amount": 30,
+        "unit": "g",
+        "name": "Scallions",
+        "note": "or 1 oz, thinly sliced"
+      },
+      {
+        "amount": 1,
+        "unit": "tbsp",
+        "name": "Sesame seeds",
+        "note": "or 15 g"
+      },
+      {
+        "amount": 1,
+        "unit": "tbsp",
+        "name": "Chili oil or chili crisp",
+        "note": "or 15 ml"
+      },
+      {
+        "name": "Lime wedges"
+      },
+      {
+        "name": "Seaweed sheets",
+        "note": "nori"
+      }
+    ],
+    "steps": [
+      "Put the finely grated garlic and ginger in a large heatproof bowl suitable for hot oil, or an unheated metal saucepan. Keep the curry paste, parsley, tahini, and soy sauce aside.",
+      "Heat the oil in a small pan until shimmering, not smoking. Carefully pour it over the garlic and ginger. Let the sizzling settle, then stir in the curry paste, parsley, tahini, and soy sauce.",
+      "Boil the vegan noodles in unsalted water according to their packet instructions. Add bok choy during the last 2 minutes, until tender. Lift out the noodles and bok choy. Keep 1 litre (about 4 cups) of the hot cooking water for the broth before draining anything.",
+      "Cook vegan gyoza suitable for boiling according to the packet instructions, especially when frozen. Use the same pot or a separate pot as needed. Keep them intact by avoiding a vigorous boil, then lift them out.",
+      "Gradually whisk 750 ml (about 3 cups) of the hot reserved water into the flavor base. Taste, then add up to 250 ml (about 1 cup) more for a lighter broth. If the cooking water is salty or very starchy, use hot plain water instead. Taste before adding extra soy sauce or curry paste.",
+      "Divide the noodles, bok choy, and dumplings among four small bowls. Pour over the hot broth. Top with optional scallions, sesame seeds, chili oil or chili crisp, lime, and nori. Serve immediately."
+    ]
+  },
+  "Fermented Beets": "Ingredients:\n- Enough beets to fill a quart jar\n- 1 tablespoon of mustard seeds\n- For the brine: sea salt, kosher salt, or pickling salt (in other words, non-iodized salt), and non-chlorinated water (distilled is fine)\nInstructions:\n- Prep your beets: remove the greens and wash your beets. Cut off the tops and the roots. Use a vegetable peeler to remove the skin. Then, cut your beets as you wish (you can go with thin slices or cube the beets... It doesn't matter how you cut your beets just take into consideration that the thinner you slice the beets the faster they'll soften).\n- Pack the jar: wash your jar with warm water and dish soap. Pack the jar with the beets. Make sure to leave 1-1 1/2 inch of headspace for the fermentation weight.\n- Add the mustard seeds or other seasonings (see notes).\n- Add the brine: dissolve a tablespoon of salt in a cup of water and add it to the jar. Repeat until the jar is filled with brine. Place a fermentation weight on top of the beets. Make sure the beets are covered with brine.\n- Let ferment: close the jar with the lid (use a plastic freezer lid or a fermentation lid) and set on a plate to catch any liquid that spills out in the fermentation process. Place your jar at room temperature to ferment.After a couple of days, you'll see bubbles starting to form inside the jar. If you are not using a special fermentation weight, make sure to open the jar once a day to let the gas out then close it again (just twist the lid as if you are going to open the jar and after a few seconds twist it back again). It should take 7-10 days for a quart jar to ferment. The brine in the jar will become foggy and then after about a week, it will clear again. When the brine is clear again the beets are ready.\n- Store the jar in the fridge or a root cellar for best results or at room temperature for a couple of months.",
+  "Flour Tortillas": "Ingredients:\n- 3 cups unbleached all purpose flour (440g)\n- 1 teaspoon kosher salt (5g)\n- 1 1/4 teaspoon baking powder⅐ (6g)\n- 1 cup hot water, just boiled (240g)\n- 1/3 cup melted butter (75g)\nInstructions:\n- In a large mixing bowl, combine the all purpose flour, salt, and baking powder. Whisk to combine well.\n- Make a well in the center of the dry ingredients, and pour in the melted butter and hot water. Use a wooden spoon or Danish dough whisk to incorporate the wet ingredients into the dry. Make sure to scrape the sides of the bowl, and mix until there are no dry patches of flour, but do not over mix.\n- Use your hands to gently knead the dough for about 30 seconds, and gather the dough together into a ball. Place the dough ball back into the bowl, and cover. Let the dough rest at room temperature for 15 minutes.\n- Pour the dough out onto a lightly floured surface, and divide the dough into 8 larger or 10 smaller, equal pieces. Roll each piece into a round ball.\n- Flour your surface again, and sprinkle a bit of flour on top of the dough. Roll each piece out into a circle, about 9\" in diameter. Try to get the tortillas as thin as possible. If you're using this recipe to make Gorditas (a thicker version of flour tortillas), make them 7-8 inches in diameter.\n- Heat a large nonstick pan over medium low heat. Place the tortillas into the dry pan, one at a time. Cook for 2 minutes on one side, until bubbles start to form on the surface of the dough. Take a peak to see if there are 3-4 golden brown spots on the underside of the dough. Flip, then cook for another 2 minutes. Repeat with the remaining pieces of dough.\n- Once the tortillas are cooked, wrap them in a clean kitchen towel to keep the warm and soft. Serve immediately, and make the best burritos, quesadillas, or tacos ever!",
+  "French Toast": {
+    "servings": 4,
+    "yieldLabel": "Slices",
+    "ingredients": [
+      {
+        "amount": 0.5,
+        "unit": "cup",
+        "name": "+ 1 tablespoon half-and-half (or whole milk)"
+      },
+      {
+        "amount": 1,
+        "name": "large egg"
+      },
+      {
+        "amount": 1.25,
+        "unit": "teaspoons",
+        "name": "vanilla extract"
+      },
+      {
+        "amount": 0.125,
+        "unit": "teaspoon",
+        "name": "fine salt"
+      },
+      {
+        "amount": 0.25,
+        "unit": "teaspoon",
+        "name": "cinnamon"
+      },
+      {
+        "amount": 4,
+        "unit": "slices",
+        "name": "stale sourdough bread, cut into",
+        "note": "3/4-inch thick slices*"
+      },
+      {
+        "amount": 3,
+        "unit": "tablespoons",
+        "name": "butter,",
+        "note": "divided"
+      }
+    ],
+    "steps": [
+      "Whisk together milk, egg, vanilla, salt, and cinnamon, until thoroughly combined.",
+      "Pour into a shallow baking dish. Put 2 pieces of bread into the dish and press down. Let soak for 2 minutes.",
+      "Flip bread and let that side soak for another 2 minutes. (The time is important, it's what allows the bread to have a soft inside with golden outside.) Repeat with next 2 slices.",
+      "Meanwhile heat cast iron skillet pan over medium heat for a few minutes. When bread is ready to be cooked, place 1 1/2 tablespoons butter in pan and swirl to coat. Don't skimp on the butter, you need the fat to create the golden brown exterior.",
+      "Put 2 slices bread into pan and cook for 4 minutes. Flip, turn heat up to medium, and cook another 3 to 4 minutes, until golden brown. If you'd like it more crisp, slightly turn up heat. Repeat with remaining syrup. Serve warm with maple syrup."
+    ]
+  },
+  "Greek Chicken and Lemon Rice": {
+    "servings": 4,
+    "yieldLabel": "Servings",
+    "ingredients": [
+      {
+        "header": true,
+        "name": "Chicken"
+      },
+      {
+        "amount": 1.5,
+        "unit": "lb",
+        "name": "skinless boneless chicken thighs"
+      },
+      {
+        "amount": 1,
+        "unit": "teaspoon",
+        "name": "dried oregano"
+      },
+      {
+        "amount": 1,
+        "unit": "teaspoon",
+        "name": "paprika"
+      },
+      {
+        "amount": 0.25,
+        "unit": "teaspoon",
+        "name": "salt"
+      },
+      {
+        "amount": 0.25,
+        "unit": "teaspoon",
+        "name": "red pepper flakes"
+      },
+      {
+        "amount": 2,
+        "unit": "tablespoons",
+        "name": "olive oil"
+      },
+      {
+        "header": true,
+        "name": "Greek lemon rice"
+      },
+      {
+        "amount": 1,
+        "unit": "tablespoon",
+        "name": "olive oil"
+      },
+      {
+        "amount": 8,
+        "unit": "oz",
+        "name": "grape tomatoes",
+        "note": "sliced in half"
+      },
+      {
+        "amount": 5,
+        "unit": "cloves",
+        "name": "garlic",
+        "note": "minced"
+      },
+      {
+        "amount": 1,
+        "unit": "teaspoon",
+        "name": "dried oregano"
+      },
+      {
+        "amount": 0.25,
+        "unit": "teaspoon",
+        "name": "salt"
+      },
+      {
+        "amount": 5,
+        "unit": "oz",
+        "name": "fresh spinach",
+        "note": "chopped"
+      },
+      {
+        "amount": 3,
+        "unit": "tablespoons",
+        "name": "freshly squeezed lemon juice"
+      },
+      {
+        "amount": 2,
+        "unit": "cups",
+        "name": "cooked jasmine rice"
+      },
+      {
+        "amount": 15,
+        "unit": "oz",
+        "name": "chickpeas",
+        "note": "canned"
+      },
+      {
+        "header": true,
+        "name": "Feta cheese mixture"
+      },
+      {
+        "amount": 6,
+        "unit": "oz",
+        "name": "feta cheese",
+        "note": "diced into small cubes"
+      },
+      {
+        "amount": 1,
+        "unit": "tablespoon",
+        "name": "extra virgin olive oil"
+      },
+      {
+        "amount": 1,
+        "unit": "tablespoon",
+        "name": "freshly squeezed lemon juice"
+      },
+      {
+        "amount": 0.25,
+        "unit": "teaspoon",
+        "name": "dried oregano"
+      },
+      {
+        "amount": 2,
+        "unit": "tablespoons",
+        "name": "chopped fresh oregano",
+        "note": "optional"
+      },
+      {
+        "name": "fresh oregano",
+        "note": "for garnish"
+      }
+    ],
+    "steps": [
+      "Season the chicken thighs with dried oregano, paprika, salt, and red pepper flakes.",
+      "Heat an empty, high-sided, heavy-bottomed skillet over medium heat for 2 minutes.",
+      "Add 2 tablespoons of olive oil. Add chicken thighs. Cook the chicken on medium heat for 5 minutes on one side, undisturbed. Important note: make sure the oil does not burn. If the skillet gets too hot (depending on your stovetop), reduce heat to low-medium. You don't want the juices from the chicken to be burnt, as you will use those juices to flavor the rice.",
+      "Flip the chicken thighs over, reduce heat to low-medium, and cook for about 5 more minutes or longer on the other side, without moving it, until it's cooked through.",
+      "The digital instant-read meat thermometer should read 165°F (74°C) in the thickest part of the chicken. Remove the chicken from the skillet.",
+      "Add half of the halved grape tomatoes, minced garlic, 1 teaspoon of dried oregano, ¼ teaspoon of salt, and 1 tablespoon of olive oil to the same, now empty, skillet. Cook the tomatoes on medium heat for about 2 minutes until they soften and release juices.",
+      "Stir in fresh spinach until it wilts.",
+      "Add cooked rice and drained chickpeas.",
+      "Add 3 tablespoons of freshly squeezed lemon juice and the remaining uncooked halved grape tomatoes. Reheat on medium heat, stirring everything to combine. Add 1 extra tablespoon of olive oil if you like.",
+      "In a medium bowl, combine cubed Feta cheese with 1 tablespoon of extra virgin olive oil, 1 tablespoon of freshly squeezed lemon juice, ¼ teaspoon of dried oregano (add more to taste), 2 tablespoons of chopped fresh oregano (if using).",
+      "Mix so that the herbs and olive oil coat the cubed Feta cheese.",
+      "Mix half of the feta cheese mixture into the skillet with lemon rice.",
+      "Add sliced cooked chicken to the skillet with rice and reheat on medium heat.",
+      "Top the Greek chicken and lemon rice with the remaining feta mixture. Sprinkle fresh oregano on top.",
+      "Season with salt and black pepper, to taste."
+    ]
+  },
+  "Honey Chicken": {
+    "servings": 4,
+    "yieldLabel": "Servings",
+    "ingredients": [
+      {
+        "amount": 2,
+        "unit": "large",
+        "name": "chicken breasts"
+      },
+      {
+        "amount": 2.5,
+        "unit": "tablespoons",
+        "name": "cornstarch"
+      },
+      {
+        "amount": 0.25,
+        "unit": "cup",
+        "name": "honey"
+      },
+      {
+        "amount": 0.25,
+        "unit": "cup",
+        "name": "chicken broth"
+      },
+      {
+        "amount": 2,
+        "unit": "tablespoons",
+        "name": "soy sauce"
+      },
+      {
+        "amount": 0.5,
+        "unit": "tablespoon",
+        "name": "apple cider vinegar"
+      },
+      {
+        "amount": 0.25,
+        "unit": "teaspoon",
+        "name": "garlic powder"
+      },
+      {
+        "amount": 2,
+        "unit": "tablespoons",
+        "name": "olive oil or vegetable oil",
+        "note": "+ more as needed"
+      },
+      {
+        "name": "Chopped scallions",
+        "note": "optional, to taste"
+      }
+    ],
+    "steps": [
+      "I suggest having all ingredients ready to go before starting the actual cooking part as the recipe does go quickly. Cut the chicken into bite-size pieces. Add the chicken to a bowl and sprinkle the cornstarch over it. Toss until coated.",
+      "To another bowl, add the honey, chicken broth, soy sauce, apple cider vinegar, and garlic powder. Whisk together.",
+      "Add the oil to a skillet over medium-high heat. Let the pan get nice and hot. Cook the chicken until browned on two sides (about 3-5 min/side). Do two batches so as not to crowd the pan. You may need to add another tablespoon or so of oil when cooking the second batch. Transfer the chicken to a plate once it's seared. Important note: If the chicken is sticking, wait a little longer and it will release when it's nicely browned. I use tongs to make turning the chicken quick and easy.",
+      "Take the skillet off the heat and pour in the sauce from the bowl. Scrape up any browned bits from the bottom of the pan. Add the chicken back in. Reduce the heat to medium and return the pan to the burner.",
+      "Let it cook for a few minutes until the sauce has thickened up a bit and the chicken is fully cooked through (I spoon some sauce over top). Serve immediately with chopped scallions if desired."
+    ]
+  },
+  "Kvass (Probiotic Drink)": "Ingredients:\n- 1 lb fresh fruit or fruit scraps\n- 1/4 cup sugar\n- 3-4 cup water\n- *Anything else you can possibly think of can be added, keeping in mind 1 lb to 1/4 cup ratio.\nInstructions:\n- Add fruit to a clean fermentation-ready container.\n- Combine sugar and water until dissolved.\n- Pour sugar/water combo over fruit and stir.\n- Store at room temp for 1-4 days, opening and stirring daily.\n- Once satisfied, distribute into smaller containers and refrigerate. (Kvass will continue to ferment, the fridge will slow this down but don’t go forgetting any in the back of your fridge.)",
+  "Naan": "Ingredients:\n- 2 cups all purpose flour (spooned into measuring cup and leveled-off, plus more for rolling (see note)\n- 1 tablespoon sugar\n- 1 teaspoon instant dry yeast/rapid-rise yeast (see note)\n- 1 teaspoon salt\n- Heaping 1/2 teaspoon anise seeds (optional)\n- 3 tablespoons plain yogurt\n- 2 tablespoons extra-virgin olive oil\n- 3/4 cup warm water (about 100°F/38°C)\n- 2 tablespoons melted salted butter, (for brushing on finished naans)\n- 1 tablespoon chopped fresh Italian parsley (optional), for serving)\nInstructions:\n- In a large bowl, whisk together the flour, sugar, yeast, salt and anise seeds (if using). Set aside.\n- In a medium bowl, whisk together, the yogurt, olive oil, and ¾ cup (180 ml) warm water (about 100°F/38°C). Add the yogurt mixture to the dry ingredients and mix with a fork. When the dough is about to come together, dust your hands with flour and knead gently into a soft, slightly sticky dough (sprinkle more flour, little by little, if the dough is too wet to work with). As soon as it comes together, stop kneading.\n- Lightly oil or spray a clean bowl with nonstick cooking spray (the bowl should be large enough to allow the dough to double in size). Transfer the dough to the prepared bowl and cover with plastic wrap or a damp kitchen towel. Let sit in a warm place for 1 to 1½ hours, or until about doubled in size (hint: the warmer the spot, the faster the dough will rise).\n- Fill a small bowl with about ½ cup (65 g) flour. Dust a work surface with some of the flour and dump the dough on top. Sprinkle some of the flour on top of the dough and on your hands. Shape the dough into a long rectangle and cut into 6 equal portions, dusting with more flour as necessary so the dough doesn't stick. Roll each portion of dough in the bowl of flour to keep them from sticking.\n- Warm a large cast iron or heavy nonstick pan over medium-high heat until very hot. Using a rolling pin, roll one of the dough balls into an oval shape about ⅛-in (3-mm) thick (it should be about 9 x 4 in/23 x 10 cm). Pick up the dough and flip-flop it back and forth between your hands to release any excess flour; then gently lay the dough in the dry skillet and cook until the top is bursting with air bubbles and the bottom is golden and blackened in spots, a few minutes. Flip the naan and cook about 1 to 2 minutes more until the the bottom is lightly browned and blistered in spots. Remove the naan from the skillet and brush with melted butter. Place the naan in a tea towel-lined dish to keep warm. Repeat with the remaining naans, adjusting the heat lower if necessary as you go (I usually find it necessary to lower the heat to medium after the first naan). Sprinkle with parsley, if using, and serve warm.\n- To keep the cooked naan warm, place them in a 200°F (96°C) oven. Store leftovers in a Ziplock bag and reheat in a 350°F (175°C) oven wrapped in foil.",
+  "Nashville Hot Chicken": {
+    "servings": 8,
+    "yieldLabel": "Pieces",
+    "ingredients": [
+      {
+        "header": true,
+        "name": "For the Fried Chicken –"
+      },
+      {
+        "amount": 3,
+        "amountTo": 4,
+        "unit": "pounds",
+        "name": "bone-in chicken pieces",
+        "note": "I used a fryer pack, 8 pieces total."
+      },
+      {
+        "amount": 1.25,
+        "unit": "cup",
+        "name": "dill pickle juice"
+      },
+      {
+        "amount": 3,
+        "unit": "tablespoon",
+        "name": "sugar"
+      },
+      {
+        "amount": 1.5,
+        "unit": "cups",
+        "name": "buttermilk"
+      },
+      {
+        "amount": 0.25,
+        "unit": "cup",
+        "name": "hot sauce",
+        "note": "Frank’s RedHot or Louisiana"
+      },
+      {
+        "amount": 2,
+        "unit": "cups",
+        "name": "all-purpose flour"
+      },
+      {
+        "amount": 0.25,
+        "unit": "cup",
+        "name": "cornstarch"
+      },
+      {
+        "amount": 3,
+        "unit": "tablespoons",
+        "name": "creole seasoning"
+      },
+      {
+        "amount": 2,
+        "unit": "quarts",
+        "name": "peanut oil",
+        "note": "or vegetable oil"
+      },
+      {
+        "header": true,
+        "name": "For the Spicy Oil –"
+      },
+      {
+        "amount": 0.75,
+        "unit": "cup",
+        "name": "reserved fry oil"
+      },
+      {
+        "amount": 0.25,
+        "unit": "cup",
+        "name": "ground cayenne pepper"
+      },
+      {
+        "amount": 1,
+        "unit": "tablespoon",
+        "name": "smoked paprika"
+      },
+      {
+        "amount": 1,
+        "unit": "tablespoon",
+        "name": "brown sugar"
+      },
+      {
+        "amount": 2,
+        "unit": "teaspoons",
+        "name": "chili powder"
+      },
+      {
+        "amount": 1,
+        "unit": "teaspoon",
+        "name": "garlic powder"
+      },
+      {
+        "amount": 1,
+        "unit": "teaspoon",
+        "name": "salt"
+      },
+      {
+        "header": true,
+        "name": "For Serving –"
+      },
+      {
+        "name": "White bread"
+      },
+      {
+        "name": "Dill pickles"
+      }
+    ],
+    "steps": [
+      "Brine the Chicken: Warm the pickle juice on the stovetop or in the microwave. Then stir in the sugar until dissolved. Pour the pickle juice brine into a large zip bag. Add the chicken pieces. Zip the bag closed. Refrigerate for at least 1 hour, but longer is better. (If you can brine the chicken for 8 hours or overnight, that’s best!)",
+      "Once the chicken has brined, set out two shallow dishes. Pour the buttermilk and hot sauce in one shallow dish. Mix well. In the second dish, combine the flour, cornstarch, and creole seasoning. Mix well.",
+      "Drain the brine off the chicken. Set out a metal rack. One at a time, dunk the chicken pieces in the flour mixture, then the buttermilk, then back in the flour mixture. Place the breaded chicken pieces on the rack. (It’s good for the chicken breading to rest before frying, so don’t heat the oil until all the chicken has been well coated.)",
+      "Set a large saucepot on the stovetop and clip a cooking thermometer to the side of the pot. Pour enough fry oil into the pot to fill it about two-thirds full. Turn the heat on medium to medium-high.",
+      "Preheat the oven to 250 degrees F. Set another rack on a baking sheet for the cooked fried chicken.",
+      "Once the oil temperature reaches 350 degrees F, carefully place four pieces of chicken in the fry oil. Use tongs to move the chicken so it doesn’t stick to the bottom of the pot. Fry for 7-8 minutes, until golden brown. (The largest pieces should be 165 degrees F inside.)",
+      "Use the tongs to carefully pull the chicken pieces from the hot oil and place them on the clean rack. Place the fried chicken in the oven to keep warm and crisp.",
+      "Repeat with the remaining chicken pieces. Place the second batch of fried chicken in the oven. Turn off the heat.",
+      "For the Spicy Oil: Use a ladle to scoop ¾ cup of fry oil from the pot into a heat-proof mixing bowl. Add the cayenne pepper, smoked paprika, brown sugar, chili powder, garlic powder, and salt. Stir to mix.",
+      "When ready to serve the chicken, remove the rack from the oven and brush the spicy oil over all sides of the fried chicken pieces. It’s traditional to serve the chicken over 2 slices of white bread, topped with pickles."
+    ]
+  },
+  "Oven Baked Catfish (Blue Catfish Filet)": "Ingredients:\n- 1 tablespoon olive oil\n- 2 pounds catfish fillets about 4 large boneless fillets\n- 1/2 teaspoon sea salt\n- 1/2 teaspoon black pepper\n- 1 teaspoon smoked paprika\n- 2 teaspoons fresh parsley finely chopped\n- 2 tablespoons fresh chives chopped\n- 2 tablespoons salted butter cut into small pieces\n- 4 tablespoons dry white wine\nInstructions:\n- Preheat oven to 350 degrees. Coat a shallow baking sheet with the olive oil.\n- Rinse the catfish fillets and pat dry. Evenly sprinkle both sides with the sea salt, black pepper, and smoked paprika.\n- Place the seasoned fillets onto the baking sheet, flat side down. Top evenly with the fresh parsley and chives.\n- Top the catfish with small pieces of butter and drizzle the wine over each fillet.\n- Bake for 20 minutes. Remove from the oven and serve hot with your favorite variety of Rice.",
+  "Quinoa": {
+    "servings": 4,
+    "yieldLabel": "Servings",
+    "ingredients": [
+      {
+        "amount": 1,
+        "unit": "cup",
+        "name": "white quinoa"
+      },
+      {
+        "amount": 2,
+        "unit": "cups",
+        "name": "water",
+        "note": "Chicken Stock or Vegetable Broth would also work"
+      },
+      {
+        "amount": 0.5,
+        "unit": "teaspoon",
+        "name": "kosher salt"
+      }
+    ],
+    "steps": [
+      "Place raw quinoa in a fine-mesh strainer and rinse under cold water. Drain.",
+      "Place rinsed and drained quinoa, water (or chicken broth or veggie broth), and a pinch of salt (optional) into a pot with a tight-fitting lid. Stir it and put the lid on.",
+      "Turn the heat to medium-high and bring it to a boil. It should take about 3-4 minutes for it to come to a boil.",
+      "As soon as it comes to a boil, turn the heat down to low and let it simmer for 15 minutes or until all of the liquid is absorbed.",
+      "Turn the heat off and let it rest for 10 minutes (covered). Fluff it with a fork and serve."
+    ]
+  },
+  "Quinoa Fiesta Enchilada Bake (Vegan)": {
+    "servings": 6,
+    "yieldLabel": "Servings",
+    "ingredients": [
+      {
+        "amount": 0.5,
+        "unit": "tsp",
+        "name": "olive oil"
+      },
+      {
+        "amount": 1,
+        "unit": "clove",
+        "name": "crushed garlic"
+      },
+      {
+        "name": "cooking spray"
+      },
+      {
+        "amount": 1.25,
+        "unit": "cups",
+        "name": "quinoa",
+        "note": "rinsed and drained"
+      },
+      {
+        "amount": 1,
+        "name": "8 oz can tomato sauce"
+      },
+      {
+        "amount": 2,
+        "unit": "cups",
+        "name": "reduced-sodium chicken or vegetable broth*"
+      },
+      {
+        "amount": 1.5,
+        "unit": "teaspoons",
+        "name": "cumin"
+      },
+      {
+        "amount": 1,
+        "unit": "tbsp",
+        "name": "chipotle en adobo sauce",
+        "note": "or more if you want it spicy"
+      },
+      {
+        "name": "kosher salt and freshly ground black pepper",
+        "note": "to taste"
+      },
+      {
+        "amount": 1,
+        "name": "4 oz can diced green chiles"
+      },
+      {
+        "amount": 0.75,
+        "unit": "cup",
+        "name": "canned black beans",
+        "note": "drained and rinsed"
+      },
+      {
+        "amount": 0.75,
+        "unit": "cup",
+        "name": "fresh or frozen thawed corn"
+      },
+      {
+        "amount": 0.25,
+        "unit": "cup",
+        "name": "chopped fresh cilantro",
+        "note": "plus 2 tbsp for garnish"
+      },
+      {
+        "amount": 1.5,
+        "unit": "cups",
+        "name": "part-skim shredded Mexican cheese blend",
+        "note": "divided*"
+      },
+      {
+        "amount": 1,
+        "name": "medium",
+        "note": "4 oz haas avocado, diced"
+      },
+      {
+        "amount": 2,
+        "unit": "tbsp",
+        "name": "chopped scallions"
+      },
+      {
+        "name": "* For gluten-free be sure to check the labels."
+      }
+    ],
+    "steps": [
+      "Preheat the oven to 400°F.",
+      "Lightly spray a 9 x 12 baking dish with oil.",
+      "In a medium saucepan cook the quinoa with 1 3/4 cups broth according to package instructions; when cooked, fluff with a fork and set aside.",
+      "Meanwhile in a small saucepan heat the oil over medium low heat. Add the garlic and saute until golden, about 1 - 2 minutes. Add the tomato sauce, 1/4 tsp kosher salt, cumin, 1/4 cup broth and chipotle en adobo. If it's too thick, add 2 tbsp water to thin out. Bring to a boil and simmer 3 to 4 minutes.",
+      "In a large bowl combine the cooked quinoa, green chiles, corn, black beans and 1/4 cup cilantro. Stir in 1/2 cup of the cheese and mix will. Place into the baking dish and spread out. Top with the enchilada sauce and remaining cheese.",
+      "Cover with foil and bake until hot the cheese is melted, about 20 to 25 minutes.",
+      "To serve, top with avocado, scallions and remaining fresh cilantro. Cut into 6 pieces and serve right away."
+    ]
+  },
+  "Salmon": {
+    "servings": 4,
+    "yieldLabel": "Servings",
+    "ingredients": [
+      {
+        "amount": 1.5,
+        "unit": "pound",
+        "name": "salmon fillet"
+      },
+      {
+        "amount": 2,
+        "unit": "tablespoons",
+        "name": "unsalted butter",
+        "note": "melted"
+      },
+      {
+        "amount": 0.5,
+        "unit": "teaspoons",
+        "name": "kosher salt"
+      },
+      {
+        "amount": 0.25,
+        "unit": "teaspoon",
+        "name": "black pepper"
+      },
+      {
+        "amount": 1,
+        "unit": "tablespoon",
+        "name": "minced garlic"
+      },
+      {
+        "amount": 8,
+        "name": "lemon wedges"
+      },
+      {
+        "amount": 1,
+        "unit": "teaspoon",
+        "name": "chopped parsley"
+      },
+      {
+        "amount": 1,
+        "unit": "teaspoon",
+        "name": "chopped dill"
+      }
+    ],
+    "steps": [
+      "Preheat the Oven – Set the oven rack to the center position—Preheat to 375ºF (191ºC). Line a rimmed baking sheet with foil and lightly grease with vegetable oil or cooking spray.",
+      "Prepare the Fillet – Place the salmon on the sheet, skin-side down (if still intact). Brush half of the melted butter over the fillet. Season with salt and pepper. Drizzle the remaining butter on top, then add the minced garlic. Place lemon wedges around the sides.",
+      "Bake the Salmon – Bake until the thickest part reaches an internal temperature of 125ºF (52ºC), about 12 minutes.",
+      "Broil the Salmon – Change the oven setting to broil on high. Cook until the surface is a light golden color and the garlic just begins to brown, 3 to 4 minutes.",
+      "To Serve – Carefully remove and discard the skin, then transfer the fillet to a serving platter. Garnish with parsley and dill, and serve with roasted lemon wedges."
+    ]
+  },
+  "Sourdough French Toast": {
+    "servings": 4,
+    "yieldLabel": "Servings",
+    "ingredients": [
+      {
+        "amount": 4,
+        "unit": "slices",
+        "name": "sourdough bread",
+        "note": "cut into 1 inch (2.5cm) thick slices and 6 inches (15cm) long) See Note 1"
+      },
+      {
+        "amount": 4,
+        "name": "eggs"
+      },
+      {
+        "amount": 1,
+        "unit": "cup",
+        "name": "( 240 ml) whole milk"
+      },
+      {
+        "amount": 0.25,
+        "unit": "cup",
+        "name": "(56 grams) brown sugar",
+        "note": "See Note 2"
+      },
+      {
+        "amount": 3,
+        "unit": "teaspoons",
+        "name": "vanilla extract"
+      },
+      {
+        "amount": 0.5,
+        "unit": "teaspoon",
+        "name": "ground cinnamon"
+      },
+      {
+        "name": "salt"
+      },
+      {
+        "amount": 0.5,
+        "unit": "ounce",
+        "name": "( 1 tablespoon/ 15 grams) unsalted butter"
+      }
+    ],
+    "steps": [
+      "Preheat oven to 195ºF (95º Celsius). Have a baking sheet ready.",
+      "Whisk together eggs, whole milk, brown sugar, vanilla extract, ground cinnamon and salt. There’s no need to incorporate air, simply make sure that there are no streaks of egg.",
+      "Pour the egg mixture into a shallow pan that will snuggly fit all the bread in one layer.",
+      "Add the bread to the egg mixture and turn over until the bread to coat each side.",
+      "While the bread is soaking, heat a non-stick pan or skillet (hopefully one that holds two slices comfortably) on medium low.",
+      "Add ½ of the butter and allow to foam up and almost brown then slide in two soaked slices of bread.",
+      "Cook for about 3 minutes. After a minute or so check underneath that it is not browning too quickly.",
+      "Flip the bread slices over and cook on the other side for 2 more minutes. Again, pay attention to the heat and adjust accordingly – if the french toast is cooking too quickly, reduce the heat; if it’s cooking too slowly, increase the heat.",
+      "Once done, transfer the french toast to the baking sheet and into the oven to keep warm while you cook the remaining bread.",
+      "Wipe out the pan with some kitchen paper, then add remaining butter and repeat heating the butter and cooking the french toast.",
+      "Serve warm with butter, maple syrup, and fruit – or your choice of toppings."
+    ]
+  },
+  "Spinach Patties": "Ingredients:\n- 16 1/2 oz of spinach (you can also try kale, beet greens, or chard)\n- 4 oz goat cheese (or feta cheese)\n- 2 eggs\n- 1/2 cup matzo meal\n- 1/2 teaspoon salt\n- 1/2 teaspoon pepper\n- Enough canola or vegetable oil to cover the bottom of a frying pan\n- 4 tablespoons olive oil\n- 1 1/2 cups chicken stock (you can substitute with vegetable broth to make this dish vegetarian)\n- Juice from 2 lemons\n- 7 garlic cloves, minced\n- 3 bunches of cilantro leaves (remove stems and wash well)\n- Salt and black pepper to taste\nInstructions:\n- Add 2 inches of water to a pasta pot. Place the deep steamer inside the pot, add the spinach, place on the stovetop and turn the heat to high. Once the water starts to boil, it only takes a few minutes for the spinach to wilt.\n- Once the spinach leaves are wilted, lift the steamer and set it at an angle over the pot (suspended. See post for a photo) to allow the water to drain and the spinach to cool.\n- After a few minutes, transfer the spinach to a food processor. Pulse the processor a few times until the spinach is processed.\n- Add the processed spinach to a mixing bowl and add cheese, eggs, matzo meal, salt and black pepper. Mix all of the ingredients together (if the mixture is too wet, add a little bit more matzo meal).\n- Heat about 1/2 inch of canola or vegetable oil to a 12-inch nonstick pan.\n- When the oil is hot, lower the heat to medium-high and use your hands or two regular tablespoons to form small patties from the mixture and lower them to the oil.\n- Fry the patties for a few minutes on the first side. When you notice that the bottom starts to become golden, flip the patties and fry for a few minutes on the other side.\n- Once the patties are ready, remove them from the oil and set on a cooling rack or on a plate lined with a paper towel. You can stop here and just eat them fried in a sandwich, as a meal or an appetizer (try making a garlic dip to go with them), or you can freeze them (see the notes section for more info on freezing). Or you can make the sauce and cook them in the sauce.\n- To make the sauce, heat olive oil in a 12-inch nonstick pan. Lower the heat to medium-high, add the minced garlic and fry it for a couple of minutes (to make sure it doesn't burn, stir it constantly).\n- Add the chicken stock (or vegetable stock), lemon juice, cilantro, salt and pepper. Stir and cook until the sauce comes to a boil (this should take a couple of minutes).\n- Add the patties to the pot (I usually can't fit all of them so I just add as many as I can), cover the pot and cook for 5-7 minutes.\n- Turn the heat off and let the patties cool for a few minutes before serving with white or brown rice, bulgur wheat, quinoa, or special bread.",
+  "Tacos (Vegan)": {
+    "servings": 6,
+    "yieldLabel": "Tacos",
+    "ingredients": [
+      {
+        "amount": 1.5,
+        "unit": "cups",
+        "name": "cooked beans",
+        "note": "black, kidney, pinto, white beans, or combination"
+      },
+      {
+        "amount": 1,
+        "unit": "cup",
+        "name": "fire-roasted tomatoes"
+      },
+      {
+        "amount": 0.5,
+        "unit": "cup",
+        "name": "cooked bulgur",
+        "note": "or 1/4 cup uncooked"
+      },
+      {
+        "unit": "tablespoon",
+        "name": "taco seasoning"
+      },
+      {
+        "amount": 6,
+        "name": "corn tortillas",
+        "note": "oil-free"
+      },
+      {
+        "name": "diced veggies",
+        "note": "lettuce, tomato, onions, cilantro"
+      },
+      {
+        "amount": 1,
+        "unit": "cup",
+        "name": "salsa",
+        "note": "optional"
+      },
+      {
+        "name": "vegan cheese sauce",
+        "note": "optional"
+      },
+      {
+        "name": "chipotle sauce",
+        "note": "optional"
+      }
+    ],
+    "steps": [
+      "Begin by making the taco flavored beans. This is a great versatile part of the recipe because you can really use any type of bean you like best. I tend to make a blend of black beans and red kidney beans. Sometimes I also like to add pintos. Make your own fresh beans in an Instant Pot or buy canned.",
+      "If using canned beans, I always recommend dumping them in a colander and rinsing to remove some of the salt and preservatives.",
+      "Add the beans, fire-roasted tomatoes, bulgur (if using), and taco seasoning to a microwavable bowl or pot and heat until warm. The bulgur is optional in this bean mixture, but I highly recommend giving it a try if you are not gluten-intolerant. For this recipe, you can either add fully cooked bulgur to the bean mixture or allow the bulgur to cook while the beans, tomatoes (with their juices), and seasonings are heating.",
+      "Normally, I have my bulgur already cooked and stored in the freezer for recipes like this, but it is super easy to add uncooked bulgur if you prefer. Simply add the uncooked bulgur to the mixture of beans, fire-roasted tomatoes, and taco seasoning. There will already be some liquid from the fire-roasted tomatoes, but you’ll need to mix in an extra 1/2 cup of water and allow it to heat on the stovetop or microwave until the bulgur is cooked.",
+      "While this is heating up or cooking (if using raw bulgur), go ahead and chop up the veggies you want to use. I love to include lettuce, tomato, onions, and cilantro. Other great options include avocado, cucumber, and even corn.",
+      "The cheese sauce topping is completely optional. We usually have some of it already on hand and stored in the refrigerator or freezer in a glass jar. Sometimes we even add chipotle sauce instead of the cheese sauce to really spice these tacos up. My dairy-free sour cream is another terrific topping option!",
+      "Once all of the elements are cooked and ready, simply add a layer of the taco bean mixture. Next, add the veggies and salsa and drizzle with your sauce topping of choice.",
+      "To keep this recipe completely oil-free, it’s pretty simple to make your own taco shells. Simply drape oil-free corn tortillas over your oven rack and bake at 400°F for approximately 5-7 minutes, watching closely so they don’t burn."
+    ]
+  },
+  "Bone Broth": {
+    "servings": 24,
+    "yieldLabel": "Cups",
+    "ingredients": [
+      {
+        "amount": 10,
+        "unit": "pounds",
+        "name": "beef bones",
+        "note": "preferably a mix of marrow bones and bones with meat on them *"
+      },
+      {
+        "amount": 4,
+        "unit": "large",
+        "name": "carrots",
+        "note": "chopped into 2-inch pieces"
+      },
+      {
+        "amount": 2,
+        "unit": "medium",
+        "name": "onions",
+        "note": "quartered"
+      },
+      {
+        "amount": 2,
+        "unit": "whole heads",
+        "name": "garlic",
+        "note": "halved crosswise"
+      },
+      {
+        "amount": 6,
+        "unit": "stalks",
+        "name": "celery",
+        "note": "cut into 2-inch pieces"
+      },
+      {
+        "amount": 4,
+        "name": "bay leaves"
+      },
+      {
+        "amount": 0.25,
+        "unit": "cup",
+        "name": "black peppercorns"
+      },
+      {
+        "amount": 4,
+        "name": "whole star anise",
+        "note": "optional"
+      },
+      {
+        "amount": 2,
+        "name": "whole cinnamon sticks",
+        "note": "optional"
+      },
+      {
+        "amount": 2,
+        "unit": "tablespoon",
+        "name": "apple cider vinegar"
+      }
+    ],
+    "steps": [
+      "Blanch the bones. Divide the bones between two large stockpots and cover with cold water. Bring to a boil over high heat and simmer for 15-20 minutes before draining and rinsing the bones with water.",
+      "Roast the bones and the vegetables. Preheat the oven to 450 degrees F. Transfer the bones and vegetables to the roasting pans. Roast for 30 minutes, toss, and roast 15-30 minutes more.",
+      "Transfer the bones and vegetables back to the washed stockpots. Scrape the browned bits from the roasting pan into the pot.",
+      "Divide the bay leaves, peppercorns, star anise, cinnamon sticks, and apple cider vinegar between the pots. Add about 12 cups water to each, enough to cover the bones. Cover and bring to a gentle boil.",
+      "Reduce the heat to low and simmer, lid slightly ajar, skimming foam now and then, for at least 8-12 hours and ideally 24 hours. Add water as needed to keep everything submerged. Cool and refrigerate if you need to pause overnight.",
+      "Strain through a fine mesh strainer.",
+      "Pick any meat off the bones if you want to use it, then discard the bones and vegetables.",
+      "Cool the broth. The fat will harden on top and can be scooped off.",
+      "Refrigerate for about 5 days, or freeze smaller batches for up to 6 months."
+    ]
+  },
+  "Chicken Noodle Soup": {
+    "servings": 8,
+    "yieldLabel": "Servings",
+    "ingredients": [
+      {
+        "header": true,
+        "name": "For the Soup"
+      },
+      {
+        "amount": 0.5,
+        "unit": "Tablespoon",
+        "name": "butter"
+      },
+      {
+        "amount": 2,
+        "unit": "ribs",
+        "name": "celery",
+        "note": "diced"
+      },
+      {
+        "amount": 3,
+        "amountTo": 4,
+        "unit": "large",
+        "name": "carrots",
+        "note": "diced"
+      },
+      {
+        "amount": 1,
+        "unit": "clove",
+        "name": "garlic",
+        "note": "minced"
+      },
+      {
+        "amount": 10,
+        "unit": "cups",
+        "name": "chicken stock",
+        "note": "or broth"
+      },
+      {
+        "amount": 1,
+        "unit": "teaspoon",
+        "name": "salt",
+        "note": "to taste"
+      },
+      {
+        "amount": 0.5,
+        "unit": "teaspoon",
+        "name": "freshly ground black pepper",
+        "note": "to taste"
+      },
+      {
+        "amount": 0.125,
+        "unit": "teaspoon",
+        "name": "dried rosemary",
+        "note": "or more, to taste"
+      },
+      {
+        "amount": 0.125,
+        "unit": "teaspoon",
+        "name": "dried thyme"
+      },
+      {
+        "amount": 0.125,
+        "unit": "teaspoon",
+        "name": "crushed red pepper flakes"
+      },
+      {
+        "amount": 1,
+        "name": "batch homemade egg noodles",
+        "note": "or 4 cups dry egg noodles"
+      },
+      {
+        "amount": 3,
+        "unit": "cups",
+        "name": "rotisserie chicken"
+      },
+      {
+        "amount": 1,
+        "unit": "teaspoon",
+        "name": "better than bouillon chicken flavor",
+        "note": "or chicken bouillon granules"
+      }
+    ],
+    "steps": [
+      "Melt the butter in a large pot and cook the celery and carrots for 3 minutes. Add the garlic and cook 30 seconds.",
+      "Add the stock, rosemary, thyme, red pepper flakes, salt, and pepper. Taste and add the bouillon if it needs more chicken flavor.",
+      "Bring to a boil. Add the noodles and cook until just tender. Take the pot off the heat as soon as store-bought noodles are barely tender so they do not get mushy.",
+      "Stir in the chicken. Taste and adjust the seasoning.",
+      "Refrigerate leftovers for 4–5 days."
+    ]
+  },
+  "Mayonnaise": "Ingredients:\n- 1 cup avocado oil or other light-flavored oil\n- 1 large egg (room temperature)\nOptional\n- 1 garlic clove (minced)\n- 1 teaspoon lemon juice\n- 2 teaspoons mustard powder\n- kosher salt (to taste)\nInstructions:\n- Pour the oil into a jar a little wider than your immersion blender. Crack the egg in and let it sink.\n- Hold the blender on the yolk and blend on low until the bottom turns creamy, about 10 seconds.\n- Move the blender up and down until the whole jar emulsifies.\n- For a spread, blend in the garlic, lemon juice, mustard powder, and salt.\n- Food processor method: blend the room-temperature egg, mustard powder, salt, and 1/4 cup of the oil. With the machine running, pour in the remaining 3/4 cup oil in a very thin stream. Pulse in the lemon juice."
 }
