@@ -21,6 +21,31 @@ class RecipeParser:
         self.recipes = []
         self.recipe_urls = self._load_recipe_urls()
     
+    def _apply_added_quick_recipes(self):
+        """Fill gaps with short recipes saved in this project.
+
+        Google Doc text wins when a recipe already has it. The daily fetch
+        rebuilds recipes.json, so these notes have to live in their own file.
+        """
+        path = os.path.join(os.path.dirname(self.recipe_urls_file) or '.', 'added_quick_recipes.json')
+        if not os.path.exists(path):
+            return
+        try:
+            with open(path, 'r') as f:
+                added = json.load(f)
+        except (OSError, json.JSONDecodeError):
+            return
+        if not isinstance(added, dict):
+            return
+        by_title = {title.lower(): text for title, text in added.items()}
+        for recipe in self.recipes:
+            if (recipe.get('quick_recipe') or '').strip():
+                continue
+            text = by_title.get(recipe['title'].lower())
+            if isinstance(text, str) and text.strip():
+                recipe['quick_recipe'] = text.strip()
+                recipe['has_quick_recipe'] = True
+
     def _load_recipe_urls(self) -> Dict[str, str]:
         """Load recipe URLs from JSON file if it exists."""
         if os.path.exists(self.recipe_urls_file):
@@ -414,6 +439,7 @@ class RecipeParser:
                                 if content or images:
                                     break  # Use first Quick Recipe link found
             
+            self._apply_added_quick_recipes()
             return self.recipes
         
         except Exception as e:

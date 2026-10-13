@@ -13,6 +13,7 @@ ENV/
 *.json
 !recipe_urls.json
 !data/recipes.json
+!added_quick_recipes.json
 
 # IDE
 .vscode/

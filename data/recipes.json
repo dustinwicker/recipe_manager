@@ -65,7 +65,7 @@
     "external_links": [
       {
         "text": "Recipe",
-        "url": "https://www.thefullhelping.com/balsamic-grilled-vegetable-burgers/"
+        "url": "https://www.thefullhelping.com/balsamic-grilled-vegetable-burgers/#recipe"
       }
     ],
     "google_doc_links": [],
@@ -76,10 +76,15 @@
   },
   {
     "title": "Banana Pudding",
-    "external_links": [],
+    "external_links": [
+      {
+        "text": "Recipe",
+        "url": "https://www.onceuponachef.com/recipes/banana-pudding.html#recipe"
+      }
+    ],
     "google_doc_links": [],
     "picture_links": [],
-    "quick_recipe": null,
+    "quick_recipe": "Ingredients:\n- 1 can sweetened condensed milk\n- 1 1/2 cups cold water\n- 1 box instant vanilla pudding\n- 3 cups heavy cream, whipped\n- 1 box vanilla wafers\n- 5 ripe bananas, sliced\nInstructions:\n- Beat the condensed milk, water, and pudding mix. Chill until it sets, then fold in the whipped cream.\n- Layer pudding, wafers, and bananas in a large bowl. Keep the banana slices covered with pudding so they do not brown.\n- Chill at least 4 hours before serving.",
     "has_quick_recipe": true,
     "note": null
   },
@@ -116,11 +121,11 @@
     "external_links": [
       {
         "text": "Recipe",
-        "url": "https://theforkedspoon.com/bone-broth-recipe/"
+        "url": "https://theforkedspoon.com/bone-broth-recipe/#wprm-recipe-container-43449"
       },
       {
         "text": "Recipe",
-        "url": "https://minimalistbaker.com/how-to-make-bone-broth/"
+        "url": "https://minimalistbaker.com/how-to-make-bone-broth/#wprm-recipe-container-47469"
       }
     ],
     "google_doc_links": [],
@@ -190,7 +195,7 @@
     "external_links": [
       {
         "text": "Recipe",
-        "url": "https://divascancook.com/brownie-cookies-recipe/"
+        "url": "https://divascancook.com/brownie-cookies-recipe/#recipe"
       }
     ],
     "google_doc_links": [],
@@ -215,11 +220,16 @@
   },
   {
     "title": "Buffalo Chicken Dip",
-    "external_links": [],
+    "external_links": [
+      {
+        "text": "Recipe",
+        "url": "https://www.allrecipes.com/recipe/68461/buffalo-chicken-dip/"
+      }
+    ],
     "google_doc_links": [],
     "picture_links": [],
-    "quick_recipe": null,
-    "has_quick_recipe": false,
+    "quick_recipe": "Ingredients:\n- 2 cans chunk chicken, drained, or about 3 cups shredded cooked chicken\n- 2 packages cream cheese, softened\n- 3/4 cup hot sauce\n- 1 cup ranch dressing\n- 1 1/2 cups shredded cheddar\nInstructions:\n- Warm the chicken with the hot sauce.\n- Stir in the cream cheese and ranch until smooth.\n- Mix in half the cheddar and top with the rest.\n- Heat until bubbly. Serve with celery and crackers.",
+    "has_quick_recipe": true,
     "note": null
   },
   {
@@ -252,11 +262,16 @@
   },
   {
     "title": "Caprese",
-    "external_links": [],
+    "external_links": [
+      {
+        "text": "Recipe",
+        "url": "https://www.allrecipes.com/recipe/16526/insalata-caprese-ii/"
+      }
+    ],
     "google_doc_links": [],
     "picture_links": [],
-    "quick_recipe": null,
-    "has_quick_recipe": false,
+    "quick_recipe": "Ingredients:\n- 4 ripe tomatoes, sliced\n- 1 pound fresh mozzarella, sliced\n- fresh basil leaves\n- olive oil, salt, and pepper\nInstructions:\n- Overlap the tomato, mozzarella, and basil on a platter.\n- Drizzle with olive oil.\n- Season with salt and pepper and serve right away.",
+    "has_quick_recipe": true,
     "note": null
   },
   {
@@ -339,7 +354,7 @@
     "external_links": [
       {
         "text": "Recipe",
-        "url": "https://tastesbetterfromscratch.com/chicken-noodle-soup/"
+        "url": "https://tastesbetterfromscratch.com/chicken-noodle-soup/#wprm-recipe-container-12306"
       }
     ],
     "google_doc_links": [],
@@ -414,7 +429,7 @@
     "external_links": [
       {
         "text": "Recipe",
-        "url": "https://www.inspiredtaste.net/26952/how-to-cook-dried-chickpeas/"
+        "url": "https://www.inspiredtaste.net/26952/how-to-cook-dried-chickpeas/#itr-recipe-26952"
       }
     ],
     "google_doc_links": [
@@ -458,11 +473,16 @@
   },
   {
     "title": "Chipotle Mayonnaise",
-    "external_links": [],
+    "external_links": [
+      {
+        "text": "Recipe",
+        "url": "https://www.foodnetwork.com/recipes/ina-garten/chipotle-mayonnaise-12099278"
+      }
+    ],
     "google_doc_links": [],
     "picture_links": [],
-    "quick_recipe": null,
-    "has_quick_recipe": false,
+    "quick_recipe": "Ingredients:\n- 1 cup mayonnaise\n- 1 canned chipotle pepper in adobo\n- 2 teaspoons adobo sauce from the can\n- 1 teaspoon lime juice\n- salt\nInstructions:\n- Blend until smooth.\n- Keep it in the fridge for up to a week.",
+    "has_quick_recipe": true,
     "note": null
   },
   {
@@ -512,7 +532,7 @@
     "external_links": [
       {
         "text": "Recipe",
-        "url": "https://divascancook.com/cinnamon-roll-bread-recipe/"
+        "url": "https://divascancook.com/cinnamon-roll-bread-recipe/#recipe"
       }
     ],
     "google_doc_links": [],
@@ -526,7 +546,7 @@
     "external_links": [
       {
         "text": "Recipe",
-        "url": "https://www.theglowingfridge.com/cleansing-detox-soup/"
+        "url": "https://www.theglowingfridge.com/cleansing-detox-soup/#tasty-recipes-9643-jump-target"
       }
     ],
     "google_doc_links": [],
@@ -540,7 +560,7 @@
     "external_links": [
       {
         "text": "Recipe",
-        "url": "https://cookieandkate.com/simple-healthy-coleslaw-recipe/"
+        "url": "https://cookieandkate.com/simple-healthy-coleslaw-recipe/#tasty-recipes-24037-jump-target"
       }
     ],
     "google_doc_links": [],
@@ -596,7 +616,7 @@
     "external_links": [
       {
         "text": "Recipe",
-        "url": "https://www.drveganblog.com/easy-dumpling-soup/"
+        "url": "https://www.drveganblog.com/easy-dumpling-soup/#recipe"
       }
     ],
     "google_doc_links": [],
@@ -626,11 +646,16 @@
   },
   {
     "title": "Energy Bites",
-    "external_links": [],
+    "external_links": [
+      {
+        "text": "Recipe",
+        "url": "https://www.allrecipes.com/recipe/239969/no-bake-energy-bites/"
+      }
+    ],
     "google_doc_links": [],
     "picture_links": [],
-    "quick_recipe": null,
-    "has_quick_recipe": false,
+    "quick_recipe": "Ingredients:\n- 1 cup rolled oats\n- 1/2 cup chocolate chips\n- 1/2 cup ground flaxseed\n- 1/2 cup peanut butter\n- 1/3 cup honey\n- 1 teaspoon vanilla\nInstructions:\n- Stir everything together.\n- Roll into balls.\n- Freeze until firm, about 1 hour.",
+    "has_quick_recipe": true,
     "note": null
   },
   {
@@ -722,7 +747,7 @@
     "external_links": [
       {
         "text": "Recipe",
-        "url": "https://heartbeetkitchen.com/easy-sourdough-french-toast/"
+        "url": "https://heartbeetkitchen.com/easy-sourdough-french-toast/#recipe"
       }
     ],
     "google_doc_links": [],
@@ -733,11 +758,16 @@
   },
   {
     "title": "Garbanzo Beans",
-    "external_links": [],
+    "external_links": [
+      {
+        "text": "Recipe",
+        "url": "https://www.inspiredtaste.net/26952/how-to-cook-dried-chickpeas/#itr-recipe-26952"
+      }
+    ],
     "google_doc_links": [],
     "picture_links": [],
-    "quick_recipe": null,
-    "has_quick_recipe": false,
+    "quick_recipe": "Ingredients:\n- 1 pound dried chickpeas\n- salt\n- bay leaf, garlic, and onion, optional\nInstructions:\n- Pick through the beans, rinse them, and soak in plenty of water for at least 8 hours. Drain and rinse.\n- Cover with fresh water. Add salt and the aromatics if you are using them.\n- Simmer until tender, about 1 1/2 to 2 hours.",
+    "has_quick_recipe": true,
     "note": null
   },
   {
@@ -796,7 +826,7 @@
     "external_links": [
       {
         "text": "Recipe",
-        "url": "https://www.saltandlavender.com/honey-chicken/"
+        "url": "https://www.saltandlavender.com/honey-chicken/#wprm-recipe-container-27012"
       }
     ],
     "google_doc_links": [],
@@ -814,7 +844,7 @@
       },
       {
         "text": "Recipe_2",
-        "url": "https://kirbiecravings.com/baked-honey-garlic-chicken/"
+        "url": "https://kirbiecravings.com/baked-honey-garlic-chicken/#recipe"
       }
     ],
     "google_doc_links": [],
@@ -825,11 +855,16 @@
   },
   {
     "title": "Japanese Curry",
-    "external_links": [],
+    "external_links": [
+      {
+        "text": "Recipe",
+        "url": "https://www.justonecookbook.com/simple-chicken-curry/#recipe"
+      }
+    ],
     "google_doc_links": [],
     "picture_links": [],
-    "quick_recipe": null,
-    "has_quick_recipe": false,
+    "quick_recipe": "Ingredients:\n- chicken thighs, cut into bite-size pieces\n- onion, carrot, and potato\n- about 4 cups chicken broth\n- 1 box Japanese curry roux\n- 1 tablespoon each soy sauce, ketchup, and honey\n- rice, for serving\nInstructions:\n- Brown the chicken, then cook the vegetables in the broth until the potatoes are tender.\n- Stir in the soy sauce, ketchup, and honey.\n- Turn off the heat. Dissolve the curry roux in a ladle of the hot liquid, then stir it back into the pot. Repeat until the sauce is thick.\n- Simmer a few minutes and serve over rice.",
+    "has_quick_recipe": true,
     "note": null
   },
   {
@@ -935,7 +970,7 @@
     "external_links": [
       {
         "text": "Recipe",
-        "url": "https://thedefineddish.com/homemade-mayo/"
+        "url": "https://thedefineddish.com/homemade-mayo/#wprm-recipe-container-17954"
       }
     ],
     "google_doc_links": [],
@@ -969,11 +1004,16 @@
   },
   {
     "title": "Mexican Rice",
-    "external_links": [],
+    "external_links": [
+      {
+        "text": "Recipe",
+        "url": "https://www.thepioneerwoman.com/food-cooking/recipes/a11532/good-ol-basic-mexican-rice/"
+      }
+    ],
     "google_doc_links": [],
     "picture_links": [],
-    "quick_recipe": null,
-    "has_quick_recipe": false,
+    "quick_recipe": "Ingredients:\n- 2 tablespoons oil\n- 1/2 large onion, chopped\n- 2 cups long-grain rice\n- 3 cloves garlic, minced\n- 1 can diced tomatoes with green chiles\n- 1 can whole tomatoes\n- 2 cups chicken broth\n- 1 teaspoon cumin\n- salt\nInstructions:\n- Cook the onion in the oil. Add the rice and garlic and toast the rice for a few minutes.\n- Stir in the tomatoes, broth, cumin, and salt.\n- Cover and simmer until the rice is tender, about 10 to 15 minutes. Add a splash more broth if it dries out.",
+    "has_quick_recipe": true,
     "note": null
   },
   {
@@ -995,7 +1035,7 @@
     "external_links": [
       {
         "text": "Recipe",
-        "url": "https://jessicainthekitchen.com/slow-cooker-mushroom-wild-rice-soup/"
+        "url": "https://jessicainthekitchen.com/slow-cooker-mushroom-wild-rice-soup/#recipe"
       }
     ],
     "google_doc_links": [],
@@ -1009,7 +1049,7 @@
     "external_links": [
       {
         "text": "Recipe",
-        "url": "https://www.onceuponachef.com/recipes/homemade-naan.html"
+        "url": "https://www.onceuponachef.com/recipes/homemade-naan.html#recipe"
       }
     ],
     "google_doc_links": [],
@@ -1051,7 +1091,7 @@
     "external_links": [
       {
         "text": "Recipe",
-        "url": "https://divascancook.com/pecan-pie-bars-recipe/"
+        "url": "https://divascancook.com/pecan-pie-bars-recipe/#recipe"
       }
     ],
     "google_doc_links": [],
@@ -1090,11 +1130,16 @@
   },
   {
     "title": "Pickles",
-    "external_links": [],
+    "external_links": [
+      {
+        "text": "Recipe",
+        "url": "https://www.onceuponachef.com/recipes/quick-and-easy-dill-pickles.html#recipe"
+      }
+    ],
     "google_doc_links": [],
     "picture_links": [],
-    "quick_recipe": null,
-    "has_quick_recipe": false,
+    "quick_recipe": "Ingredients:\n- about 2 pounds Kirby cucumbers, cut into spears\n- 1 1/4 cups distilled white vinegar\n- 3 tablespoons kosher salt\n- 2 tablespoons sugar\n- 2 cups cold water\n- garlic cloves, fresh dill, mustard seed, and coriander seed\nInstructions:\n- Heat the vinegar with the salt and sugar until they dissolve. Stir in the cold water and chill the brine.\n- Pack the cucumbers, garlic, dill, and seeds into jars.\n- Cover with brine and refrigerate about 24 hours. They keep in the fridge for about a month.",
+    "has_quick_recipe": true,
     "note": null
   },
   {
@@ -1118,11 +1163,16 @@
   },
   {
     "title": "Pizza",
-    "external_links": [],
+    "external_links": [
+      {
+        "text": "Recipe",
+        "url": "https://www.kingarthurbaking.com/recipes/pizza-crust-recipe"
+      }
+    ],
     "google_doc_links": [],
     "picture_links": [],
-    "quick_recipe": null,
-    "has_quick_recipe": false,
+    "quick_recipe": "Ingredients:\n- 2 teaspoons yeast\n- about 1 cup lukewarm water\n- 2 tablespoons olive oil\n- 3 cups all-purpose flour\n- 1 1/4 teaspoons salt\nInstructions:\n- Mix and knead into a soft, smooth dough.\n- Let it rise until puffy, about 1 hour with instant yeast.\n- Shape it, add sauce and toppings, and bake on a hot oven, about 450°F.",
+    "has_quick_recipe": true,
     "note": null
   },
   {
@@ -1260,7 +1310,7 @@
       },
       {
         "text": "GreenHealthyCooking",
-        "url": "https://greenhealthycooking.com/6-healthy-salad-dressings/"
+        "url": "https://greenhealthycooking.com/6-healthy-salad-dressings/#wprm-recipe-container-13446"
       }
     ],
     "google_doc_links": [],
@@ -1326,11 +1376,16 @@
   },
   {
     "title": "Sloppy Joes",
-    "external_links": [],
+    "external_links": [
+      {
+        "text": "Recipe",
+        "url": "https://www.simplyrecipes.com/recipes/sloppy_joes/"
+      }
+    ],
     "google_doc_links": [],
     "picture_links": [],
-    "quick_recipe": null,
-    "has_quick_recipe": false,
+    "quick_recipe": "Ingredients:\n- 1 tablespoon olive oil\n- 1 cup finely chopped onion\n- 1/2 cup minced carrot or bell pepper\n- 1 1/4 pounds ground beef\n- 1/2 cup ketchup\n- 2 cups tomato sauce\n- 1 tablespoon Worcestershire sauce\n- 1 tablespoon red wine vinegar\n- 1 1/2 tablespoons brown sugar\n- hamburger buns\nInstructions:\n- Cook the vegetables, then brown the beef. Drain off extra fat.\n- Stir in the ketchup, tomato sauce, Worcestershire, vinegar, and brown sugar.\n- Simmer about 10 minutes. Spoon onto buns.",
+    "has_quick_recipe": true,
     "note": null
   },
   {
@@ -1346,7 +1401,7 @@
       },
       {
         "text": "Seeded Sourdough",
-        "url": "https://www.theperfectloaf.com/seeded-sourdough/"
+        "url": "https://www.theperfectloaf.com/seeded-sourdough/#tasty-recipes-11301-jump-target"
       }
     ],
     "google_doc_links": [],
@@ -1360,7 +1415,7 @@
     "external_links": [
       {
         "text": "Recipe",
-        "url": "https://www.farmhouseonboone.com/sourdough-brioche/"
+        "url": "https://www.farmhouseonboone.com/sourdough-brioche/#wprm-recipe-container-35112"
       }
     ],
     "google_doc_links": [],
@@ -1406,7 +1461,7 @@
     "external_links": [
       {
         "text": "Recipe",
-        "url": "https://www.howsweeteats.com/2020/11/best-stuffing-recipe/"
+        "url": "https://www.howsweeteats.com/2020/11/best-stuffing-recipe/#recipe"
       }
     ],
     "google_doc_links": [],
@@ -1434,7 +1489,7 @@
     "external_links": [
       {
         "text": "Recipe",
-        "url": "https://eatwithclarity.com/sweet-potato-black-bean-burrito-bowl/"
+        "url": "https://eatwithclarity.com/sweet-potato-black-bean-burrito-bowl/#wprm-recipe-container-7645"
       }
     ],
     "google_doc_links": [],
@@ -1552,11 +1607,16 @@
   },
   {
     "title": "Yogurt",
-    "external_links": [],
+    "external_links": [
+      {
+        "text": "Recipe",
+        "url": "https://www.allrecipes.com/recipe/37095/yogurt-parfait/"
+      }
+    ],
     "google_doc_links": [],
     "picture_links": [],
-    "quick_recipe": null,
-    "has_quick_recipe": false,
+    "quick_recipe": "Ingredients:\n- 2 cups vanilla yogurt, or plain Greek yogurt\n- 1 cup granola\n- 1 cup berries, such as blackberries, blueberries, or strawberries\n- honey, optional\nInstructions:\n- In a glass, layer yogurt, fruit, and granola.\n- Repeat the layers.\n- Drizzle with honey if you want it sweeter.\n- Eat it soon so the granola stays crunchy.",
+    "has_quick_recipe": true,
     "note": null
   }
 ]
