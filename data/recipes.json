@@ -920,6 +920,25 @@
     "note": null
   },
   {
+    "title": "Chicken Casserole",
+    "external_links": [
+      {
+        "text": "Recipe",
+        "url": "https://www.campbells.com/recipes/chicken-rice-casserole/"
+      }
+    ],
+    "google_doc_links": [
+      {
+        "text": "Quick_Recipe",
+        "url": "https://docs.google.com/document/d/1O1P_WyAsqTCaf3ef8avzbIxYENcdm3YhTHz1TMVcMqs/edit"
+      }
+    ],
+    "picture_links": [],
+    "quick_recipe": "- 3 cups cooked chicken, chopped\n- 3 cups cooked rice\n- 1 can cream of chicken soup\n- 1/2 cup milk\n- 1 1/2 cups shredded cheddar\n- salt and pepper\nBaked\n- Stir the chicken, rice, soup, milk, salt, pepper, and 1 cup of the cheese\n- Spread in a greased 9x13\n- Top with the rest of the cheese\n- Oven: 350 degrees\n- Time: 25 minutes",
+    "has_quick_recipe": true,
+    "note": null
+  },
+  {
     "title": "Chicken Noodle Soup",
     "external_links": [
       {
@@ -1886,6 +1905,25 @@
       ]
     },
     "quick_from_scalable": true
+  },
+  {
+    "title": "Green Bean Casserole",
+    "external_links": [
+      {
+        "text": "Recipe",
+        "url": "https://www.campbells.com/recipes/green-bean-casserole/"
+      }
+    ],
+    "google_doc_links": [
+      {
+        "text": "Quick_Recipe",
+        "url": "https://docs.google.com/document/d/1T2UuZ-Tlt2MfBQWaJhGiHv0yieSHU-auUgIOREHD-ZA/edit"
+      }
+    ],
+    "picture_links": [],
+    "quick_recipe": "- 2 cans cut green beans, drained\n- 1 can cream of mushroom soup\n- 1/2 cup milk\n- 1 teaspoon soy sauce\n- black pepper\n- 1 cup fried onions\nBaked\n- Stir the beans, soup, milk, soy sauce, pepper, and half the onions\n- Spread in a greased dish\n- Oven: 350 degrees\n- Time: 25 minutes\n- Add the rest of the onions for the last 5 minutes",
+    "has_quick_recipe": true,
+    "note": null
   },
   {
     "title": "Ground Beef (Loose) - For Tacos or Pasta Sauce",
