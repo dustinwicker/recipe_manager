@@ -474,7 +474,11 @@ class RecipeParser:
             for recipe in self.recipes:
                 if not recipe.get('quick_recipe'):  # Only fetch if we don't already have content
                     # Check for Quick_Recipe links or _Recipe links (like Trevor_Recipe, Mom_Recipe)
-                    for link in recipe.get('google_doc_links', []):
+                    def quick_rank(link):
+                        text = (link.get('text') or '').strip().lower()
+                        return 0 if text in ('quick_recipe', 'quick recipe') else 1
+
+                    for link in sorted(recipe.get('google_doc_links', []), key=quick_rank):
                         link_text = link.get('text', '').lower()
                         # Check if this link should be treated as a Quick Recipe
                         is_quick_recipe_link = (

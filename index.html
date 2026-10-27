@@ -376,6 +376,12 @@
         .try-recently-link:hover {
             text-decoration: underline;
         }
+
+        .most-used-count {
+            flex-shrink: 0;
+            color: #777;
+            font-weight: 600;
+        }
     </style>
 </head>
 <body>
@@ -429,6 +435,16 @@
             </div>
         </div>
 
+        <section class="try-recently" id="most-used" hidden>
+            <h2>Most used</h2>
+            <ul class="try-recently-list" id="most-used-list"></ul>
+        </section>
+
+        <section class="try-recently" id="most-used" hidden>
+            <h2>Most used</h2>
+            <ul class="try-recently-list" id="most-used-list"></ul>
+        </section>
+
         <section class="try-recently" id="try-recently" hidden>
             <h2 id="try-recently-heading">Have you tried any of these 5 recently?</h2>
             <p class="try-recently-status" id="try-recently-status" hidden></p>
@@ -457,6 +473,8 @@
         const pictureContent = document.getElementById('picture-content');
         const noteSection = document.getElementById('note-section');
         const noteContent = document.getElementById('note-content');
+        const mostUsed = document.getElementById('most-used');
+        const mostUsedList = document.getElementById('most-used-list');
         const tryRecently = document.getElementById('try-recently');
         const tryRecentlyList = document.getElementById('try-recently-list');
         const tryRecentlyHeading = document.getElementById('try-recently-heading');
@@ -464,24 +482,73 @@
 
         let recipes = [];
         let recipeTitles = [];
+        const ACTIVITY_KEY = 'recipe-activity';
         let activity = {};
         let activityReady = false;
 
-        function hasOpened(title) {
-            const row = activity[title];
-            if (!row) return false;
-            return (row.visits || 0) + (row.linkClicks || 0) > 0;
+        function loadLocalActivity() {
+            try {
+                const stored = JSON.parse(localStorage.getItem(ACTIVITY_KEY) || '{}');
+                return stored && typeof stored === 'object' ? stored : {};
+            } catch (error) {
+                return {};
+            }
         }
 
-        async function recordActivity(title, kind) {
-            if (!title || !activityReady) return;
-            const response = await fetch('/api/activity', {
+        function saveLocalActivity() {
+            localStorage.setItem(ACTIVITY_KEY, JSON.stringify(activity));
+        }
+
+        function usageCount(row) {
+            if (!row) return 0;
+            return (row.visits || 0) + (row.searches || 0) + (row.linkClicks || 0);
+        }
+
+        function hasOpened(title) {
+            return usageCount(activity[title]) > 0;
+        }
+
+        function renderMostUsed() {
+            const ranked = recipes
+                .map(recipe => ({ recipe, count: usageCount(activity[recipe.title]) }))
+                .filter(item => item.count > 0)
+                .sort((a, b) => b.count - a.count || (activity[b.recipe.title].lastAt || 0) - (activity[a.recipe.title].lastAt || 0))
+                .slice(0, 8);
+            mostUsedList.innerHTML = '';
+            ranked.forEach(({ recipe, count }) => {
+                const item = document.createElement('li');
+                item.className = 'try-recently-item';
+                const button = document.createElement('button');
+                button.type = 'button';
+                button.className = 'try-recently-title';
+                button.textContent = recipe.title;
+                button.addEventListener('click', () => selectRecipe(recipe.title));
+                const times = document.createElement('span');
+                times.className = 'most-used-count';
+                times.textContent = count === 1 ? '1 time' : count + ' times';
+                item.append(button, times);
+                mostUsedList.appendChild(item);
+            });
+            mostUsed.hidden = ranked.length === 0;
+        }
+
+        function recordActivity(title, kind) {
+            if (!title) return;
+            const row = activity[title] || { visits: 0, searches: 0, linkClicks: 0, lastAt: 0 };
+            if (kind === 'search') row.searches = (row.searches || 0) + 1;
+            else if (kind === 'link') row.linkClicks = (row.linkClicks || 0) + 1;
+            else row.visits = (row.visits || 0) + 1;
+            row.lastAt = Date.now();
+            activity[title] = row;
+            saveLocalActivity();
+            renderMostUsed();
+            if (recipes.length) renderTryRecently(recipeInput.value.trim());
+            if (!activityReady) return;
+            fetch('/api/activity', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ title, kind })
-            });
-            if (!response.ok) return;
-            activity[title] = await response.json();
+            }).catch(() => {});
         }
 
         function isQuickRecipeLink(linkInfo) {
@@ -653,7 +720,7 @@
             return item.note ? name + ' (' + item.note + ')' : name;
         }
 
-        function renderScalableRecipe(spec) {
+        function renderScalableRecipe(spec, includeSteps) {
             const base = Number(spec.servings) || 1;
             scalableRecipeContent.textContent = '';
 
@@ -739,7 +806,11 @@
                 steps.appendChild(line);
             });
 
-            scalableRecipeContent.append(row, list, stepsLabel, steps);
+            if (includeSteps === false) {
+                scalableRecipeContent.append(row, list);
+            } else {
+                scalableRecipeContent.append(row, list, stepsLabel, steps);
+            }
         }
 
         function displayRecipe(recipe) {
@@ -767,15 +838,16 @@
                 recipeLinkSection.appendChild(document.createTextNode(' '));
             });
             
+            const showQuick = recipe.quick_recipe && recipe.quick_recipe.trim() && !recipe.quick_from_scalable;
             const hasScalable = recipe.scalable && Array.isArray(recipe.scalable.ingredients);
             if (hasScalable) {
-                renderScalableRecipe(recipe.scalable);
+                renderScalableRecipe(recipe.scalable, !showQuick);
                 scalableRecipeSection.style.display = 'block';
             } else {
                 scalableRecipeSection.style.display = 'none';
             }
 
-            if (recipe.quick_recipe && recipe.quick_recipe.trim() && !recipe.quick_from_scalable) {
+            if (showQuick) {
                 quickRecipeHeading.textContent = '📝 Quick Recipe';
                 quickRecipeContent.textContent = recipe.quick_recipe;
                 quickRecipeContent.style.whiteSpace = 'pre-wrap';
@@ -894,11 +966,14 @@
         }
 
         function selectRecipe(title) {
+            const typed = recipeInput.value.trim().toLowerCase();
+            const searched = typed && typed !== title.toLowerCase() && title.toLowerCase().includes(typed);
             recipeInput.value = title;
             recipeSuggestions.classList.remove('visible');
             recipeComboboxInner.classList.remove('focused');
             recipeClear.classList.remove('hidden');
             loadRecipe(title);
+            if (searched) recordActivity(title, 'search');
         }
 
         function openSuggestions() {
@@ -983,6 +1058,8 @@
             .then(data => {
                 recipes = data;
                 recipeTitles = recipes.map(r => r.title).sort((a, b) => a.toLowerCase().localeCompare(b.toLowerCase()));
+                activity = loadLocalActivity();
+                renderMostUsed();
                 loading.textContent = 'Select a recipe above';
                 return fetch('/api/activity');
             })
@@ -991,9 +1068,24 @@
                 return response.json();
             })
             .then(stored => {
-                activity = stored && typeof stored === 'object' ? stored : {};
+                const remote = stored && typeof stored === 'object' ? stored : {};
+                const local = loadLocalActivity();
+                const titles = new Set([...Object.keys(local), ...Object.keys(remote)]);
+                activity = {};
+                titles.forEach(title => {
+                    const saved = local[title] || {};
+                    const server = remote[title] || {};
+                    activity[title] = {
+                        visits: Math.max(saved.visits || 0, server.visits || 0),
+                        searches: Math.max(saved.searches || 0, server.searches || 0),
+                        linkClicks: Math.max(saved.linkClicks || 0, server.linkClicks || 0),
+                        lastAt: Math.max(saved.lastAt || 0, server.lastAt || 0)
+                    };
+                });
+                saveLocalActivity();
                 activityReady = true;
                 tryRecentlyStatus.hidden = true;
+                renderMostUsed();
                 renderTryRecently(recipeInput.value.trim());
             })
             .catch(() => {
@@ -1002,8 +1094,9 @@
                     loading.textContent = 'No recipes loaded. Start the recipe server on this computer.';
                     return;
                 }
-                tryRecentlyStatus.hidden = false;
-                tryRecentlyStatus.textContent = 'Open this page from the recipe server on this computer to save which recipes you have tried.';
+                activity = loadLocalActivity();
+                tryRecentlyStatus.hidden = true;
+                renderMostUsed();
                 renderTryRecently(recipeInput.value.trim());
             });
     </script>

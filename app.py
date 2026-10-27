@@ -77,13 +77,15 @@ def record_activity():
     body = request.get_json(silent=True) or {}
     title = str(body.get('title') or '').strip()
     kind = body.get('kind')
-    if not title or kind not in ('visit', 'link'):
+    if not title or kind not in ('visit', 'link', 'search'):
         return jsonify({'error': 'title and kind are required'}), 400
     with _activity_lock:
         data = load_activity()
-        row = data.get(title) or {'visits': 0, 'linkClicks': 0, 'lastAt': 0}
+        row = data.get(title) or {'visits': 0, 'searches': 0, 'linkClicks': 0, 'lastAt': 0}
         if kind == 'link':
             row['linkClicks'] = int(row.get('linkClicks') or 0) + 1
+        elif kind == 'search':
+            row['searches'] = int(row.get('searches') or 0) + 1
         else:
             row['visits'] = int(row.get('visits') or 0) + 1
         row['lastAt'] = int(time.time() * 1000)
