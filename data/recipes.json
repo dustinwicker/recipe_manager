@@ -40,11 +40,17 @@
         "url": "https://www.ezoshop.best/2024/12/baked-sweet-and-sour-chicken_11.html?fbclid=IwY2xjawRpcSVleHRuA2FlbQIxMABicmlkETFOM2Z2NE8zVGlkZkJ2MXhic3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHqvdcGIl8DQW6wJIDxEBxYeMSL-GF55ow2NRmxLrHGABKNbqFO4avUx7pCmG_aem_B5ose54cTsxJ9IlEvU6kQw"
       }
     ],
-    "google_doc_links": [],
+    "google_doc_links": [
+      {
+        "text": "Quick_Recipe",
+        "url": "https://docs.google.com/document/d/1K-uq8uyH8gvEkkzhBCVxWdE2b0TPHZYOLPTLOaCWjLo/edit"
+      }
+    ],
     "picture_links": [],
-    "quick_recipe": null,
-    "has_quick_recipe": false,
-    "note": null
+    "quick_recipe": "- 1 1/2 pounds chicken, bite-size\n- 1/3 cup cornstarch\n- 1 bell pepper, chunked\n- 1 cup pineapple chunks\n- 1/3 cup pineapple juice\n- 3 tablespoons ketchup\n- 2 tablespoons rice vinegar\n- 2 tablespoons soy sauce\n- 2 tablespoons brown sugar\n- 1 teaspoon garlic\n\nBaked\n- Toss the chicken with cornstarch\n- Oven: 400 degrees\n- Time: 20 minutes, flip halfway\n- Simmer the sauce ingredients until thick\n- Toss the chicken, pepper, and pineapple with the sauce",
+    "has_quick_recipe": true,
+    "note": null,
+    "quick_from_scalable": false
   },
   {
     "title": "Baked Sweet Potato (Vegan)",
@@ -179,12 +185,17 @@
       {
         "text": "Recipe",
         "url": "https://docs.google.com/document/d/17IfmboOjC1NZG1eaJChobyqntsAM-yO6IxOpI9WUKAw/edit"
+      },
+      {
+        "text": "Quick_Recipe",
+        "url": "https://docs.google.com/document/d/1zlJotepZC7POzMf8c-p5vYx9kVT_nG6m5AqmdCyGEEc/edit"
       }
     ],
     "picture_links": [],
-    "quick_recipe": null,
-    "has_quick_recipe": false,
-    "note": null
+    "quick_recipe": "- 1 small cooked beet\n- 1 banana\n- 1 cup frozen berries\n- 1 cup milk or yogurt\n- 1 teaspoon grated ginger\n- honey, to taste\n\n- Blend until smooth",
+    "has_quick_recipe": true,
+    "note": null,
+    "quick_from_scalable": false
   },
   {
     "title": "Black Beans",
@@ -193,12 +204,17 @@
       {
         "text": "Recipe",
         "url": "https://docs.google.com/document/d/1J9ILnAWqAIRRYXkrO9iVRC_MoPPtb0hZHt3ih5nXHos/edit?tab=t.0"
+      },
+      {
+        "text": "Quick_Recipe",
+        "url": "https://docs.google.com/document/d/1tSCvoO24Iw66hugreu54TRXhO1FAGmJSq1CmsWPOTak/edit"
       }
     ],
     "picture_links": [],
-    "quick_recipe": null,
-    "has_quick_recipe": false,
-    "note": null
+    "quick_recipe": "- 1 pound dried black beans\n- salt\n- bay leaf, garlic, and onion\n\n- Pick through, rinse, and soak at least 8 hours\n- Cover with a few inches of water. Add the salt and aromatics\n- Boil, then simmer 60–90 minutes, until tender",
+    "has_quick_recipe": true,
+    "note": null,
+    "quick_from_scalable": false
   },
   {
     "title": "Bone Broth",
@@ -327,11 +343,17 @@
         "url": "https://www.eatingwell.com/recipe/251741/broccoli-cheese-chowder/"
       }
     ],
-    "google_doc_links": [],
+    "google_doc_links": [
+      {
+        "text": "Quick_Recipe",
+        "url": "https://docs.google.com/document/d/1kyIPlHhN9IeWKFv3D8OBuqLpmrAz4zRUoY3LMR5bits/edit"
+      }
+    ],
     "picture_links": [],
-    "quick_recipe": null,
-    "has_quick_recipe": false,
-    "note": null
+    "quick_recipe": "- 2 tablespoons butter\n- 1 onion, chopped\n- 2 tablespoons flour\n- 3 cups broth\n- 2 cups diced potato\n- 4 cups broccoli florets\n- 1 cup milk\n- 2 cups shredded cheddar\n- salt and pepper\n\n- Cook the onion in the butter. Stir in the flour\n- Add the broth and potato. Simmer until the potato is tender\n- Add the broccoli and cook until just tender\n- Stir in the milk and cheese until melted",
+    "has_quick_recipe": true,
+    "note": null,
+    "quick_from_scalable": false
   },
   {
     "title": "Broccoli Feta Soup",
@@ -341,11 +363,17 @@
         "url": "https://thefeedfeed.com/feelgoodfoodie/broccoli-feta-soup"
       }
     ],
-    "google_doc_links": [],
+    "google_doc_links": [
+      {
+        "text": "Quick_Recipe",
+        "url": "https://docs.google.com/document/d/1EDl95U_J0i6ruD6QOmz_Gjg0vxx5RRX9Aw7ID7-6NDY/edit"
+      }
+    ],
     "picture_links": [],
-    "quick_recipe": null,
-    "has_quick_recipe": false,
-    "note": null
+    "quick_recipe": "- 1 onion, chopped\n- 3 cloves garlic\n- 6 cups broccoli florets\n- 4 cups broth\n- 4 ounces feta\n- salt and pepper\n\n- Cook the onion and garlic\n- Add the broccoli and broth. Simmer until the broccoli is soft\n- Blend with the feta. Season",
+    "has_quick_recipe": true,
+    "note": null,
+    "quick_from_scalable": false
   },
   {
     "title": "Brownie Cookies",
@@ -355,11 +383,17 @@
         "url": "https://divascancook.com/brownie-cookies-recipe/"
       }
     ],
-    "google_doc_links": [],
+    "google_doc_links": [
+      {
+        "text": "Quick_Recipe",
+        "url": "https://docs.google.com/document/d/1YNy_Urwuw4AscOpVV3DcA4FcMTz1rVTzuHNw8KbLeJA/edit"
+      }
+    ],
     "picture_links": [],
-    "quick_recipe": null,
-    "has_quick_recipe": false,
-    "note": null
+    "quick_recipe": "- 1/2 cup butter\n- 1 cup sugar\n- 2 eggs\n- 1 teaspoon vanilla\n- 1/2 cup cocoa\n- 1 cup flour\n- 1/2 teaspoon salt\n- 1 cup chocolate chips\n\nBaked\n- Mix the butter, sugar, eggs, and vanilla\n- Stir in the cocoa, flour, salt, and chips\n- Oven: 350 degrees\n- Time: 8–10 minutes",
+    "has_quick_recipe": true,
+    "note": null,
+    "quick_from_scalable": false
   },
   {
     "title": "Buffalo Cauliflower Wings (Vegan)",
@@ -404,11 +438,17 @@
         "url": "https://www.youtube.com/watch?v=sG4TOTb5ED8&ab_channel=Felu-Fitbycooking"
       }
     ],
-    "google_doc_links": [],
+    "google_doc_links": [
+      {
+        "text": "Quick_Recipe",
+        "url": "https://docs.google.com/document/d/1CRh7pKcoCQ263gVBltXk6_uPwzr5l_LNvRsJ-Nsm8Y0/edit"
+      }
+    ],
     "picture_links": [],
-    "quick_recipe": null,
-    "has_quick_recipe": false,
-    "note": null
+    "quick_recipe": "- 1 pound ground beef\n- salt and pepper\n- 4 buns\n- cheese, optional\n- 2 large potatoes\n- 1 tablespoon oil\n\n- Cut the potatoes into fries. Toss with oil, salt, and pepper\n- Oven: 425 degrees\n- Time: 25–30 minutes, flip halfway\n- Salt the beef and form 4 thin patties\n- Cook in a hot skillet, about 3 minutes a side. Add cheese and serve on the buns",
+    "has_quick_recipe": true,
+    "note": null,
+    "quick_from_scalable": false
   },
   {
     "title": "Candied Yams",
@@ -555,12 +595,17 @@
       {
         "text": "Recipe",
         "url": "https://docs.google.com/document/d/1ddP3yONfE7ymuP7PsYvhdr39foNh9LvNN5g_FrPBUTE/edit?tab=t.0"
+      },
+      {
+        "text": "Quick_Recipe",
+        "url": "https://docs.google.com/document/d/1gnWmZ7AeCfnZeFEZH80LOL4cQn9LEs5zmwQ33LwWoSo/edit"
       }
     ],
     "picture_links": [],
-    "quick_recipe": null,
-    "has_quick_recipe": false,
-    "note": null
+    "quick_recipe": "- 1 cauliflower, in florets\n- 1 tablespoon olive oil\n- salt and pepper\n\nBaked\n- Toss the florets with oil, salt, and pepper\n- Oven: 425 degrees\n- Time: 20–25 minutes, until browned",
+    "has_quick_recipe": true,
+    "note": null,
+    "quick_from_scalable": false
   },
   {
     "title": "Chanko Nabe",
@@ -934,11 +979,17 @@
         "url": "https://littlehealthylife.com/cheese-wrapped-chicken-taquitos-2005/?fbclid=IwY2xjawPhBYpleHRuA2FlbQIxMABicmlkETFxWWc3YTFxeHlPVEJZVVpWc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHgDgFVOya7vJigRHT_mTZERqIbwDyhFqBidmAEtlHtQqUOlialv068bzCUQw_aem_PVw-KY-yOXphndKGANOqyA"
       }
     ],
-    "google_doc_links": [],
+    "google_doc_links": [
+      {
+        "text": "Quick_Recipe",
+        "url": "https://docs.google.com/document/d/1iitkranBnNT-PcQW_yNhw5D73w74a_YsfIhZx07omwM/edit"
+      }
+    ],
     "picture_links": [],
-    "quick_recipe": null,
-    "has_quick_recipe": false,
-    "note": null
+    "quick_recipe": "- 2 cups shredded cooked chicken\n- 1/2 teaspoon chili powder\n- 1/2 teaspoon cumin\n- salt\n- 8 slices cheese, or cheese slices large enough to wrap\n\nBaked\n- Mix the chicken and spices\n- Spoon onto the cheese and roll into taquitos\n- Oven: 400 degrees\n- Time: 10–12 minutes, until the cheese is crisp",
+    "has_quick_recipe": true,
+    "note": null,
+    "quick_from_scalable": false
   },
   {
     "title": "Chicken Breast",
@@ -1096,11 +1147,17 @@
         "url": "https://www.allrecipes.com/julia-child-chicken-salad-recipe-11762265"
       }
     ],
-    "google_doc_links": [],
+    "google_doc_links": [
+      {
+        "text": "Quick_Recipe",
+        "url": "https://docs.google.com/document/d/1r2HmupmgUvY67Gn8dwaYvXoS9aUAiTWKyuOBShnHS6Q/edit"
+      }
+    ],
     "picture_links": [],
-    "quick_recipe": null,
-    "has_quick_recipe": false,
-    "note": null
+    "quick_recipe": "- 2 cups cooked chicken, chopped\n- 1/2 cup mayonnaise\n- 1 rib celery, diced\n- 1 tablespoon lemon juice\n- 1 teaspoon Dijon mustard\n- salt and pepper\n- fresh herbs, optional\n\n- Stir everything together\n- Chill",
+    "has_quick_recipe": true,
+    "note": null,
+    "quick_from_scalable": false
   },
   {
     "title": "Chicken Thighs",
@@ -1129,11 +1186,17 @@
         "url": "https://thedefineddish.com/crockpot-chicken-tikka-masala/#wprm-recipe-container-18359"
       }
     ],
-    "google_doc_links": [],
+    "google_doc_links": [
+      {
+        "text": "Quick_Recipe",
+        "url": "https://docs.google.com/document/d/1cYq9hLU1c5n4uDNAJcbcLPPdi6R9yV33N6_i-8nQDrI/edit"
+      }
+    ],
     "picture_links": [],
-    "quick_recipe": null,
-    "has_quick_recipe": false,
-    "note": null
+    "quick_recipe": "- 1 1/2 pounds chicken, bite-size\n- 1/2 cup yogurt\n- 1 tablespoon garam masala\n- 1 teaspoon cumin\n- 1 onion, chopped\n- 3 cloves garlic\n- 1 tablespoon grated ginger\n- 1 can tomato sauce\n- 1/2 cup cream\n- salt\n\n- Toss the chicken with the yogurt, garam masala, and cumin\n- Cook the onion, garlic, and ginger. Add the tomato sauce\n- Add the chicken. Simmer until cooked through, about 20 minutes\n- Stir in the cream. Serve with rice",
+    "has_quick_recipe": true,
+    "note": null,
+    "quick_from_scalable": false
   },
   {
     "title": "Chicken Tortilla Casserole",
@@ -1142,12 +1205,17 @@
       {
         "text": "Recipe",
         "url": "https://docs.google.com/document/d/1I-zIm3NSy8AYqdbYLroN3gcuNcH7rI8O8JbV4pyGB1s/edit"
+      },
+      {
+        "text": "Quick_Recipe",
+        "url": "https://docs.google.com/document/d/1elxzGVf_AXmvjO5fZj0r1ccOBfGvCCIktxHRGvvGf1Y/edit"
       }
     ],
     "picture_links": [],
-    "quick_recipe": null,
-    "has_quick_recipe": false,
-    "note": null
+    "quick_recipe": "- 3 cups shredded cooked chicken\n- 1 can enchilada sauce\n- 1 can black beans, drained\n- 1 cup corn\n- 8 corn tortillas, cut into strips\n- 2 cups shredded cheese\n\nBaked\n- Stir the chicken, sauce, beans, and corn\n- Layer with the tortillas and half the cheese in a greased 9x13\n- Top with the rest of the cheese\n- Oven: 350 degrees\n- Time: 25 minutes",
+    "has_quick_recipe": true,
+    "note": null,
+    "quick_from_scalable": false
   },
   {
     "title": "Chickpeas",
@@ -1189,12 +1257,17 @@
       {
         "text": "Recipe",
         "url": "https://docs.google.com/document/d/1LGqUpJY047k-pFqKOhnh6sqIvX8lzJG5HMXvJPPsBtQ/edit?tab=t.0"
+      },
+      {
+        "text": "Quick_Recipe",
+        "url": "https://docs.google.com/document/d/1-WoONT953fCtehvxaGodUw2YzfOm5Ok6whBcPk71iyQ/edit"
       }
     ],
     "picture_links": [],
-    "quick_recipe": null,
-    "has_quick_recipe": false,
-    "note": null
+    "quick_recipe": "- 1 pound ground beef\n- 1 small onion, chopped\n- 2 cloves garlic\n- 2 tablespoons chili powder\n- 1 teaspoon cumin\n- 1 cup tomato sauce\n- 1/2 cup water\n- salt\n\n- Brown the beef and onion. Drain\n- Add the garlic, chili powder, and cumin\n- Stir in the tomato sauce and water\n- Simmer 20 minutes. Serve on hot dogs or burgers",
+    "has_quick_recipe": true,
+    "note": null,
+    "quick_from_scalable": false
   },
   {
     "title": "Chipotle Mayonnaise",
@@ -1233,11 +1306,17 @@
         "url": "https://littlehealthylife.com/classic-chocolate-mousse-recipe-2008/?fbclid=IwY2xjawM64nJleHRuA2FlbQIxMQABHur1WePB4ZrTHEMBbGQ-LkPM4njwpYCG2k2HsVRQp9HE2Br3ncD9T1vy8nzb_aem_nEmTci2xmFsNPzpzntL4kg"
       }
     ],
-    "google_doc_links": [],
+    "google_doc_links": [
+      {
+        "text": "Quick_Recipe",
+        "url": "https://docs.google.com/document/d/18D5nvCw12N2K8scAnyOjE0Cu6iY6UOK_-bAtzOT1mZA/edit"
+      }
+    ],
     "picture_links": [],
-    "quick_recipe": null,
-    "has_quick_recipe": false,
-    "note": null
+    "quick_recipe": "- 6 ounces chocolate, chopped\n- 1 1/2 cups cold heavy cream\n- 1 tablespoon sugar\n- pinch salt\n\n- Melt the chocolate and let it cool slightly\n- Whip the cream and sugar to soft peaks\n- Fold the chocolate into the cream\n- Chill at least 1 hour",
+    "has_quick_recipe": true,
+    "note": null,
+    "quick_from_scalable": false
   },
   {
     "title": "Chocolate Peanut Butter Balls",
@@ -1247,11 +1326,17 @@
         "url": "https://littlehealthylife.com/chocolate-peanut-butter-balls-2005/?fbclid=IwY2xjawNE1OtleHRuA2FlbQIxMQABHivpz2wtMNM3FB_Zs0zAlvCdsTFTmmT7l4dNxbWz2J4PPZSZ64cQHY_76nWg_aem_XbIxz0FOXtahJDxeVtvZ0A"
       }
     ],
-    "google_doc_links": [],
+    "google_doc_links": [
+      {
+        "text": "Quick_Recipe",
+        "url": "https://docs.google.com/document/d/19EBnIlg8LdTkhCXoyTrqHJ-YrwPA5qzIuBfxReHMcsc/edit"
+      }
+    ],
     "picture_links": [],
-    "quick_recipe": null,
-    "has_quick_recipe": false,
-    "note": null
+    "quick_recipe": "- 1 cup peanut butter\n- 1/2 cup powdered sugar\n- 2 tablespoons butter, softened\n- 1 cup chocolate chips\n- 1 teaspoon oil\n\n- Mix the peanut butter, sugar, and butter. Roll into balls\n- Chill 30 minutes\n- Melt the chocolate with the oil and coat the balls\n- Chill until set",
+    "has_quick_recipe": true,
+    "note": null,
+    "quick_from_scalable": false
   },
   {
     "title": "Cinnamon Roll Bread",
@@ -1261,11 +1346,17 @@
         "url": "https://divascancook.com/cinnamon-roll-bread-recipe/"
       }
     ],
-    "google_doc_links": [],
+    "google_doc_links": [
+      {
+        "text": "Quick_Recipe",
+        "url": "https://docs.google.com/document/d/1BCGrkSfaqZAlKP9Rr-DfAAxrzjvwbVCbxlcmgRQmYRg/edit"
+      }
+    ],
     "picture_links": [],
-    "quick_recipe": null,
-    "has_quick_recipe": false,
-    "note": null
+    "quick_recipe": "- 3 cups flour\n- 2 1/4 teaspoons yeast\n- 1 cup warm milk\n- 1/4 cup sugar\n- 1/4 cup butter, melted\n- 1 egg\n- 1 teaspoon salt\n- 1/3 cup brown sugar\n- 1 tablespoon cinnamon\n\nBaked\n- Mix the flour, yeast, milk, sugar, butter, egg, and salt into a soft dough\n- Rise until doubled, about 1 hour\n- Roll out, spread with brown sugar and cinnamon, and roll up\n- Rise 30 minutes in a loaf pan\n- Oven: 350 degrees\n- Time: 30–35 minutes",
+    "has_quick_recipe": true,
+    "note": null,
+    "quick_from_scalable": false
   },
   {
     "title": "Cleansing Detox Soup",
@@ -1380,11 +1471,17 @@
         "url": "https://cookieandkate.com/simple-healthy-coleslaw-recipe/"
       }
     ],
-    "google_doc_links": [],
+    "google_doc_links": [
+      {
+        "text": "Quick_Recipe",
+        "url": "https://docs.google.com/document/d/1RV7qufaNHdAXlbvL6nPKCs2bNbVshmXPoSzf1DsunC8/edit"
+      }
+    ],
     "picture_links": [],
-    "quick_recipe": null,
-    "has_quick_recipe": false,
-    "note": null
+    "quick_recipe": "- 4 cups shredded cabbage\n- 1 carrot, shredded\n- 1/3 cup mayonnaise\n- 1 tablespoon apple cider vinegar\n- 1 teaspoon Dijon mustard\n- 1 teaspoon sugar or honey\n- salt and pepper\n\n- Whisk the dressing\n- Toss with the cabbage and carrot\n- Chill 30 minutes",
+    "has_quick_recipe": true,
+    "note": null,
+    "quick_from_scalable": false
   },
   {
     "title": "Corn",
@@ -1407,12 +1504,17 @@
       {
         "text": "Recipe",
         "url": "https://docs.google.com/document/d/1-tDmf7NGDMsg0BM3GOH-ssSiiziAV4nUxgApZGLYESk/edit?usp=drivesdk"
+      },
+      {
+        "text": "Quick_Recipe",
+        "url": "https://docs.google.com/document/d/1G5fqFhpk84beuP7vAo2ZUsEZIHc4vjAbpdgKRj_qrWs/edit"
       }
     ],
     "picture_links": [],
-    "quick_recipe": null,
-    "has_quick_recipe": false,
-    "note": null
+    "quick_recipe": "Vegetable\n- 6 eggs\n- 1/2 cup milk\n- 6–8 cooked breakfast sausage links, sliced\n- 8 ounces Swiss or Gruyere\n- half a pack of arugula\n- 2–3 cloves garlic\n- 1 small onion, sliced\n- 8 ounces chopped portobello mushrooms\n- salt and pepper\n- butter\n\n- Cook the sausage and slice it. Cool\n- Sauté the onion and mushrooms in butter. Add the garlic and a pinch of salt\n- Stir in the arugula until it wilts. Cool\n- Whisk the eggs, milk, 1/2 teaspoon salt, and pepper\n- Put the vegetables and sausage in a greased 9-inch pie dish. Add the cheese, then the eggs\n- Oven: 350 degrees\n- Time: 30–40 minutes, until the center is set\n\nBacon\n- 8 eggs\n- 2/3 cup milk\n- 3 ounces bacon bits\n- 8–12 ounces shredded cheddar\n- 1/2 teaspoon salt and black pepper\n\n- Whisk the eggs, milk, salt, and pepper\n- Put the bacon and cheese in a greased 9-inch pie dish. Add the eggs\n- Oven: 350 degrees\n- Time: 30–40 minutes, until the center is set",
+    "has_quick_recipe": true,
+    "note": null,
+    "quick_from_scalable": false
   },
   {
     "title": "Curried Butternut Squash Soup",
@@ -1422,11 +1524,17 @@
         "url": "https://www.foodnetwork.com/recipes/ellie-krieger/curried-butternut-squash-soup-recipe-1948498"
       }
     ],
-    "google_doc_links": [],
+    "google_doc_links": [
+      {
+        "text": "Quick_Recipe",
+        "url": "https://docs.google.com/document/d/1sv5GIGDz7Xm3TvwsUiFUJvpLDRo_8_4LdiWgLdsrZ08/edit"
+      }
+    ],
     "picture_links": [],
-    "quick_recipe": null,
-    "has_quick_recipe": false,
-    "note": null
+    "quick_recipe": "- 1 onion, chopped\n- 2 cloves garlic\n- 1 tablespoon curry powder\n- 1 butternut squash, peeled and cubed\n- 4 cups broth\n- 1/2 cup coconut milk\n- salt\n\n- Cook the onion and garlic. Stir in the curry powder\n- Add the squash and broth. Simmer until soft\n- Blend. Stir in the coconut milk",
+    "has_quick_recipe": true,
+    "note": null,
+    "quick_from_scalable": false
   },
   {
     "title": "Dumpling Soup (Vegan)",
@@ -1675,11 +1783,17 @@
         "url": "https://www.youtube.com/watch?v=pRQzusfirJ8&ab_channel=CleanFoodLiving"
       }
     ],
-    "google_doc_links": [],
+    "google_doc_links": [
+      {
+        "text": "Quick_Recipe",
+        "url": "https://docs.google.com/document/d/1bFhKV_3kmTooPyjoOEYTv-veDe37gjcbdIOsTgu_cg8/edit"
+      }
+    ],
     "picture_links": [],
-    "quick_recipe": null,
-    "has_quick_recipe": false,
-    "note": null
+    "quick_recipe": "- 2 onions, sliced\n- 1 tablespoon salt\n- 2 cups water\n- 1 clove garlic\n- peppercorns, optional\n\n- Dissolve the salt in the water\n- Pack the onions and garlic in a jar. Cover with brine and keep them submerged\n- Ferment at room temperature 5–7 days. Burp the jar daily\n- Refrigerate",
+    "has_quick_recipe": true,
+    "note": null,
+    "quick_from_scalable": false
   },
   {
     "title": "Fermented Pickles with Garlic and Dill",
@@ -1693,11 +1807,17 @@
         "url": "https://cleanfoodliving.net/fermented-pickles/"
       }
     ],
-    "google_doc_links": [],
+    "google_doc_links": [
+      {
+        "text": "Quick_Recipe",
+        "url": "https://docs.google.com/document/d/13Oo-Qp-MAFQG7GiXexb9WfkjP_PUPKAo5s6GpQTLwBo/edit"
+      }
+    ],
     "picture_links": [],
-    "quick_recipe": null,
-    "has_quick_recipe": false,
-    "note": null
+    "quick_recipe": "- 1 pound small cucumbers\n- 3 tablespoons salt\n- 1 quart water\n- 4 cloves garlic\n- a handful of dill\n\n- Dissolve the salt in the water\n- Pack the cucumbers, garlic, and dill in a jar. Cover with brine and keep them submerged\n- Ferment at room temperature 3–7 days, until sour. Burp daily\n- Refrigerate",
+    "has_quick_recipe": true,
+    "note": null,
+    "quick_from_scalable": false
   },
   {
     "title": "Flour Tortillas",
@@ -2039,11 +2159,17 @@
         "url": "https://www.sweetgreensvegan.com/recipecards1/creamyharissabutterbeans"
       }
     ],
-    "google_doc_links": [],
+    "google_doc_links": [
+      {
+        "text": "Quick_Recipe",
+        "url": "https://docs.google.com/document/d/19Qf8skOPcSOry1IOcA3HF9tODaX-DBW38a4o8QhStWg/edit"
+      }
+    ],
     "picture_links": [],
-    "quick_recipe": null,
-    "has_quick_recipe": false,
-    "note": null
+    "quick_recipe": "- 2 cans butter beans, drained\n- 2 tablespoons olive oil\n- 3 cloves garlic\n- 2 tablespoons harissa\n- 1/2 cup coconut milk or water\n- 1 tablespoon lemon juice\n- salt\n- parsley or cilantro\n\n- Cook the garlic in the oil. Stir in the harissa\n- Add the beans and coconut milk. Simmer 8–10 minutes\n- Finish with lemon juice and herbs",
+    "has_quick_recipe": true,
+    "note": null,
+    "quick_from_scalable": false
   },
   {
     "title": "Honey Chicken",
@@ -2134,11 +2260,17 @@
         "url": "https://kirbiecravings.com/baked-honey-garlic-chicken/"
       }
     ],
-    "google_doc_links": [],
+    "google_doc_links": [
+      {
+        "text": "Quick_Recipe",
+        "url": "https://docs.google.com/document/d/1kjm5pRVgae3AVvxe3n_UAIL4m31X5OQiyb5TsUh654k/edit"
+      }
+    ],
     "picture_links": [],
-    "quick_recipe": null,
-    "has_quick_recipe": false,
-    "note": null
+    "quick_recipe": "- 1 1/2 pounds chicken thighs\n- 2 tablespoons cornstarch\n- salt and pepper\n- 3 tablespoons honey\n- 2 tablespoons soy sauce\n- 3 cloves garlic, minced\n- 1 tablespoon butter\n\nBaked\n- Toss the chicken with cornstarch, salt, and pepper\n- Oven: 425 degrees\n- Time: 25–30 minutes, until crisp and 165 inside\n- Simmer the honey, soy sauce, garlic, and butter until glossy\n- Toss the chicken in the sauce",
+    "has_quick_recipe": true,
+    "note": null,
+    "quick_from_scalable": false
   },
   {
     "title": "Japanese Curry",
@@ -2269,11 +2401,17 @@
         "url": "https://www.indishious.com/en/recipes/kanji/"
       }
     ],
-    "google_doc_links": [],
+    "google_doc_links": [
+      {
+        "text": "Quick_Recipe",
+        "url": "https://docs.google.com/document/d/1TXcKFImtNQves7x1wYuu05bQvJU7p1RSULJQdyS9ZnQ/edit"
+      }
+    ],
     "picture_links": [],
-    "quick_recipe": null,
-    "has_quick_recipe": false,
-    "note": null
+    "quick_recipe": "- 2 carrots, cut into sticks\n- 1 beet, cut into sticks\n- 1 tablespoon mustard seeds\n- 1 tablespoon salt\n- 4 cups water\n\n- Crush the mustard seeds\n- Stir the salt into the water. Add the vegetables and mustard\n- Cover loosely and ferment at room temperature 3–5 days, until tangy\n- Refrigerate",
+    "has_quick_recipe": true,
+    "note": null,
+    "quick_from_scalable": false
   },
   {
     "title": "Kefir Water (Probiotic Drink)",
@@ -2282,12 +2420,17 @@
       {
         "text": "Claire (Andy's sister) Recipe",
         "url": "https://docs.google.com/document/d/1byxZ8Y_iB0ZLNnSkz6x0XVinM9EjMB_XdwWClYdkZGY/edit"
+      },
+      {
+        "text": "Quick_Recipe",
+        "url": "https://docs.google.com/document/d/1aIa92sUQCyVVIG2udLQkoO8nNprhyqLek8KsHnO49RQ/edit"
       }
     ],
     "picture_links": [],
-    "quick_recipe": null,
-    "has_quick_recipe": false,
-    "note": null
+    "quick_recipe": "- a little less than 1 cup sugar\n- 3 dates\n- 1 tablespoon molasses\n- 2 very ripe bananas\n- spring water, to fill a gallon jar\n- water kefir grains\n\n- Add the sugar, dates, molasses, and bananas to the jar\n- Fill with spring water. Cover with a towel and keep it dark\n- Ferment at 75 degrees for 3 days",
+    "has_quick_recipe": true,
+    "note": null,
+    "quick_from_scalable": false
   },
   {
     "title": "Kombucha",
@@ -2297,11 +2440,17 @@
         "url": "https://www.reddit.com/r/Kombucha/comments/5b1ztm/reddit_master_kombucha_recipe/?rdt=61632"
       }
     ],
-    "google_doc_links": [],
+    "google_doc_links": [
+      {
+        "text": "Quick_Recipe",
+        "url": "https://docs.google.com/document/d/1WYPu8RcRjSLychGbHj9WOObuCtxNR_hpugszGaXODPc/edit"
+      }
+    ],
     "picture_links": [],
-    "quick_recipe": null,
-    "has_quick_recipe": false,
-    "note": null
+    "quick_recipe": "- 1 gallon water\n- 1 cup sugar\n- 8 bags black tea\n- 1 scoby and 2 cups starter kombucha\n\n- Boil the water and sugar. Steep the tea, then cool to room temperature\n- Add the starter and scoby. Cover with a cloth\n- Ferment 7–14 days, until it tastes as tart as you want\n- Bottle with a little fruit or juice for 2–3 days, then refrigerate",
+    "has_quick_recipe": true,
+    "note": null,
+    "quick_from_scalable": false
   },
   {
     "title": "Korean Popcorn Chicken",
@@ -2311,11 +2460,17 @@
         "url": "https://www.youtube.com/shorts/iZYz2qtGYDs"
       }
     ],
-    "google_doc_links": [],
+    "google_doc_links": [
+      {
+        "text": "Quick_Recipe",
+        "url": "https://docs.google.com/document/d/1zgXz5XI3-Y1ppW0LwmzKu6FrwcmdEs533dxgRZ6V2EQ/edit"
+      }
+    ],
     "picture_links": [],
-    "quick_recipe": null,
-    "has_quick_recipe": false,
-    "note": null
+    "quick_recipe": "- 1 pound chicken, bite-size\n- 1/2 cup potato starch or cornstarch\n- salt\n- oil, for frying\n- 2 tablespoons gochujang\n- 2 tablespoons honey\n- 1 tablespoon soy sauce\n- 1 tablespoon ketchup\n- 2 cloves garlic\n- sesame seeds\n\n- Toss the chicken with salt and starch\n- Fry at 350 degrees until crisp, about 4–5 minutes\n- Simmer the gochujang, honey, soy sauce, ketchup, and garlic\n- Toss the chicken in the sauce and sprinkle with sesame seeds",
+    "has_quick_recipe": true,
+    "note": null,
+    "quick_from_scalable": false
   },
   {
     "title": "Kvass (Probiotic Drink)",
@@ -2345,11 +2500,17 @@
         "url": "https://www.marthastewart.com/337330/creamy-lemon-squares?utm_source=pinterest.com&utm_medium=social&utm_campaign=social-share-recipe&utm_content=20200620&utm_term=337330"
       }
     ],
-    "google_doc_links": [],
+    "google_doc_links": [
+      {
+        "text": "Quick_Recipe",
+        "url": "https://docs.google.com/document/d/1sEL00t5rcGt6FtG0kjjl8L8k-0z8DlzyIHbA_Wx7I8I/edit"
+      }
+    ],
     "picture_links": [],
-    "quick_recipe": null,
-    "has_quick_recipe": false,
-    "note": null
+    "quick_recipe": "- 1 cup flour\n- 1/4 cup powdered sugar\n- 1/2 cup butter\n- 3 eggs\n- 1 cup sugar\n- 1/3 cup lemon juice\n- 2 tablespoons flour\n- powdered sugar, for the top\n\nBaked\n- Mix the crust flour, powdered sugar, and butter. Press into an 8-inch pan\n- Oven: 350 degrees\n- Time: 15 minutes\n- Whisk the eggs, sugar, lemon juice, and flour. Pour over the crust\n- Time: 20 minutes more, until set\n- Cool, then dust with powdered sugar",
+    "has_quick_recipe": true,
+    "note": null,
+    "quick_from_scalable": false
   },
   {
     "title": "Mashed Potato Cakes",
@@ -2359,11 +2520,17 @@
         "url": "https://www.feastingathome.com/mashed-potato-cakes/"
       }
     ],
-    "google_doc_links": [],
+    "google_doc_links": [
+      {
+        "text": "Quick_Recipe",
+        "url": "https://docs.google.com/document/d/1tPYfXS2RGvk2g949bjwyoOsGDpuB-dzXw4gfTSVhN0w/edit"
+      }
+    ],
     "picture_links": [],
-    "quick_recipe": null,
-    "has_quick_recipe": false,
-    "note": null
+    "quick_recipe": "- 2 cups cold mashed potatoes\n- 1 egg\n- 1/4 cup flour\n- salt and pepper\n- oil or butter, for frying\n\n- Mix the potatoes, egg, flour, salt, and pepper\n- Form into cakes\n- Fry in a little oil over medium, about 3–4 minutes a side, until browned",
+    "has_quick_recipe": true,
+    "note": null,
+    "quick_from_scalable": false
   },
   {
     "title": "Mayonnaise",
@@ -2392,6 +2559,10 @@
       {
         "text": "Mom_Recipe",
         "url": "https://docs.google.com/document/d/1J_Gz3MXhg-Y0_U3L6wuVgCVBFxsworp48lhCSYoY-BI/edit"
+      },
+      {
+        "text": "Quick_Recipe",
+        "url": "https://docs.google.com/document/d/1vOdETqaltjhMmIZW5-zbtmUFnw3Enp82d-MpnCDJMV4/edit"
       }
     ],
     "picture_links": [
@@ -2404,9 +2575,10 @@
         "text": "Image"
       }
     ],
-    "quick_recipe": null,
+    "quick_recipe": "- 1 pound ground beef\n- 1 packet taco seasoning\n- 1 can enchilada sauce\n- 8 corn tortillas\n- 2 cups shredded cheese\n\nBaked\n- Brown the beef. Stir in the seasoning and half the sauce\n- Layer the tortillas, beef, and cheese in a greased dish\n- Pour the rest of the sauce over the top and add the remaining cheese\n- Oven: 350 degrees\n- Time: 20–25 minutes",
     "has_quick_recipe": true,
-    "note": null
+    "note": null,
+    "quick_from_scalable": false
   },
   {
     "title": "Mexican Rice",
@@ -2431,11 +2603,17 @@
         "url": "https://ketobeginners.co/mongolian-ground-beef-noodles/"
       }
     ],
-    "google_doc_links": [],
+    "google_doc_links": [
+      {
+        "text": "Quick_Recipe",
+        "url": "https://docs.google.com/document/d/1JMWX-nWvLSWmnXaAKcmMxMzQIYbMje0jlFU8V450H9I/edit"
+      }
+    ],
     "picture_links": [],
-    "quick_recipe": null,
-    "has_quick_recipe": false,
-    "note": null
+    "quick_recipe": "- 8 ounces noodles\n- 1 pound ground beef\n- 3 cloves garlic\n- 1 teaspoon grated ginger\n- 1/4 cup soy sauce\n- 2 tablespoons brown sugar\n- 1 tablespoon rice vinegar\n- 1/2 cup water\n- scallions\n\n- Cook the noodles\n- Brown the beef. Add the garlic and ginger\n- Stir in the soy sauce, sugar, vinegar, and water. Simmer until glossy\n- Toss with the noodles and scallions",
+    "has_quick_recipe": true,
+    "note": null,
+    "quick_from_scalable": false
   },
   {
     "title": "Mushroom Soup",
@@ -2445,11 +2623,17 @@
         "url": "https://jessicainthekitchen.com/slow-cooker-mushroom-wild-rice-soup/"
       }
     ],
-    "google_doc_links": [],
+    "google_doc_links": [
+      {
+        "text": "Quick_Recipe",
+        "url": "https://docs.google.com/document/d/1llZOuO_av1aLxbPYBQdez6lw_Z5XvqReltPwJeyZ6uc/edit"
+      }
+    ],
     "picture_links": [],
-    "quick_recipe": null,
-    "has_quick_recipe": false,
-    "note": null
+    "quick_recipe": "- 1 onion, chopped\n- 1 pound mushrooms, sliced\n- 3 cloves garlic\n- 1/2 cup wild rice\n- 4 cups broth\n- 1/2 cup cream or coconut milk\n- thyme, salt, and pepper\n\n- Cook the onion and mushrooms until browned. Add the garlic\n- Add the rice and broth. Simmer about 45 minutes, until the rice is tender\n- Stir in the cream. Season",
+    "has_quick_recipe": true,
+    "note": null,
+    "quick_from_scalable": false
   },
   {
     "title": "Naan",
@@ -2636,11 +2820,17 @@
         "url": "https://divascancook.com/pecan-pie-bars-recipe/"
       }
     ],
-    "google_doc_links": [],
+    "google_doc_links": [
+      {
+        "text": "Quick_Recipe",
+        "url": "https://docs.google.com/document/d/1KGWpvt0b9Wv5FI69eat2UF27KSKcYe0fooAqXz7Sk2k/edit"
+      }
+    ],
     "picture_links": [],
-    "quick_recipe": null,
-    "has_quick_recipe": false,
-    "note": null
+    "quick_recipe": "- 1 cup flour\n- 1/3 cup brown sugar\n- 1/2 cup butter\n- 2 eggs\n- 1/2 cup corn syrup\n- 1/2 cup brown sugar\n- 2 tablespoons butter, melted\n- 1 teaspoon vanilla\n- 1 1/2 cups pecans\n\nBaked\n- Mix the flour, 1/3 cup brown sugar, and butter. Press into an 8-inch pan\n- Oven: 350 degrees\n- Time: 12 minutes\n- Whisk the eggs, corn syrup, brown sugar, melted butter, and vanilla. Stir in the pecans\n- Pour over the crust\n- Time: 25 minutes, until set",
+    "has_quick_recipe": true,
+    "note": null,
+    "quick_from_scalable": false
   },
   {
     "title": "Philly Cheesesteak Egg Rolls",
@@ -2650,11 +2840,17 @@
         "url": "https://delish.freewarecn.com/2025/08/philly-cheesesteak-egg-rolls-crispy.html"
       }
     ],
-    "google_doc_links": [],
+    "google_doc_links": [
+      {
+        "text": "Quick_Recipe",
+        "url": "https://docs.google.com/document/d/1-pPLItnf428W0VaP41kl2ofuKSt5-UrHHLf779CYiLw/edit"
+      }
+    ],
     "picture_links": [],
-    "quick_recipe": null,
-    "has_quick_recipe": false,
-    "note": null
+    "quick_recipe": "- 1/2 pound steak, thinly sliced\n- 1 onion, sliced\n- 1 bell pepper, sliced\n- 4 slices provolone\n- 8 egg roll wrappers\n- salt and pepper\n\nBaked\n- Cook the steak, onion, and pepper. Season\n- Spoon into the wrappers with the cheese. Roll and seal\n- Oven: 400 degrees\n- Time: 15 minutes, until crisp",
+    "has_quick_recipe": true,
+    "note": null,
+    "quick_from_scalable": false
   },
   {
     "title": "Pickled Red Onions",
@@ -2664,11 +2860,17 @@
         "url": "https://www.youtube.com/watch?v=ifRpwe3wiJU&ab_channel=Smokin%27Joe%27sPitBBQ"
       }
     ],
-    "google_doc_links": [],
+    "google_doc_links": [
+      {
+        "text": "Quick_Recipe",
+        "url": "https://docs.google.com/document/d/13d-i6SNTt6yHlUi1D6E51q4fngCM5tTdGhvqItyakc8/edit"
+      }
+    ],
     "picture_links": [],
-    "quick_recipe": null,
-    "has_quick_recipe": false,
-    "note": null
+    "quick_recipe": "- 1 red onion, thinly sliced\n- 1/2 cup vinegar\n- 1/2 cup water\n- 1 tablespoon sugar\n- 1 teaspoon salt\n\n- Heat the vinegar, water, sugar, and salt until dissolved\n- Pour over the onion\n- Cool, then refrigerate at least 30 minutes",
+    "has_quick_recipe": true,
+    "note": null,
+    "quick_from_scalable": false
   },
   {
     "title": "Pickles",
@@ -2727,11 +2929,17 @@
         "url": "https://tastesbetterfromscratch.com/traditional-potato-salad/#wprm-recipe-container-9996"
       }
     ],
-    "google_doc_links": [],
+    "google_doc_links": [
+      {
+        "text": "Quick_Recipe",
+        "url": "https://docs.google.com/document/d/11NwJncmoBgAO_j8ACKDSZ3fFTKcpZ096ikEzy9N-gLg/edit"
+      }
+    ],
     "picture_links": [],
-    "quick_recipe": null,
+    "quick_recipe": "- 2 pounds potatoes, cubed\n- 4 hard-boiled eggs, chopped\n- 1/2 cup mayonnaise\n- 1 tablespoon yellow mustard\n- 2 ribs celery, diced\n- 1/4 cup diced onion or pickles\n- salt and pepper\n\n- Boil the potatoes until tender. Cool\n- Stir in the eggs, mayonnaise, mustard, celery, onion, salt, and pepper\n- Chill",
     "has_quick_recipe": true,
-    "note": null
+    "note": null,
+    "quick_from_scalable": false
   },
   {
     "title": "Potatoes (French Fries)",
@@ -2760,11 +2968,17 @@
         "url": "https://www.youtube.com/watch?v=BtKn264dsd8&ab_channel=Felu-Fitbycooking"
       }
     ],
-    "google_doc_links": [],
+    "google_doc_links": [
+      {
+        "text": "Quick_Recipe",
+        "url": "https://docs.google.com/document/d/1QlmKzHVZiZWnLW_mnJGpv_QbqbyjVslpfIoT2pReoWY/edit"
+      }
+    ],
     "picture_links": [],
-    "quick_recipe": null,
-    "has_quick_recipe": false,
-    "note": null
+    "quick_recipe": "- 2 flour tortillas\n- 1 cup shredded cheese\n- cooked chicken, beans, or vegetables\n- oil or butter\n\n- Heat a skillet over medium\n- Fill one tortilla with cheese and the filling. Top with the second tortilla\n- Cook about 2–3 minutes a side, until the cheese melts and the outside is browned\n- Cut into wedges",
+    "has_quick_recipe": true,
+    "note": null,
+    "quick_from_scalable": false
   },
   {
     "title": "Quiche",
@@ -2773,12 +2987,17 @@
       {
         "text": "Recipe",
         "url": "https://docs.google.com/document/d/1EKm0a4Aof1U6uGjopULL1Dabd4YUgFlCKbaWvKTUBQU/edit"
+      },
+      {
+        "text": "Quick_Recipe",
+        "url": "https://docs.google.com/document/d/1Ksy-HwDSD5__babXmE5x9BYebR7qDkkIcd_OdDkZpng/edit"
       }
     ],
     "picture_links": [],
-    "quick_recipe": null,
-    "has_quick_recipe": false,
-    "note": null
+    "quick_recipe": "- 1 pie crust\n- 4 eggs\n- 1 cup cream or milk\n- 4 slices cooked bacon, chopped\n- 1 cup shredded cheese\n- salt and pepper\n\nBaked\n- Whisk the eggs, cream, salt, and pepper\n- Put the bacon and cheese in the crust. Add the eggs\n- Oven: 375 degrees\n- Time: 35–45 minutes, until the center is set",
+    "has_quick_recipe": true,
+    "note": null,
+    "quick_from_scalable": false
   },
   {
     "title": "Quinoa",
@@ -2953,11 +3172,17 @@
         "url": "https://drive.google.com/file/d/1YBuiw5YuQvcSBfBJ8bkRIHMGk5QaKMTa/view?usp=drive_link"
       }
     ],
-    "google_doc_links": [],
+    "google_doc_links": [
+      {
+        "text": "Quick_Recipe",
+        "url": "https://docs.google.com/document/d/1ZgUetLU8ogzEm4mT0wxZjCm36x91Zk9380YcnEEM2Hw/edit"
+      }
+    ],
     "picture_links": [],
-    "quick_recipe": null,
-    "has_quick_recipe": false,
-    "note": null
+    "quick_recipe": "- 3 cups cold cooked rice\n- 2 eggs\n- 2 tablespoons oil\n- 1 cup frozen peas and carrots\n- 2 tablespoons soy sauce\n- 1 teaspoon sesame oil\n- 2 scallions\n\n- Scramble the eggs in a hot wok and set them aside\n- Stir-fry the vegetables, then the rice, until hot\n- Add the eggs, soy sauce, sesame oil, and scallions",
+    "has_quick_recipe": true,
+    "note": null,
+    "quick_from_scalable": false
   },
   {
     "title": "Rockfish",
@@ -2994,11 +3219,17 @@
         "url": "https://greenhealthycooking.com/6-healthy-salad-dressings/"
       }
     ],
-    "google_doc_links": [],
+    "google_doc_links": [
+      {
+        "text": "Quick_Recipe",
+        "url": "https://docs.google.com/document/d/1g9RKfUOPl7b7CdPlg1tlsjILNjB55clxQMrfwWhjhGs/edit"
+      }
+    ],
     "picture_links": [],
-    "quick_recipe": null,
-    "has_quick_recipe": false,
-    "note": null
+    "quick_recipe": "- 6 cups mixed greens\n- cucumber, tomato, or other vegetables\n- 3 tablespoons olive oil\n- 1 tablespoon lemon juice or vinegar\n- 1 teaspoon Dijon mustard\n- salt and pepper\n\n- Whisk the oil, lemon juice, mustard, salt, and pepper\n- Toss with the greens and vegetables",
+    "has_quick_recipe": true,
+    "note": null,
+    "quick_from_scalable": false
   },
   {
     "title": "Salmon",
@@ -3078,12 +3309,17 @@
       {
         "text": "Jason_Recipe",
         "url": "https://docs.google.com/document/d/1B_nSxTaNhwCKD0QwQ4AFn0xVb9sjpaA70g6_-7MIx8Q/edit"
+      },
+      {
+        "text": "Quick_Recipe",
+        "url": "https://docs.google.com/document/d/1-XojZoApxBecLN-AYvV9Fq9P79fBRpC22W-IqiI3KCE/edit"
       }
     ],
     "picture_links": [],
-    "quick_recipe": null,
+    "quick_recipe": "- 1 pound tomatillos, husked\n- 1 jalapeño\n- 1/2 onion\n- 2 cloves garlic\n- 1 cup cilantro\n- juice of 1 lime\n- salt\n\n- Boil or roast the tomatillos and jalapeño until soft\n- Blend with the onion, garlic, cilantro, lime, and salt",
     "has_quick_recipe": true,
-    "note": null
+    "note": null,
+    "quick_from_scalable": false
   },
   {
     "title": "Sauerkraut",
@@ -3097,11 +3333,17 @@
         "url": "https://foodsmartcolorado.colostate.edu/recipes/preservation/understanding-and-making-sauerkraut/"
       }
     ],
-    "google_doc_links": [],
+    "google_doc_links": [
+      {
+        "text": "Quick_Recipe",
+        "url": "https://docs.google.com/document/d/1LxQEtK7tcYZXMlSHSUZGQl2NJCXeagQhZwU7RXQgzRU/edit"
+      }
+    ],
     "picture_links": [],
-    "quick_recipe": null,
-    "has_quick_recipe": false,
-    "note": null
+    "quick_recipe": "- 1 small cabbage, about 2 pounds\n- 1 tablespoon salt\n\n- Shred the cabbage and toss it with the salt\n- Massage until it releases liquid\n- Pack it into a jar until the brine covers it. Keep it submerged\n- Ferment at room temperature 1–4 weeks, until sour. Burp daily\n- Refrigerate",
+    "has_quick_recipe": true,
+    "note": null,
+    "quick_from_scalable": false
   },
   {
     "title": "Sesame Chicken",
@@ -3115,11 +3357,17 @@
         "url": "https://drive.google.com/file/d/1Ags5C6k3zpnx2IcXsf2PYcryXmDrbjYb/view?usp=sharing"
       }
     ],
-    "google_doc_links": [],
+    "google_doc_links": [
+      {
+        "text": "Quick_Recipe",
+        "url": "https://docs.google.com/document/d/1jHP__dGUYFd8NBS3yL6IokWdqM570I9hSNlNGH2tkt4/edit"
+      }
+    ],
     "picture_links": [],
-    "quick_recipe": null,
-    "has_quick_recipe": false,
-    "note": null
+    "quick_recipe": "- 1 pound chicken, bite-size\n- 3 tablespoons cornstarch\n- salt\n- 2 tablespoons oil\n- 3 tablespoons soy sauce\n- 2 tablespoons honey\n- 1 tablespoon rice vinegar\n- 2 cloves garlic\n- 1 teaspoon sesame oil\n- sesame seeds\n\n- Toss the chicken with cornstarch and salt\n- Cook in the oil until browned and cooked through\n- Simmer the soy sauce, honey, vinegar, and garlic until glossy\n- Toss the chicken in the sauce. Finish with sesame oil and sesame seeds",
+    "has_quick_recipe": true,
+    "note": null,
+    "quick_from_scalable": false
   },
   {
     "title": "Sloppy Joes",
@@ -3152,11 +3400,17 @@
         "url": "https://www.theperfectloaf.com/seeded-sourdough/"
       }
     ],
-    "google_doc_links": [],
+    "google_doc_links": [
+      {
+        "text": "Quick_Recipe",
+        "url": "https://docs.google.com/document/d/1TqPjEBYemTrkDKNBkkgLvhjlLfAkeNoYS-kMNuykD80/edit"
+      }
+    ],
     "picture_links": [],
-    "quick_recipe": null,
-    "has_quick_recipe": false,
-    "note": null
+    "quick_recipe": "- 1/2 cup active starter\n- 1 1/2 cups water\n- 4 cups flour\n- 2 teaspoons salt\n\nBaked\n- Mix the starter, water, and flour. Rest 30 minutes\n- Add the salt. Fold the dough every 30 minutes for 2 hours\n- Rise until puffy, about 4–8 hours\n- Shape, then refrigerate overnight\n- Oven: 450 degrees, in a covered pot\n- Time: 20 minutes covered, then 20–25 minutes uncovered",
+    "has_quick_recipe": true,
+    "note": null,
+    "quick_from_scalable": false
   },
   {
     "title": "Sourdough Brioche",
@@ -3166,11 +3420,17 @@
         "url": "https://www.farmhouseonboone.com/sourdough-brioche/"
       }
     ],
-    "google_doc_links": [],
+    "google_doc_links": [
+      {
+        "text": "Quick_Recipe",
+        "url": "https://docs.google.com/document/d/12PDy2FPvboT9JTdn0UJEMOCRY8PHPyEHcS_7a2pGipM/edit"
+      }
+    ],
     "picture_links": [],
-    "quick_recipe": null,
-    "has_quick_recipe": false,
-    "note": null
+    "quick_recipe": "- 1/2 cup active starter\n- 1/3 cup milk\n- 3 eggs\n- 1/4 cup sugar\n- 3 cups flour\n- 1 teaspoon salt\n- 1/2 cup soft butter\n\nBaked\n- Mix everything except the butter. Knead in the butter a little at a time\n- Rise until doubled, 4–8 hours\n- Shape into a loaf. Rise until puffy\n- Oven: 350 degrees\n- Time: 30–35 minutes",
+    "has_quick_recipe": true,
+    "note": null,
+    "quick_from_scalable": false
   },
   {
     "title": "Sourdough French Toast",
@@ -3274,11 +3534,17 @@
         "url": "https://www.howsweeteats.com/2020/11/best-stuffing-recipe/"
       }
     ],
-    "google_doc_links": [],
+    "google_doc_links": [
+      {
+        "text": "Quick_Recipe",
+        "url": "https://docs.google.com/document/d/1C2konZOFfb9ZZGqcugnzUqe3nJRqIZ7-v21XbXhNjXw/edit"
+      }
+    ],
     "picture_links": [],
-    "quick_recipe": null,
-    "has_quick_recipe": false,
-    "note": null
+    "quick_recipe": "- 1 loaf bread, cubed and dried\n- 1/2 cup butter\n- 1 onion, chopped\n- 3 ribs celery, chopped\n- 2 teaspoons sage\n- 1 teaspoon thyme\n- 2 cups broth\n- salt and pepper\n\nBaked\n- Cook the onion and celery in the butter. Stir in the herbs\n- Toss with the bread and broth\n- Oven: 375 degrees\n- Time: 30–35 minutes, until browned",
+    "has_quick_recipe": true,
+    "note": null,
+    "quick_from_scalable": false
   },
   {
     "title": "Sweet Potato and Black Bean Tacos (Vegan)",
@@ -3288,11 +3554,17 @@
         "url": "https://cookieandkate.com/sweet-potato-black-bean-tacos/#tasty-recipes-24190-jump-target"
       }
     ],
-    "google_doc_links": [],
+    "google_doc_links": [
+      {
+        "text": "Quick_Recipe",
+        "url": "https://docs.google.com/document/d/1-OcNYLcSiFlaUPZYkRRXVcZdCneZO2NWzB6qp8dpe94/edit"
+      }
+    ],
     "picture_links": [],
-    "quick_recipe": null,
-    "has_quick_recipe": false,
-    "note": "from Mrs. Alcorn: I do not make the avocado-pepita dip too much work for me.  I just cut up avocados to add to the tacos."
+    "quick_recipe": "- 2 sweet potatoes, cubed\n- 1 tablespoon olive oil\n- 1 teaspoon chili powder\n- salt\n- 1 can black beans, drained\n- 8 tortillas\n- cabbage, lime, and avocado\n\nBaked\n- Toss the sweet potatoes with oil, chili powder, and salt\n- Oven: 425 degrees\n- Time: 25 minutes\n- Warm the beans\n- Fill the tortillas with the potatoes, beans, cabbage, lime, and avocado",
+    "has_quick_recipe": true,
+    "note": "from Mrs. Alcorn: I do not make the avocado-pepita dip too much work for me.  I just cut up avocados to add to the tacos.",
+    "quick_from_scalable": false
   },
   {
     "title": "Sweet Potato Burrito Bowl (Vegan)",
@@ -3302,11 +3574,17 @@
         "url": "https://eatwithclarity.com/sweet-potato-black-bean-burrito-bowl/"
       }
     ],
-    "google_doc_links": [],
+    "google_doc_links": [
+      {
+        "text": "Quick_Recipe",
+        "url": "https://docs.google.com/document/d/17Ey2HSgbYvc-_TUGy7VUh5CvWIWX39axauhGMcSnwbQ/edit"
+      }
+    ],
     "picture_links": [],
-    "quick_recipe": null,
-    "has_quick_recipe": false,
-    "note": null
+    "quick_recipe": "- 2 sweet potatoes, cubed\n- 1 tablespoon olive oil\n- 1 teaspoon cumin\n- salt\n- 2 cups cooked rice\n- 1 can black beans, drained\n- salsa\n- lime\n\nBaked\n- Toss the sweet potatoes with oil, cumin, and salt\n- Oven: 425 degrees\n- Time: 25 minutes\n- Bowl the rice, beans, and sweet potatoes\n- Top with salsa and lime",
+    "has_quick_recipe": true,
+    "note": null,
+    "quick_from_scalable": false
   },
   {
     "title": "Tacos (Vegan)",
@@ -3393,11 +3671,17 @@
         "url": "https://www.youtube.com/watch?v=Il8fMQltlJ0&ab_channel=TheFrugalChef"
       }
     ],
-    "google_doc_links": [],
+    "google_doc_links": [
+      {
+        "text": "Quick_Recipe",
+        "url": "https://docs.google.com/document/d/1SOQ-bHQuIxBAsTua7gdB7AXwPK-FatT8Cs53rnM7c2I/edit"
+      }
+    ],
     "picture_links": [],
-    "quick_recipe": null,
-    "has_quick_recipe": false,
-    "note": null
+    "quick_recipe": "- 8 jalapeños, sliced\n- 1/2 onion, sliced\n- 1 carrot, sliced\n- 1 cup vinegar\n- 1 cup water\n- 1 tablespoon salt\n- 1 teaspoon oregano\n- 1 tablespoon oil\n\n- Sear the jalapeños in the oil\n- Add the onion, carrot, vinegar, water, salt, and oregano\n- Simmer 5 minutes\n- Cool and refrigerate",
+    "has_quick_recipe": true,
+    "note": null,
+    "quick_from_scalable": false
   },
   {
     "title": "Tater Tots",
@@ -3407,11 +3691,17 @@
         "url": "https://damndelicious.net/2015/04/10/homemade-tater-tots/"
       }
     ],
-    "google_doc_links": [],
+    "google_doc_links": [
+      {
+        "text": "Quick_Recipe",
+        "url": "https://docs.google.com/document/d/1L8V5L1Kgxf7RHeKvQSOiNuBHMJcuSgWcGDa06iL2Jz0/edit"
+      }
+    ],
     "picture_links": [],
-    "quick_recipe": null,
-    "has_quick_recipe": false,
-    "note": null
+    "quick_recipe": "- 2 large potatoes\n- 1 teaspoon salt\n- 1 tablespoon oil\n\nBaked\n- Grate the potatoes and squeeze out the water\n- Toss with salt and oil. Form into tots\n- Oven: 425 degrees\n- Time: 20–25 minutes, flip halfway",
+    "has_quick_recipe": true,
+    "note": null,
+    "quick_from_scalable": false
   },
   {
     "title": "Tilapia",
@@ -3472,11 +3762,17 @@
         "url": "https://leitesculinaria.com/95287/recipes-homemade-yellow-mustard.html#wprm-recipe-container-315216"
       }
     ],
-    "google_doc_links": [],
+    "google_doc_links": [
+      {
+        "text": "Quick_Recipe",
+        "url": "https://docs.google.com/document/d/1KBPeIK8sAHpk5fpK6xMVk_289s5GQCt3V6G8GtjlFYQ/edit"
+      }
+    ],
     "picture_links": [],
-    "quick_recipe": null,
-    "has_quick_recipe": false,
-    "note": null
+    "quick_recipe": "- 1/2 cup mustard powder\n- 1/2 cup water\n- 1/4 cup vinegar\n- 1/2 teaspoon turmeric\n- 1/2 teaspoon salt\n- 1 teaspoon honey, optional\n\n- Stir the mustard powder and water. Rest 10 minutes\n- Add the vinegar, turmeric, salt, and honey\n- Simmer a few minutes until thick\n- Cool. It mellows in the fridge",
+    "has_quick_recipe": true,
+    "note": null,
+    "quick_from_scalable": false
   },
   {
     "title": "Yogurt",
