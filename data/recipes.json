@@ -1894,8 +1894,7 @@
     ],
     "quick_recipe": "Oven: 425 - 450 degrees\nTime: 20 - 30 minutes",
     "has_quick_recipe": true,
-    "note": null,
-    "quick_from_scalable": false
+    "note": null
   },
   {
     "title": "Garbanzo Beans",
