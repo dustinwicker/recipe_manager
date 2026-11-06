@@ -1645,6 +1645,20 @@
     }
   },
   {
+    "title": "Dumplings",
+    "external_links": [
+      {
+        "text": "Recipe",
+        "url": "https://thewoksoflife.com/dumpling-recipe-youll-ever-need/"
+      }
+    ],
+    "google_doc_links": [],
+    "picture_links": [],
+    "quick_recipe": null,
+    "has_quick_recipe": false,
+    "note": null
+  },
+  {
     "title": "Egg Salad",
     "external_links": [
       {
@@ -2894,6 +2908,20 @@
     "picture_links": [],
     "quick_recipe": "- Brush baking sheet with 1 tablespoon olive oil\n- Oven: 375 deg - 30 mins\n  - Flip halfway through",
     "has_quick_recipe": true,
+    "note": null
+  },
+  {
+    "title": "Pumpkin Miso Soup",
+    "external_links": [
+      {
+        "text": "Recipe",
+        "url": "https://iamkouka.substack.com/p/busy-girl-dinners-with-a-dietitian-a06?r=us9tn&utm_medium=ios"
+      }
+    ],
+    "google_doc_links": [],
+    "picture_links": [],
+    "quick_recipe": null,
+    "has_quick_recipe": false,
     "note": null
   },
   {
