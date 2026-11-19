@@ -184,6 +184,13 @@ class RecipeParser:
                     if paragraph_text.strip():
                         line = paragraph_text.strip()
                         line_lower = line.lower()
+
+                        # A following "… Picture" line is a photo link, not the next recipe
+                        # and not quick-recipe text. Sesame Chicken had one of these.
+                        if current_recipe and all_links and all(
+                            self._is_picture_link_text(link.get('text') or '') for link in all_links
+                        ):
+                            continue
                         
                         # Detect recipe title - look for lines that are recipe names
                         # Pattern: Recipe name followed by "Recipe" or "Quick_Recipe" or just standalone
@@ -469,10 +476,10 @@ class RecipeParser:
                     # Silently fail - document might not be shared yet
                     pass
             
-            # Extract Quick Recipe content from Google Doc links
-            # Look for Quick_Recipe links or _Recipe links in google_doc_links and fetch their content
+            # Extract Quick Recipe content from Google Doc links.
+            # A linked quick-recipe doc is the copy that gets edited, so it replaces
+            # any older text already stored on the recipe.
             for recipe in self.recipes:
-                if not recipe.get('quick_recipe'):  # Only fetch if we don't already have content
                     # Check for Quick_Recipe links or _Recipe links (like Trevor_Recipe, Mom_Recipe)
                     def quick_rank(link):
                         text = (link.get('text') or '').strip().lower()
@@ -514,6 +521,10 @@ class RecipeParser:
             traceback.print_exc()
             return []
     
+    def _is_picture_link_text(self, text: str) -> bool:
+        label = text.strip().lower()
+        return label == 'picture' or label.endswith('_picture') or label.endswith(' picture')
+
     def _is_recipe_title(self, line: str, current_recipe: Optional[Dict]) -> bool:
         """Determine if a line is a recipe title."""
         line_lower = line.lower()
@@ -636,7 +647,11 @@ class RecipeParser:
                                 text_lines.append(f'{indent}- {text}')
                             else:
                                 text_lines.append(text)
-                
+                        elif text_lines and text_lines[-1] != '':
+                            text_lines.append('')
+
+                while text_lines and text_lines[-1] == '':
+                    text_lines.pop()
                 text_content = '\n'.join(text_lines) if text_lines else None
                 return (text_content, image_urls)
                 

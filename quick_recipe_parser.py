@@ -58,6 +58,8 @@ class QuickRecipeParser:
                         if self._is_recipe_title(line) and not bullet:
                             # Save previous recipe
                             if current_recipe_title and quick_recipe_lines:
+                                while quick_recipe_lines and quick_recipe_lines[-1] == '':
+                                    quick_recipe_lines.pop()
                                 self.quick_recipes[current_recipe_title] = '\n'.join(quick_recipe_lines)
                             
                             # Extract recipe title (strip bullet prefix if we added it)
@@ -73,9 +75,13 @@ class QuickRecipeParser:
                         elif current_recipe_title:
                             # This is content for the current recipe
                             quick_recipe_lines.append(line)
+                    elif current_recipe_title and quick_recipe_lines and quick_recipe_lines[-1] != '':
+                        quick_recipe_lines.append('')
             
             # Save last recipe
             if current_recipe_title and quick_recipe_lines:
+                while quick_recipe_lines and quick_recipe_lines[-1] == '':
+                    quick_recipe_lines.pop()
                 self.quick_recipes[current_recipe_title] = '\n'.join(quick_recipe_lines)
             
             return self.quick_recipes
