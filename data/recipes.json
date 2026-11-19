@@ -2906,7 +2906,7 @@
       }
     ],
     "picture_links": [],
-    "quick_recipe": "- Brush baking sheet with 1 tablespoon olive oil\n- Oven: 375 deg - 30 mins\n  - Flip halfway through",
+    "quick_recipe": "- Brush baking sheet with 1 tablespoon olive oil\n- Oven: 375 deg\n- Time: 45 minutes\n  - Flip halfway through",
     "has_quick_recipe": true,
     "note": null
   },
@@ -3439,6 +3439,20 @@
         "Hold the finished slices in a 195 degree oven while you cook the rest."
       ]
     }
+  },
+  {
+    "title": "Spinach Egg Wraps (Flourless)",
+    "external_links": [],
+    "google_doc_links": [
+      {
+        "text": "Quick Recipe",
+        "url": "https://docs.google.com/document/d/1mNeldqd7BXcba_rRuZ2oMJT59jcJ6MAkMFDJe1pBiL4/edit?tab=t.0"
+      }
+    ],
+    "picture_links": [],
+    "quick_recipe": null,
+    "has_quick_recipe": true,
+    "note": null
   },
   {
     "title": "Spinach Patties",
