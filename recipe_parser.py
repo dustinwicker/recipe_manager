@@ -546,6 +546,34 @@ class RecipeParser:
         
         return False
     
+    def _paragraph_text(self, elements) -> str:
+        """Keep underline marks from a Google Doc paragraph. Strikethrough is omitted."""
+        chunks = []
+        for elem in elements:
+            if 'textRun' not in elem:
+                continue
+            text_run = elem.get('textRun', {})
+            style = text_run.get('textStyle', {})
+            if style.get('strikethrough'):
+                continue
+            content = text_run.get('content', '')
+            if not content:
+                continue
+            underlined = bool(style.get('underline'))
+            if chunks and chunks[-1][0] == underlined:
+                chunks[-1] = (underlined, chunks[-1][1] + content)
+            else:
+                chunks.append((underlined, content))
+        if chunks and chunks[-1][1].endswith('\n'):
+            underlined, text = chunks[-1]
+            chunks[-1] = (underlined, text[:-1])
+        parts = []
+        for underlined, text in chunks:
+            if not text:
+                continue
+            parts.append(f'[[u]]{text}[[/u]]' if underlined else text)
+        return ''.join(parts).strip()
+
     def _extract_doc_id_from_url(self, url: str) -> Optional[str]:
         """Extract Google Doc ID from a URL."""
         # Pattern: https://docs.google.com/document/d/DOC_ID/edit...
@@ -577,16 +605,9 @@ class RecipeParser:
                     if 'paragraph' in element:
                         para = element.get('paragraph', {})
                         elements = para.get('elements', [])
-                        paragraph_text = ''
-                        
+                        paragraph_text = self._paragraph_text(elements)
+
                         for elem in elements:
-                            if 'textRun' in elem:
-                                text_run = elem.get('textRun', {})
-                                content_text = text_run.get('content', '')
-                                # Skip strikethrough text
-                                if not text_run.get('textStyle', {}).get('strikethrough', False):
-                                    paragraph_text += content_text
-                            
                             # Check for inline images
                             if 'inlineObjectElement' in elem:
                                 inline_obj = elem.get('inlineObjectElement', {})
