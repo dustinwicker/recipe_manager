@@ -981,8 +981,13 @@
                 hint.className = 'amount-hint';
                 hint.dataset.cloves = clove.dataset.base;
                 hint.title = '3 medium cloves equal 1 tablespoon of minced garlic';
+                showGarlicHint(hint, 1);
                 text.appendChild(hint);
             });
+        }
+
+        function showGarlicHint(hint, factor) {
+            hint.textContent = ' · about ' + garlicSpoons(Number(hint.dataset.cloves) * factor) + ' minced';
         }
 
         function applyYieldScale(root, factor) {
@@ -993,9 +998,7 @@
                     span.dataset.another === '1'
                 );
             });
-            root.querySelectorAll('.amount-hint').forEach(hint => {
-                hint.textContent = ' · about ' + garlicSpoons(Number(hint.dataset.cloves) * factor) + ' minced';
-            });
+            root.querySelectorAll('.amount-hint').forEach(hint => showGarlicHint(hint, factor));
         }
 
         function attachYieldControl(parent, title) {
@@ -1218,9 +1221,9 @@
                 });
             if (activeIngredientPhrase) markMatches(instructions, activeIngredientPhrase);
             quickRecipeContent.appendChild(instructions);
+            addGarlicHints(quickRecipeContent);
             if (chickenYieldSpec(title)) {
                 wrapYieldAmounts(quickRecipeContent);
-                addGarlicHints(quickRecipeContent);
                 applyYieldScale(quickRecipeContent, yieldAmounts[title] / chickenYieldSpec(title).base);
             }
         }
