@@ -320,12 +320,7 @@
   },
   {
     "title": "Breakfast Sandwiches (Vegan)",
-    "external_links": [
-      {
-        "text": "Recipe",
-        "url": "https://carlsbadcravings.com/tater-tot-breakfast-casserole/#wprm-recipe-container-45086"
-      }
-    ],
+    "external_links": [],
     "google_doc_links": [
       {
         "text": "Ethan_and_Mom_Recipe",
@@ -333,8 +328,22 @@
       }
     ],
     "picture_links": [],
-    "quick_recipe": "Supplies:\n- Dave's Killer Bread Organic Killer Classic English Muffins (1 pack)\n- Beyond Meat Beyond Breakfast Sausage Original Plant-Based Breakfast Patties (1 pack)\n- JUST Egg Plant Based Egg (16oz)\n- Violife Just Like Smoked Gouda Round Slices (1 pack)\n\nMakes 6 breakfast sandwiches",
+    "quick_recipe": "[[u]]Ingredients:[[/u]]\n- 1 pack Dave's Killer Bread Organic Killer Classic English Muffins\n- 1 pack Beyond Meat Beyond Breakfast Sausage Original Plant-Based Breakfast Patties\n- 16 oz JUST Egg Plant Based Egg\n- 1 pack Violife Just Like Smoked Gouda Round Slices\n\nMakes 6 breakfast sandwiches\n\n[[u]]Instructions:[[/u]]\n- Preheat your oven to 375°F (190°C).\n- Line your baking pan with parchment paper or aluminum foil, and grease it well with oil (essential so the JUST Egg doesn't stick).\n- [[u]]Tip for the egg[[/u]]:\n  - If your baking pan is large and flat, the liquid JUST Egg will spread thin. Fold up a foil barrier/divider in the middle of the pan so the egg pours onto just one half of the pan and bakes thick enough to cut into 6 squares. To do this:\n    - Make the wall with foil: Tear off a piece of aluminum foil, fold it into a thick strip, and crease it into an L-shape or tent across the middle of your pan. Foil holds its shape and blocks the liquid.\n    - Lay a sheet of parchment paper over the pan and press it down into the corner against your foil wall.\n    - Rub oil on it so the JUST Egg peels off cleanly after baking.\n\n- Pour the shaken 16 oz bottle of JUST Egg into your greased, contained section of the baking pan.\n- Season with salt and pepper.\n- Arrange the 6 frozen Beyond Sausage patties on the other section of the pan.\n- Bake for 15–18 minutes, flipping the sausage patties halfway through at the 8-minute mark, until the egg is completely set and the sausage is browned and hot.\n- Pull the pan out, place 1 slice of Violife Smoked Gouda on top of each hot sausage patty, and let residual heat melt it for 1–2 minutes (or return to the oven for 1 minute).\n- Slice the baked JUST Egg sheet into 6 even squares.\n- Toast the 6 Dave's Killer Bread English muffins in a toaster, or place them split-side up on the baking pan under the broiler for 1–2 minutes (watch closely so they don't burn).\n- Stack 1 square of JUST Egg and 1 cheesy Beyond Sausage patty onto each toasted English muffin.",
     "has_quick_recipe": true,
+    "note": null
+  },
+  {
+    "title": "Breakfast Tater Tot Casserole",
+    "external_links": [
+      {
+        "text": "Recipe",
+        "url": "https://carlsbadcravings.com/tater-tot-breakfast-casserole/#wprm-recipe-container-45086"
+      }
+    ],
+    "google_doc_links": [],
+    "picture_links": [],
+    "quick_recipe": null,
+    "has_quick_recipe": false,
     "note": null
   },
   {

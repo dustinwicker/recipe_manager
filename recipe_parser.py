@@ -125,7 +125,7 @@ class RecipeParser:
         
         try:
             doc = service.documents().get(documentId=self.doc_id).execute()
-            content = doc.get('body', {}).get('content', [])
+            content = self._split_vertical_tabs(doc.get('body', {}).get('content', []))
             
             current_recipe = None
             current_section = None  # 'recipe', 'quick_recipe', 'note'
@@ -519,6 +519,44 @@ class RecipeParser:
             traceback.print_exc()
             return []
     
+    def _split_vertical_tabs(self, content):
+        """A Shift+Enter in the doc is a vertical tab inside one paragraph.
+
+        Breakfast Sandwiches and Breakfast Tater Tot Casserole were on one
+        paragraph, so the casserole link was saved as the sandwich full recipe.
+        """
+        pieces = []
+        for element in content:
+            para = element.get('paragraph')
+            if not para:
+                pieces.append(element)
+                continue
+            groups = [[]]
+            for elem in para.get('elements', []):
+                text_run = elem.get('textRun') or {}
+                text = text_run.get('content', '')
+                if '\v' not in text:
+                    groups[-1].append(elem)
+                    continue
+                parts = text.split('\v')
+                for index, part in enumerate(parts):
+                    if index:
+                        groups.append([])
+                    if not part:
+                        continue
+                    copied_run = dict(text_run)
+                    copied_run['content'] = part
+                    copied = dict(elem)
+                    copied['textRun'] = copied_run
+                    groups[-1].append(copied)
+            if len(groups) == 1:
+                pieces.append(element)
+                continue
+            for group in groups:
+                if group:
+                    pieces.append({'paragraph': {'elements': group}})
+        return pieces
+
     def _is_picture_link_text(self, text: str) -> bool:
         label = text.strip().lower()
         return label == 'picture' or label.endswith('_picture') or label.endswith(' picture')
