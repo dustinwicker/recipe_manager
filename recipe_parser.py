@@ -227,12 +227,10 @@ class RecipeParser:
                             # Join the title parts
                             title = ' '.join(title_parts).strip()
                             
-                            # Remove "Recipe", "Quick_Recipe" suffixes if present
-                            title_lower = title.lower()
-                            if ' recipe' in title_lower:
-                                title = title[:title_lower.index(' recipe')].strip()
-                            elif ' quick_recipe' in title_lower or ' quick recipe' in title_lower:
-                                title = title[:title_lower.index(' quick')].strip()
+                            # Drop a trailing Recipe or Quick_Recipe marker. A name like
+                            # "Vegan Recipe Websites" keeps the word in the middle.
+                            title = re.sub(r'\s+quick[_\s]?recipe\s*$', '', title, flags=re.I)
+                            title = re.sub(r'\s+recipe\s*$', '', title, flags=re.I)
                             
                             # Drop Quick_Recipe, Aunt_Brenda_Recipe, Jackie_Recipe, and picture markers.
                             words = title.split()

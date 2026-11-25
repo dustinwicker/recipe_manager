@@ -270,7 +270,33 @@
             user-select: none;
         }
 
+        .quick-recipe-modes {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px 18px;
+        }
+
+        .quick-recipe-modes[hidden] {
+            display: none;
+        }
+
         .shopping-toggle[hidden] {
+            display: none;
+        }
+
+        .mode-clear {
+            border: none;
+            background: transparent;
+            color: #667eea;
+            font: inherit;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            padding: 0;
+        }
+
+        .mode-clear[hidden] {
             display: none;
         }
 
@@ -301,6 +327,34 @@
         }
 
         #quick-recipe-section.shopping .ingredient-line.is-bought .ingredient-text {
+            text-decoration: line-through;
+            color: #8b909a;
+        }
+
+        .instruction-block + .instruction-block {
+            margin-top: 1rem;
+        }
+
+        .step-line {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .step-check {
+            width: 1.2rem;
+            height: 1.2rem;
+            margin-top: 0.4rem;
+            flex: 0 0 auto;
+            accent-color: #667eea;
+            cursor: pointer;
+        }
+
+        #quick-recipe-section:not(.cooking) .step-check {
+            display: none;
+        }
+
+        #quick-recipe-section.cooking .step-line.is-done .step-text {
             text-decoration: line-through;
             color: #8b909a;
         }
@@ -497,10 +551,18 @@
                 <div class="section" id="quick-recipe-section" style="display: none;">
                     <div class="quick-recipe-head">
                         <h3 id="quick-recipe-heading">📝 Quick Recipe</h3>
-                        <label class="shopping-toggle" id="shopping-toggle" hidden>
-                            <input type="checkbox" id="shopping-mode">
-                            Shopping mode
-                        </label>
+                        <div class="quick-recipe-modes" id="quick-recipe-modes" hidden>
+                            <label class="shopping-toggle">
+                                <input type="checkbox" id="shopping-mode">
+                                Shopping mode
+                            </label>
+                            <button type="button" class="mode-clear" id="shopping-clear" hidden>Clear</button>
+                            <label class="shopping-toggle">
+                                <input type="checkbox" id="cooking-mode">
+                                Cooking mode
+                            </label>
+                            <button type="button" class="mode-clear" id="cooking-clear" hidden>Clear</button>
+                        </div>
                     </div>
                     <div id="quick-recipe-content"></div>
                 </div>
@@ -549,8 +611,11 @@
         const quickRecipeSection = document.getElementById('quick-recipe-section');
         const quickRecipeHeading = document.getElementById('quick-recipe-heading');
         const quickRecipeContent = document.getElementById('quick-recipe-content');
-        const shoppingToggle = document.getElementById('shopping-toggle');
+        const quickRecipeModes = document.getElementById('quick-recipe-modes');
         const shoppingMode = document.getElementById('shopping-mode');
+        const shoppingClear = document.getElementById('shopping-clear');
+        const cookingMode = document.getElementById('cooking-mode');
+        const cookingClear = document.getElementById('cooking-clear');
         let activeIngredientPhrase = '';
         let quickRecipeTitle = '';
         let skipWordClick = false;
@@ -708,6 +773,39 @@
             localStorage.setItem(shoppingStorageKey(title), JSON.stringify([...bought]));
         }
 
+        function cookingStorageKey(title) {
+            return 'recipe-cooking:' + title;
+        }
+
+        function cookedSteps(title) {
+            try {
+                const saved = JSON.parse(localStorage.getItem(cookingStorageKey(title)) || '[]');
+                return new Set(Array.isArray(saved) ? saved : []);
+            } catch (error) {
+                return new Set();
+            }
+        }
+
+        function saveCookedSteps(title, done) {
+            localStorage.setItem(cookingStorageKey(title), JSON.stringify([...done]));
+        }
+
+        function syncModeControls() {
+            shoppingClear.hidden = !shoppingMode.checked;
+            cookingClear.hidden = !cookingMode.checked;
+            quickRecipeSection.classList.toggle('shopping', shoppingMode.checked);
+            quickRecipeSection.classList.toggle('cooking', cookingMode.checked);
+        }
+
+        function clearCheckedRows(selector, title, storageKey) {
+            localStorage.removeItem(storageKey(title));
+            document.querySelectorAll(selector).forEach(row => {
+                row.classList.remove('is-bought', 'is-done');
+                const check = row.querySelector('input[type="checkbox"]');
+                if (check) check.checked = false;
+            });
+        }
+
         function parseQuickSections(text) {
             const sections = [];
             let current = null;
@@ -783,14 +881,14 @@
         function renderInteractiveQuickRecipe(text, title) {
             const parsed = parseQuickSections(text);
             if (parsed.ingredientIndex < 0) {
-                shoppingToggle.hidden = true;
-                quickRecipeSection.classList.remove('shopping');
+                quickRecipeModes.hidden = true;
+                quickRecipeSection.classList.remove('shopping', 'cooking');
                 fillFormattedText(quickRecipeContent, text);
                 return;
             }
 
-            shoppingToggle.hidden = false;
-            quickRecipeSection.classList.toggle('shopping', shoppingMode.checked);
+            quickRecipeModes.hidden = false;
+            syncModeControls();
             quickRecipeContent.replaceChildren();
             const bought = boughtIngredients(title);
             const ingredients = parsed.sections[parsed.ingredientIndex];
@@ -868,18 +966,61 @@
 
             const instructions = document.createElement('div');
             instructions.className = 'quick-instructions';
-            const instructionText = parsed.sections
+            const done = cookedSteps(title);
+            parsed.sections
                 .filter((section, index) => index !== parsed.ingredientIndex)
-                .map(section => [section.heading, ...section.lines].filter(line => line !== undefined).join('\n'))
-                .filter(block => stripMarks(block).trim())
-                .join('\n\n');
-            fillFormattedText(instructions, instructionText);
+                .forEach(section => {
+                    if (!stripMarks([section.heading, ...section.lines].join('\n')).trim()) return;
+                    const block = document.createElement('div');
+                    block.className = 'instruction-block';
+                    if (section.heading) {
+                        const heading = document.createElement('div');
+                        fillFormattedText(heading, section.heading);
+                        block.appendChild(heading);
+                    }
+                    section.lines.forEach(line => {
+                        const plain = stripMarks(line).trim();
+                        if (!plain) return;
+                        if (!plain.startsWith('- ')) {
+                            const note = document.createElement('div');
+                            fillFormattedText(note, line);
+                            block.appendChild(note);
+                            return;
+                        }
+                        const row = document.createElement('div');
+                        row.className = 'step-line';
+                        if (done.has(plain)) row.classList.add('is-done');
+                        const check = document.createElement('input');
+                        check.type = 'checkbox';
+                        check.className = 'step-check';
+                        check.checked = done.has(plain);
+                        check.setAttribute('aria-label', 'Done ' + plain.replace(/^- /, ''));
+                        check.addEventListener('change', () => {
+                            const next = cookedSteps(title);
+                            if (check.checked) next.add(plain);
+                            else next.delete(plain);
+                            saveCookedSteps(title, next);
+                            row.classList.toggle('is-done', check.checked);
+                        });
+                        const textWrap = document.createElement('div');
+                        textWrap.className = 'step-text';
+                        fillFormattedText(textWrap, line.trim());
+                        row.append(check, textWrap);
+                        block.appendChild(row);
+                    });
+                    instructions.appendChild(block);
+                });
             if (activeIngredientPhrase) markMatches(instructions, activeIngredientPhrase);
             quickRecipeContent.appendChild(instructions);
         }
 
-        shoppingMode.addEventListener('change', () => {
-            quickRecipeSection.classList.toggle('shopping', shoppingMode.checked);
+        shoppingMode.addEventListener('change', syncModeControls);
+        cookingMode.addEventListener('change', syncModeControls);
+        shoppingClear.addEventListener('click', () => {
+            clearCheckedRows('#quick-recipe-content .ingredient-line', quickRecipeTitle, shoppingStorageKey);
+        });
+        cookingClear.addEventListener('click', () => {
+            clearCheckedRows('#quick-recipe-content .step-line', quickRecipeTitle, cookingStorageKey);
         });
 
         function quickRecipeHtml(text) {
@@ -1176,8 +1317,8 @@
                 quickRecipeSection.style.display = 'block';
             } else {
                 quickRecipeSection.style.display = 'none';
-                shoppingToggle.hidden = true;
-                quickRecipeSection.classList.remove('shopping');
+                quickRecipeModes.hidden = true;
+                quickRecipeSection.classList.remove('shopping', 'cooking');
                 quickRecipeTitle = '';
                 activeIngredientPhrase = '';
             }
