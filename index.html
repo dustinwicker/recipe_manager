@@ -1182,8 +1182,10 @@
                         block.appendChild(heading);
                     }
                     section.lines.forEach(line => {
-                        const plain = stripMarks(line).trim();
+                        const raw = stripMarks(line);
+                        const plain = raw.trim();
                         if (!plain) return;
+                        const indent = raw.length - raw.trimStart().length;
                         if (!plain.startsWith('- ')) {
                             const note = document.createElement('div');
                             fillFormattedText(note, line);
@@ -1192,6 +1194,7 @@
                         }
                         const row = document.createElement('div');
                         row.className = 'step-line';
+                        if (indent) row.style.paddingLeft = (Math.ceil(indent / 2) * 1.25) + 'rem';
                         if (done.has(plain)) row.classList.add('is-done');
                         const check = document.createElement('input');
                         check.type = 'checkbox';
