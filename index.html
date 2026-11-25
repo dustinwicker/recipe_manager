@@ -374,6 +374,11 @@
             margin-top: 1rem;
         }
 
+        .amount-hint {
+            color: #667eea;
+            font-weight: 600;
+        }
+
         .servings-row {
             display: flex;
             align-items: center;
@@ -878,6 +883,170 @@
             }
         }
 
+        const yieldAmounts = {};
+
+        function chickenYieldSpec(title) {
+            if (title !== 'Sesame Chicken') return null;
+            return { base: 1, min: 0.5, step: 0.5, label: 'Chicken', unit: 'lb' };
+        }
+
+        function savedYield(title, base) {
+            if (yieldAmounts[title]) return yieldAmounts[title];
+            const saved = parseFloat(localStorage.getItem('recipe-yield:' + title));
+            return saved > 0 ? saved : base;
+        }
+
+        function canonicalUnit(unit) {
+            const value = unit.toLowerCase();
+            if (value.startsWith('tablespoon')) return 'tablespoon';
+            if (value.startsWith('teaspoon')) return 'teaspoon';
+            if (value.startsWith('clove')) return 'clove';
+            if (value === 'lb' || value === 'lbs') return 'lb';
+            if (value.startsWith('pound')) return 'pound';
+            return value;
+        }
+
+        function formatYield(amount, unit, another) {
+            const shown = formatAmount(amount);
+            const one = Math.abs(amount - 1) < 0.02;
+            const label = unit === 'lb' ? 'lb' : (one ? unit : unit + 's');
+            if (another && one) return 'another ' + label;
+            if (another) return 'another ' + shown + ' ' + label;
+            return shown + ' ' + label;
+        }
+
+        function garlicSpoons(cloves) {
+            const tablespoons = Math.floor((cloves + 1e-6) / 3);
+            const teaspoons = Math.round((cloves - tablespoons * 3) * 1000) / 1000;
+            const parts = [];
+            if (tablespoons) parts.push(formatAmount(tablespoons) + ' Tbsp');
+            if (teaspoons > 0.02) parts.push(formatAmount(teaspoons) + ' tsp');
+            return parts.join(' + ');
+        }
+
+        function wrapYieldAmounts(root) {
+            const pattern = /\banother\s+tablespoon\b|\b(?:(\d+)\s+(\d+)\/(\d+)|(\d+)\/(\d+)|(\d+(?:\.\d+)?))\s+(tablespoons?|teaspoons?|cloves?|pounds?|lbs?)\b/gi;
+            const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
+                acceptNode(node) {
+                    if (!node.nodeValue || !/\d|another/i.test(node.nodeValue)) return NodeFilter.FILTER_REJECT;
+                    if (node.parentElement && node.parentElement.closest('.yield-amount, .amount-hint, .quick-recipe-yield')) {
+                        return NodeFilter.FILTER_REJECT;
+                    }
+                    return NodeFilter.FILTER_ACCEPT;
+                }
+            });
+            const nodes = [];
+            while (walker.nextNode()) nodes.push(walker.currentNode);
+            nodes.forEach(node => {
+                const text = node.nodeValue;
+                pattern.lastIndex = 0;
+                if (!pattern.test(text)) return;
+                pattern.lastIndex = 0;
+                const fragment = document.createDocumentFragment();
+                let last = 0;
+                let match;
+                while ((match = pattern.exec(text)) !== null) {
+                    if (match.index > last) fragment.append(document.createTextNode(text.slice(last, match.index)));
+                    const span = document.createElement('span');
+                    span.className = 'yield-amount';
+                    const raw = match[0];
+                    let base = 1;
+                    let unit = 'tablespoon';
+                    let another = /^another/i.test(raw);
+                    if (!another) {
+                        if (match[1]) base = Number(match[1]) + Number(match[2]) / Number(match[3]);
+                        else if (match[4]) base = Number(match[4]) / Number(match[5]);
+                        else base = Number(match[6]);
+                        unit = match[7];
+                    }
+                    span.dataset.base = String(base);
+                    span.dataset.unit = canonicalUnit(unit);
+                    if (another) span.dataset.another = '1';
+                    span.textContent = raw;
+                    fragment.append(span);
+                    last = match.index + raw.length;
+                    if (!raw) pattern.lastIndex += 1;
+                }
+                if (last < text.length) fragment.append(document.createTextNode(text.slice(last)));
+                node.parentNode.replaceChild(fragment, node);
+            });
+        }
+
+        function addGarlicHints(root) {
+            root.querySelectorAll('.ingredient-text').forEach(text => {
+                if (!/garlic/i.test(text.textContent)) return;
+                const clove = [...text.querySelectorAll('.yield-amount')].find(span => span.dataset.unit === 'clove');
+                if (!clove || text.querySelector('.amount-hint')) return;
+                const hint = document.createElement('span');
+                hint.className = 'amount-hint';
+                hint.dataset.cloves = clove.dataset.base;
+                hint.title = '3 medium cloves equal 1 tablespoon of minced garlic';
+                text.appendChild(hint);
+            });
+        }
+
+        function applyYieldScale(root, factor) {
+            root.querySelectorAll('.yield-amount').forEach(span => {
+                span.textContent = formatYield(
+                    Number(span.dataset.base) * factor,
+                    span.dataset.unit,
+                    span.dataset.another === '1'
+                );
+            });
+            root.querySelectorAll('.amount-hint').forEach(hint => {
+                hint.textContent = ' · about ' + garlicSpoons(Number(hint.dataset.cloves) * factor) + ' minced';
+            });
+        }
+
+        function attachYieldControl(parent, title) {
+            const spec = chickenYieldSpec(title);
+            if (!spec) return;
+            const chosen = savedYield(title, spec.base);
+            yieldAmounts[title] = chosen;
+            const row = document.createElement('div');
+            row.className = 'servings-row quick-recipe-yield';
+            const label = document.createElement('span');
+            label.textContent = spec.label;
+            const down = document.createElement('button');
+            down.type = 'button';
+            down.textContent = '−';
+            down.setAttribute('aria-label', 'Less chicken');
+            const input = document.createElement('input');
+            input.type = 'number';
+            input.min = String(spec.min);
+            input.step = String(spec.step);
+            input.value = String(chosen);
+            input.className = 'servings-input';
+            input.setAttribute('aria-label', 'Pounds of chicken');
+            const up = document.createElement('button');
+            up.type = 'button';
+            up.textContent = '+';
+            up.setAttribute('aria-label', 'More chicken');
+            const unit = document.createElement('span');
+            unit.textContent = spec.unit;
+            row.append(label, down, input, up, unit);
+
+            function remember(next) {
+                const value = Math.max(spec.min, next);
+                yieldAmounts[title] = value;
+                input.value = String(value);
+                localStorage.setItem('recipe-yield:' + title, String(value));
+                applyYieldScale(quickRecipeContent, value / spec.base);
+            }
+
+            down.addEventListener('click', () => {
+                remember(Math.round(((parseFloat(input.value) || spec.base) - spec.step) * 1000) / 1000);
+            });
+            up.addEventListener('click', () => {
+                remember(Math.round(((parseFloat(input.value) || spec.base) + spec.step) * 1000) / 1000);
+            });
+            input.addEventListener('change', () => {
+                const typed = parseFloat(input.value);
+                remember(typed > 0 ? typed : spec.base);
+            });
+            parent.appendChild(row);
+        }
+
         function renderInteractiveQuickRecipe(text, title) {
             const parsed = parseQuickSections(text);
             if (parsed.ingredientIndex < 0) {
@@ -893,6 +1062,7 @@
             const bought = boughtIngredients(title);
             const ingredients = parsed.sections[parsed.ingredientIndex];
             const ingredientBlock = document.createElement('div');
+            attachYieldControl(ingredientBlock, title);
             const heading = document.createElement('div');
             fillFormattedText(heading, ingredients.heading);
             ingredientBlock.appendChild(heading);
@@ -920,32 +1090,65 @@
                 textWrap.className = 'ingredient-text';
                 textWrap.append('- ');
                 const words = [];
-                plainLine.replace(/^- /, '').split(/(\s+)/).forEach(piece => {
-                    if (!piece) return;
-                    if (/^\s+$/.test(piece)) {
-                        textWrap.append(piece);
+                const body = plainLine.replace(/^- /, '');
+                const amountPattern = /\banother\s+tablespoon\b|\b(?:(\d+)\s+(\d+)\/(\d+)|(\d+)\/(\d+)|(\d+(?:\.\d+)?))\s+(tablespoons?|teaspoons?|cloves?|pounds?|lbs?)\b/gi;
+                const pieces = [];
+                let lastIndex = 0;
+                let amountMatch;
+                while ((amountMatch = amountPattern.exec(body)) !== null) {
+                    if (amountMatch.index > lastIndex) pieces.push(body.slice(lastIndex, amountMatch.index));
+                    pieces.push(amountMatch);
+                    lastIndex = amountMatch.index + amountMatch[0].length;
+                }
+                if (lastIndex < body.length) pieces.push(body.slice(lastIndex));
+                pieces.forEach(piece => {
+                    if (typeof piece !== 'string') {
+                        const raw = piece[0];
+                        const span = document.createElement('span');
+                        span.className = 'yield-amount';
+                        let base = 1;
+                        let unit = 'tablespoon';
+                        const another = /^another/i.test(raw);
+                        if (!another) {
+                            if (piece[1]) base = Number(piece[1]) + Number(piece[2]) / Number(piece[3]);
+                            else if (piece[4]) base = Number(piece[4]) / Number(piece[5]);
+                            else base = Number(piece[6]);
+                            unit = piece[7];
+                        }
+                        span.dataset.base = String(base);
+                        span.dataset.unit = canonicalUnit(unit);
+                        if (another) span.dataset.another = '1';
+                        span.textContent = raw;
+                        textWrap.append(span);
                         return;
                     }
-                    const word = plainWord(piece);
-                    if (!word) {
-                        textWrap.append(piece);
-                        return;
-                    }
-                    const button = document.createElement('span');
-                    button.className = 'ingredient-word';
-                    button.dataset.word = word;
-                    button.title = 'Show where this is used';
-                    button.textContent = piece;
-                    button.addEventListener('click', () => {
-                        if (skipWordClick) {
-                            skipWordClick = false;
+                    piece.split(/(\s+)/).forEach(bit => {
+                        if (!bit) return;
+                        if (/^\s+$/.test(bit)) {
+                            textWrap.append(bit);
                             return;
                         }
-                        activeIngredientPhrase = word;
-                        renderInteractiveQuickRecipe(text, title);
+                        const word = plainWord(bit);
+                        if (!word) {
+                            textWrap.append(bit);
+                            return;
+                        }
+                        const button = document.createElement('span');
+                        button.className = 'ingredient-word';
+                        button.dataset.word = word;
+                        button.title = 'Show where this is used';
+                        button.textContent = bit;
+                        button.addEventListener('click', () => {
+                            if (skipWordClick) {
+                                skipWordClick = false;
+                                return;
+                            }
+                            activeIngredientPhrase = word;
+                            renderInteractiveQuickRecipe(text, title);
+                        });
+                        textWrap.append(button);
+                        words.push(button);
                     });
-                    textWrap.append(button);
-                    words.push(button);
                 });
                 markPickedWords(words, activeIngredientPhrase);
                 row.append(check, textWrap);
@@ -1012,6 +1215,11 @@
                 });
             if (activeIngredientPhrase) markMatches(instructions, activeIngredientPhrase);
             quickRecipeContent.appendChild(instructions);
+            if (chickenYieldSpec(title)) {
+                wrapYieldAmounts(quickRecipeContent);
+                addGarlicHints(quickRecipeContent);
+                applyYieldScale(quickRecipeContent, yieldAmounts[title] / chickenYieldSpec(title).base);
+            }
         }
 
         shoppingMode.addEventListener('change', syncModeControls);
