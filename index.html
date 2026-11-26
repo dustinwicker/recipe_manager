@@ -190,6 +190,7 @@
         .recipe-content {
             padding: 30px;
             min-height: 200px;
+            scroll-margin-top: 12px;
         }
         
         .recipe-content.hidden {
@@ -679,7 +680,7 @@
                 button.type = 'button';
                 button.className = 'try-recently-title';
                 button.textContent = recipe.title;
-                button.addEventListener('click', () => selectRecipe(recipe.title));
+                button.addEventListener('click', () => showRecipeFromList(recipe.title));
                 const times = document.createElement('span');
                 times.className = 'most-used-count';
                 times.textContent = count === 1 ? '1 time' : count + ' times';
@@ -1329,7 +1330,7 @@
                 titleButton.type = 'button';
                 titleButton.className = 'try-recently-title';
                 titleButton.textContent = recipe.title;
-                titleButton.addEventListener('click', () => selectRecipe(recipe.title));
+                titleButton.addEventListener('click', () => showRecipeFromList(recipe.title));
                 titleButton.addEventListener('contextmenu', (event) => {
                     if (openLinkedRecipe(event, recipe)) event.preventDefault();
                 });
@@ -1644,6 +1645,11 @@
             recipeContent.classList.add('hidden');
             updateClearVisibility();
             recipeInput.focus();
+        }
+
+        function showRecipeFromList(title) {
+            selectRecipe(title);
+            recipeContent.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
 
         function selectRecipe(title) {
