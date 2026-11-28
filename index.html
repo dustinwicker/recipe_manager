@@ -641,6 +641,7 @@
         let recipes = [];
         let recipeTitles = [];
         const ACTIVITY_KEY = 'recipe-activity';
+        const ACTIVITY_URL = 'https://script.google.com/macros/s/AKfycbyOZD4uj0RSBBOwII25DKlFDPEJbPo6dQwQseIehdygjyiT2hcsDIUoz_gO5xEtVhH4/exec';
         let activity = {};
         let activityReady = false;
 
@@ -655,6 +656,53 @@
 
         function saveLocalActivity() {
             localStorage.setItem(ACTIVITY_KEY, JSON.stringify(activity));
+        }
+
+        function mergeCounts(local, remote) {
+            const titles = new Set([...Object.keys(local || {}), ...Object.keys(remote || {})]);
+            const merged = {};
+            titles.forEach(title => {
+                const saved = (local && local[title]) || {};
+                const server = (remote && remote[title]) || {};
+                merged[title] = {
+                    visits: Math.max(saved.visits || 0, server.visits || 0),
+                    searches: Math.max(saved.searches || 0, server.searches || 0),
+                    linkClicks: Math.max(saved.linkClicks || 0, server.linkClicks || 0),
+                    lastAt: Math.max(saved.lastAt || 0, server.lastAt || 0)
+                };
+            });
+            return merged;
+        }
+
+        function applyMerged(remote) {
+            activity = mergeCounts(loadLocalActivity(), remote);
+            saveLocalActivity();
+        }
+
+        function countsGrew(current, snapshot) {
+            return Object.keys(current || {}).some(title => {
+                const next = current[title] || {};
+                const before = (snapshot && snapshot[title]) || {};
+                return (next.visits || 0) > (before.visits || 0)
+                    || (next.searches || 0) > (before.searches || 0)
+                    || (next.linkClicks || 0) > (before.linkClicks || 0);
+            });
+        }
+
+        function postActivity(body) {
+            return fetch(ACTIVITY_URL, {
+                method: 'POST',
+                headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+                body: JSON.stringify(body)
+            }).then(response => {
+                if (!response.ok) throw new Error('activity unavailable');
+                return response.json();
+            });
+        }
+
+        function refreshActivityLists() {
+            renderMostUsed();
+            if (recipes.length) renderTryRecently(recipeInput.value.trim());
         }
 
         function usageCount(row) {
@@ -699,14 +747,14 @@
             row.lastAt = Date.now();
             activity[title] = row;
             saveLocalActivity();
-            renderMostUsed();
-            if (recipes.length) renderTryRecently(recipeInput.value.trim());
+            refreshActivityLists();
             if (!activityReady) return;
-            fetch('/api/activity', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ title, kind })
-            }).catch(() => {});
+            postActivity({ action: 'record', title, kind })
+                .then(remote => {
+                    applyMerged(remote);
+                    refreshActivityLists();
+                })
+                .catch(() => {});
         }
 
         function isQuickRecipeLink(linkInfo) {
@@ -1748,32 +1796,24 @@
                 activity = loadLocalActivity();
                 renderMostUsed();
                 loading.textContent = 'Select a recipe above';
-                return fetch('/api/activity');
+                const snapshot = loadLocalActivity();
+                return postActivity({ action: 'sync', activity: snapshot }).then(remote => ({ remote, snapshot }));
             })
-            .then(response => {
-                if (!response.ok) throw new Error('activity unavailable');
-                return response.json();
-            })
-            .then(stored => {
-                const remote = stored && typeof stored === 'object' ? stored : {};
-                const local = loadLocalActivity();
-                const titles = new Set([...Object.keys(local), ...Object.keys(remote)]);
-                activity = {};
-                titles.forEach(title => {
-                    const saved = local[title] || {};
-                    const server = remote[title] || {};
-                    activity[title] = {
-                        visits: Math.max(saved.visits || 0, server.visits || 0),
-                        searches: Math.max(saved.searches || 0, server.searches || 0),
-                        linkClicks: Math.max(saved.linkClicks || 0, server.linkClicks || 0),
-                        lastAt: Math.max(saved.lastAt || 0, server.lastAt || 0)
-                    };
+            .then(({ remote, snapshot }) => {
+                const grew = countsGrew(loadLocalActivity(), snapshot);
+                applyMerged(remote);
+                if (!grew) {
+                    activityReady = true;
+                    tryRecentlyStatus.hidden = true;
+                    refreshActivityLists();
+                    return;
+                }
+                return postActivity({ action: 'sync', activity: loadLocalActivity() }).then(again => {
+                    applyMerged(again);
+                    activityReady = true;
+                    tryRecentlyStatus.hidden = true;
+                    refreshActivityLists();
                 });
-                saveLocalActivity();
-                activityReady = true;
-                tryRecentlyStatus.hidden = true;
-                renderMostUsed();
-                renderTryRecently(recipeInput.value.trim());
             })
             .catch(() => {
                 activityReady = false;
